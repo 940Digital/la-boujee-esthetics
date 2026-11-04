@@ -3,7 +3,11 @@ import { isPlaceholder } from "@/lib/site";
 import { ImageSlot } from "../ImageSlot";
 import { Curtain, Reveal } from "../motion";
 
-/** One featured square plus four small squares. No breakpoint leaves a stray tile. */
+/**
+ * One featured square plus four small squares. No breakpoint leaves a stray tile.
+ * These are licensed stock photos used as mood, so the heading says "inspiration".
+ * Once Laurel's own client photos replace them, retitle this section "Recent Work".
+ */
 export function GalleryPreview() {
   if (!showGallery) return null;
   const [feature, ...rest] = images.gallery;
@@ -12,12 +16,12 @@ export function GalleryPreview() {
     <section aria-labelledby="gallery-title" className="bg-pearl pb-24 pt-24 md:pb-32 md:pt-32">
       <div className="mx-auto max-w-[1240px] px-6 md:px-10">
         <Reveal className="flex flex-col items-center text-center">
-          <p className="label text-brass-ink">The gallery</p>
+          <p className="label text-brass-ink">The inspiration</p>
           <h2 id="gallery-title" className="h2 mt-4 text-ink">
-            Recent Work
+            The Old Hollywood Look
           </h2>
           <p className="mt-4 max-w-[46ch] text-graphite">
-            Brows, lashes, and skin after the treatment. More on Instagram.
+            Sculpted waves, a sharp wing, pearls and polish. The golden-age glamour behind La&apos; Boujee.
           </p>
         </Reveal>
 

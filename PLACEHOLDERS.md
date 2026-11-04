@@ -8,8 +8,8 @@ Nothing on this list was invented. Each item still needs a real answer from the 
 
 | Key | What goes there | Where it shows |
 | --- | --- | --- |
-| `OWNER_NAME` | Her full name, as she wants it shown | About page H1, homepage About section, portrait caption, schema |
-| `OWNER_FIRST_NAME` | First name only | "More about ...", "Book with ..." |
+| `OWNER_NAME` | Done: Laurel Porter | About page H1, homepage About section, portrait caption, schema |
+| `OWNER_FIRST_NAME` | Done: Laurel | "More about ...", "Book with ..." |
 | `CITY` | Main city she serves | Homepage H1, every service page H1, meta titles, schema |
 | `STATE` | Two-letter state, e.g. `TX` | Footer, contact page, schema |
 | `SERVICE_AREA` | List of cities/neighborhoods she travels to (any length) | Mobile Service page, footer, contact page, schema `areaServed` |
@@ -54,22 +54,15 @@ Each service has `setting: "unconfirmed"`. Change it to `"mobile"`, `"studio"` o
 
 ## 5. Photos (13 slots)
 
-Every image slot is listed in site.config.ts with its aspect ratio and the alt text describing the photo that belongs there. To swap one in, drop the photo in `/public/photos/` and change `src`. Keep the same aspect ratio, or update `width`, `height` and `aspect` to match the new photo.
+12 slots now hold licensed Unsplash stock photos chosen for the old Hollywood look (sources in `public/photos/SOURCES.md`). One slot is still a placeholder. Swap any of them by dropping her photo in `/public/photos/` and changing `src` in site.config.ts. Keep the aspect ratio, or update `width`, `height` and `aspect`, and rewrite `alt` to describe the new photo.
 
-| Slot | Aspect | Photo wanted |
-| --- | --- | --- |
-| `images.ownerPortrait` | 4:5 | Portrait of her (arch-framed on homepage and About) |
-| `images.comeToYou` | 3:2 | Her portable setup in a client's home |
-| `images.studio` | 3:2 | Her studio treatment room |
-| `images.gallery[0]` | 1:1 | Featured result (large tile) |
-| `images.gallery[1-4]` | 1:1 | Lashes, treatment tray, brows, mobile setup |
-| `services[facials].image` | 4:5 | Facial in progress |
-| `services[waxing].image` | 4:5 | Waxing station |
-| `services[tinting].image` | 4:5 | Tinted brows close-up |
-| `services[eyelash-lifts].image` | 4:5 | Lifted lashes in profile |
-| `services[chemical-peels].image` | 4:5 | Peel being applied |
-
-Update each `alt` to describe the real photo once it's in. Placeholder panels can be regenerated with `node scripts/make-placeholders.mjs`.
+| Slot | Aspect | Now | Replace with her own when possible |
+| --- | --- | --- | --- |
+| `images.ownerPortrait` | 4:5 | Art Deco placeholder | **Needed.** A portrait of Laurel. Stock can't stand in for her |
+| `images.comeToYou` | 3:2 | Stock: vintage dressing table | Her mobile setup in a client's home |
+| `images.studio` | 3:2 | Stock: treatment room | **Recommended.** Her actual studio, since visitors will assume this is it |
+| `images.gallery[0-4]` | 1:1 | Stock: finger waves, B&W portrait, winged liner, pearls, makeup application | Her client results. When swapped, retitle the section from "The Old Hollywood Look" back to "Recent Work" in `GalleryPreview.tsx` |
+| `services[*].image` | 4:5 | Stock per treatment | Her own treatment photos |
 
 ## 6. Optional
 
