@@ -16,7 +16,7 @@ export function GalleryPreview() {
     <section aria-labelledby="gallery-title" className="bg-pearl pb-24 pt-24 md:pb-32 md:pt-32">
       <div className="mx-auto max-w-[1240px] px-6 md:px-10">
         <Reveal className="flex flex-col items-center text-center">
-          <p className="label text-brass-ink">The inspiration</p>
+          <p className="label text-rose-ink">The inspiration</p>
           <h2 id="gallery-title" className="h2 mt-4 text-ink">
             The Old Hollywood Look
           </h2>

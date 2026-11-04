@@ -25,7 +25,7 @@ export function Ritual() {
       <RayField origin="top" opacity={0.08} />
       <div className="relative mx-auto max-w-[1180px] px-6 md:px-10">
         <Reveal className="text-center">
-          <p className="label text-brass">How it works</p>
+          <p className="label text-rose">How it works</p>
           <h2 id="ritual-title" className="display mt-4 text-[clamp(2.5rem,1.9rem+2.6vw,4rem)]">
             The Ritual
           </h2>

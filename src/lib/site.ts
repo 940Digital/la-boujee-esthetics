@@ -22,7 +22,8 @@ export function isExternal(href: string): boolean {
 
 export function telHref(): string | null {
   if (isPlaceholder(business.PHONE)) return null;
-  return `tel:${business.PHONE.replace(/[^\d+]/g, "")}`;
+  const digits = business.PHONE.replace(/\D/g, "");
+  return `tel:+${digits.length === 10 ? `1${digits}` : digits}`;
 }
 
 export function mailHref(): string | null {

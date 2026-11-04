@@ -37,7 +37,7 @@ export function TreatmentMenu() {
 
             <header className="mt-8 text-center">
               <FanMark size={46} tone="brass-ink" className="mx-auto" />
-              <p className="label mt-4 text-brass-ink">La&apos; Boujee Esthetics presents</p>
+              <p className="label mt-4 text-rose-ink">La&apos; Boujee Esthetics presents</p>
               <h2 id="menu-title" className="display mt-3 text-[clamp(2.5rem,1.9rem+2.6vw,4rem)] text-ink">
                 The Treatment Menu
               </h2>
@@ -49,11 +49,11 @@ export function TreatmentMenu() {
                 <StaggerItem key={s.slug} as="li" className="border-b border-ink/12 last:border-b-0">
                   <Link href={`/${s.slug}`} className="group block py-6 md:py-7">
                     <div className="flex items-baseline gap-4">
-                      <h3 className="font-serif text-[1.7rem] font-medium leading-tight text-ink transition-colors group-hover:text-brass-ink md:text-[2rem]">
+                      <h3 className="font-serif text-[1.7rem] font-medium leading-tight text-ink transition-colors group-hover:text-rose-ink md:text-[2rem]">
                         {s.name}
                       </h3>
                       <span aria-hidden className="mb-[0.35em] hidden flex-1 border-b border-dotted border-ink/35 sm:block" />
-                      <span className="label ml-auto shrink-0 text-[0.7rem] text-brass-ink sm:ml-0">
+                      <span className="label ml-auto shrink-0 text-[0.7rem] text-rose-ink sm:ml-0">
                         {showPrices ? `From ${fromPrice(s.slug)}` : "Details"}
                       </span>
                     </div>

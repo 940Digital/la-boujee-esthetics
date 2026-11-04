@@ -14,8 +14,8 @@ export function Footer() {
       <div className="h-px bg-gradient-to-r from-transparent via-brass/70 to-transparent" />
       <div className="mx-auto max-w-[1240px] px-6 pb-12 pt-16 md:px-10 md:pt-20">
         <div className="flex flex-col items-center text-center">
-          <Wordmark size="md" />
-          <p className="label mt-6 text-brass">{business.credential}</p>
+          <Wordmark size="lg" />
+          <p className="label mt-6 text-rose">{business.credential}</p>
           <p className="mt-2 max-w-md text-[0.95rem] text-mist">
             Facials, waxing, tinting, eyelash lifts and chemical peels in {business.CITY}, at your home or in the studio.
           </p>
@@ -23,7 +23,7 @@ export function Footer() {
 
         <div className="mt-14 grid gap-12 border-t border-brass/25 pt-12 text-[0.95rem] sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h2 className="label text-brass">Treatments</h2>
+            <h2 className="label text-rose">Treatments</h2>
             <ul className="mt-4 space-y-1">
               {services.map((s) => (
                 <li key={s.slug}>
@@ -36,7 +36,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="label text-brass">Service Area</h2>
+            <h2 className="label text-rose">Service Area</h2>
             <p className="mt-4 text-pearl/85">
               Mobile appointments within {business.TRAVEL_RADIUS} of {business.CITY}, {business.STATE}.
             </p>
@@ -51,7 +51,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="label text-brass">Hours</h2>
+            <h2 className="label text-rose">Hours</h2>
             <dl className="mt-4 space-y-2">
               {business.HOURS.map((h, i) => (
                 <div key={i} className="flex justify-between gap-6 border-b border-pearl/10 pb-2">
@@ -63,7 +63,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="label text-brass">Contact</h2>
+            <h2 className="label text-rose">Contact</h2>
             <ul className="mt-4 space-y-1">
               <li>
                 {tel ? (

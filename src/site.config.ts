@@ -74,8 +74,8 @@ export const business = {
   /** How far she travels, e.g. "15 miles". */
   TRAVEL_RADIUS: "[TRAVEL_RADIUS]",
 
-  PHONE: "[PHONE]",
-  EMAIL: "[EMAIL]",
+  PHONE: "214.893.4272",
+  EMAIL: "LaBoujeeEsthetics@gmail.com",
   BOOKING_URL: "[BOOKING_URL]",
   INSTAGRAM_URL: "[INSTAGRAM_URL]",
   INSTAGRAM_HANDLE: "[INSTAGRAM_HANDLE]",

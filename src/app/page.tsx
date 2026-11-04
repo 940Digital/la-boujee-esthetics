@@ -25,7 +25,7 @@ export default function HomePage() {
       <PlaceOrMine />
       <TreatmentMenu />
       <Ritual />
-      <Reviews tone="emerald" />
+      <Reviews tone="wine" />
       <GalleryPreview />
       <FaqSection faqs={homeFaqs} />
       <CtaBand />

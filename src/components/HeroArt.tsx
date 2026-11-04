@@ -10,6 +10,7 @@ import { motion, useReducedMotion } from "framer-motion";
 */
 
 const BRASS = "#C9A66B";
+const ROSE = "#D4508C";
 const f = (n: number) => Number(n.toFixed(2));
 
 type Props = { w: number; h: number; fanR: number; rays: number; className?: string };
@@ -79,9 +80,9 @@ function Composition({ w, h, fanR, rays, className }: Props) {
     >
       <defs>
         <radialGradient id={`glow-${w}`} cx="50%" cy="100%" r="60%" fx="50%" fy="100%">
-          <stop offset="0%" stopColor={BRASS} stopOpacity="0.32" />
-          <stop offset="45%" stopColor={BRASS} stopOpacity="0.08" />
-          <stop offset="100%" stopColor={BRASS} stopOpacity="0" />
+          <stop offset="0%" stopColor={ROSE} stopOpacity="0.38" />
+          <stop offset="45%" stopColor={ROSE} stopOpacity="0.1" />
+          <stop offset="100%" stopColor={ROSE} stopOpacity="0" />
         </radialGradient>
         <radialGradient id={`veil-${w}`} cx="50%" cy="42%" r="42%">
           <stop offset="0%" stopColor="#121212" stopOpacity="0.92" />

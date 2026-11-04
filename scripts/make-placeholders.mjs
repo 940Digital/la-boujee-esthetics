@@ -3,7 +3,7 @@
 // Run: node scripts/make-placeholders.mjs
 import { writeFileSync, mkdirSync } from "node:fs";
 
-const INK = "#121212", EM = "#0F3B33", EMD = "#0A2B25", BRASS = "#C9A66B";
+const INK = "#121212", EM = "#2A1420", EMD = "#1F0E17", BRASS = "#C9A66B";
 const f = (n) => Number(n.toFixed(2));
 
 function frame(w, h, inset = 28, step = 22) {

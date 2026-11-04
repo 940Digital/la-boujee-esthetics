@@ -35,7 +35,7 @@ export default function BookPage() {
           {/* I. Treatment */}
           <Reveal>
             <div className="grid gap-6 border-t border-ink/15 py-10 md:grid-cols-[120px_1fr]">
-              <span className="font-deco text-[2.4rem] leading-none text-brass-ink">I</span>
+              <span className="font-deco text-[2.4rem] leading-none text-rose-ink">I</span>
               <div>
                 <h3 className="font-serif text-[1.9rem] font-medium leading-tight text-ink">Choose your treatment</h3>
                 <p className="mt-2 text-graphite">Not sure? Read about each one first.</p>
@@ -58,7 +58,7 @@ export default function BookPage() {
           {/* II. Setting */}
           <Reveal>
             <div className="grid gap-6 border-t border-ink/15 py-10 md:grid-cols-[120px_1fr]">
-              <span className="font-deco text-[2.4rem] leading-none text-brass-ink">II</span>
+              <span className="font-deco text-[2.4rem] leading-none text-rose-ink">II</span>
               <div>
                 <h3 className="font-serif text-[1.9rem] font-medium leading-tight text-ink">Choose your setting</h3>
                 <p className="mt-2 text-graphite">Depending on the treatment, she comes to you or you visit the studio.</p>
@@ -87,13 +87,13 @@ export default function BookPage() {
           {/* III. Time */}
           <Reveal>
             <div className="grid gap-6 border-y border-ink/15 py-10 md:grid-cols-[120px_1fr]">
-              <span className="font-deco text-[2.4rem] leading-none text-brass-ink">III</span>
+              <span className="font-deco text-[2.4rem] leading-none text-rose-ink">III</span>
               <div>
                 <h3 className="font-serif text-[1.9rem] font-medium leading-tight text-ink">Pick your time</h3>
                 {online ? (
                   <>
                     <p className="mt-2 text-graphite">See open times and reserve online.</p>
-                    <a href={business.BOOKING_URL} rel="noopener" className="btn btn-brass mt-6">
+                    <a href={business.BOOKING_URL} rel="noopener" className="btn btn-rose mt-6">
                       Book Your Appointment
                     </a>
                   </>
@@ -113,7 +113,7 @@ export default function BookPage() {
 
           <Stagger className="mt-12 space-y-2 text-[0.95rem] text-graphite">
             <StaggerItem>
-              <h3 className="label text-brass-ink">Good to know</h3>
+              <h3 className="label text-rose-ink">Good to know</h3>
             </StaggerItem>
             <StaggerItem>
               <p>{policies.DEPOSIT}</p>

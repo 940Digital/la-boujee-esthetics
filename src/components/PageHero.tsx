@@ -27,7 +27,7 @@ export function PageHero({
         <nav aria-label="Breadcrumb">
           <ol className="flex flex-wrap items-center justify-center gap-2 text-[0.72rem] uppercase tracking-[0.22em] text-mist">
             <li>
-              <Link href="/" className="inline-flex min-h-11 items-center hover:text-brass">
+              <Link href="/" className="inline-flex min-h-11 items-center hover:text-rose">
                 Home
               </Link>
             </li>
@@ -39,7 +39,7 @@ export function PageHero({
                     {c.name}
                   </span>
                 ) : (
-                  <Link href={c.href} className="inline-flex min-h-11 items-center hover:text-brass">
+                  <Link href={c.href} className="inline-flex min-h-11 items-center hover:text-rose">
                     {c.name}
                   </Link>
                 )}
@@ -48,7 +48,7 @@ export function PageHero({
           </ol>
         </nav>
         <Reveal y={10}>
-          <p className="label mt-6 text-brass">{label}</p>
+          <p className="label mt-6 text-rose">{label}</p>
         </Reveal>
         <Reveal delay={0.1}>
           <h1 className="display mx-auto mt-4 max-w-[18ch] text-[clamp(2.5rem,1.7rem+3.6vw,4.8rem)]">{title}</h1>

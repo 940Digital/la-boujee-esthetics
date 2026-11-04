@@ -47,7 +47,7 @@ export default function AboutPage() {
                 <ImageSlot slot={images.ownerPortrait} sizes="(min-width: 768px) 420px, 90vw" className="rounded-t-[999px]" priority />
               </div>
             </Curtain>
-            <p className="label mt-5 text-center text-brass-ink">{business.credential}</p>
+            <p className="label mt-5 text-center text-rose-ink">{business.credential}</p>
           </div>
           <div>
             <Reveal>
@@ -69,7 +69,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={0.15}>
               <div className="mt-10 border-t border-ink/15 pt-8">
-                <h3 className="label text-brass-ink">Treatments</h3>
+                <h3 className="label text-rose-ink">Treatments</h3>
                 <ul className="mt-3">
                   {services.map((s) => (
                     <li key={s.slug} className="border-b border-ink/10 last:border-b-0">
@@ -77,7 +77,7 @@ export default function AboutPage() {
                         href={`/${s.slug}`}
                         className="group flex min-h-12 flex-col py-3 font-serif text-[1.4rem] leading-tight text-ink"
                       >
-                        <span className="transition-colors group-hover:text-brass-ink">{s.name}</span>
+                        <span className="transition-colors group-hover:text-rose-ink">{s.name}</span>
                         <span className="mt-1 font-sans text-[0.95rem] leading-normal text-graphite">{s.benefit}</span>
                       </Link>
                     </li>
@@ -109,7 +109,7 @@ export default function AboutPage() {
           <Reveal className="mt-12 text-center">
             <Link
               href="/mobile-service"
-              className="deco-link inline-flex min-h-11 items-center text-[0.8rem] font-semibold uppercase tracking-[0.22em] text-brass"
+              className="deco-link inline-flex min-h-11 items-center text-[0.8rem] font-semibold uppercase tracking-[0.22em] text-rose"
             >
               How mobile appointments work
             </Link>

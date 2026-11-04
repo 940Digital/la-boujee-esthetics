@@ -17,7 +17,7 @@ export function ImageSlot({
   className?: string;
 }) {
   return (
-    <div className={`relative overflow-hidden bg-emerald-deep ${className}`} style={{ aspectRatio: slot.aspect }}>
+    <div className={`relative overflow-hidden bg-wine-deep ${className}`} style={{ aspectRatio: slot.aspect }}>
       <Image
         src={slot.src}
         alt={slot.alt}

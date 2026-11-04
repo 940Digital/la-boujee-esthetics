@@ -18,7 +18,7 @@ const studio = [
 
 function Medallion() {
   return (
-    <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-brass bg-emerald text-brass shadow-[0_0_0_6px_var(--color-emerald),0_0_0_7px_rgba(201,166,107,0.45)]">
+    <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-brass bg-wine text-rose shadow-[0_0_0_6px_var(--color-wine),0_0_0_7px_rgba(201,166,107,0.45)]">
       <span className="font-serif text-[1.9rem] italic leading-none">or</span>
     </div>
   );
@@ -26,7 +26,7 @@ function Medallion() {
 
 export function PlaceOrMine() {
   return (
-    <section aria-labelledby="place-title" className="fan-texture relative overflow-hidden bg-emerald py-24 text-pearl md:py-32">
+    <section aria-labelledby="place-title" className="fan-texture relative overflow-hidden bg-wine py-24 text-pearl md:py-32">
       <RayField opacity={0.12} />
       <div className="relative mx-auto max-w-[1240px] px-6 md:px-10">
         <Reveal className="text-center">
@@ -34,7 +34,7 @@ export function PlaceOrMine() {
           <h2 id="place-title" className="display mt-6 text-[clamp(2.6rem,1.8rem+3.6vw,4.8rem)] text-pearl">
             Your Place or Mine
           </h2>
-          <p className="lede mx-auto mt-5 max-w-[50ch] text-sage">
+          <p className="lede mx-auto mt-5 max-w-[50ch] text-mauve">
             The same licensed care, in the setting that suits your day. Where your appointment happens depends on the
             treatment.
           </p>
@@ -48,7 +48,7 @@ export function PlaceOrMine() {
               <ImageSlot slot={images.comeToYou} sizes="(min-width: 768px) 560px, 92vw" />
               <div className="flex flex-col items-center px-5 pb-10 pt-8 text-center md:px-10">
                 <DoorIcon />
-                <p className="label mt-4 text-brass">Mobile</p>
+                <p className="label mt-4 text-rose">Mobile</p>
                 <h3 id="ctu-title" className="display mt-2 text-[2.4rem] text-pearl">
                   Come to You
                 </h3>
@@ -65,7 +65,7 @@ export function PlaceOrMine() {
                 </ul>
                 <Link
                   href="/mobile-service"
-                  className="deco-link mt-8 inline-flex min-h-11 items-center text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-brass"
+                  className="deco-link mt-8 inline-flex min-h-11 items-center text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-rose"
                 >
                   How mobile appointments work
                 </Link>
@@ -85,7 +85,7 @@ export function PlaceOrMine() {
               <ImageSlot slot={images.studio} sizes="(min-width: 768px) 560px, 92vw" />
               <div className="flex flex-col items-center px-5 pb-10 pt-8 text-center md:px-10">
                 <StudioIcon tone="brass-ink" />
-                <p className="label mt-4 text-brass-ink">Studio</p>
+                <p className="label mt-4 text-rose-ink">Studio</p>
                 <h3 id="studio-title" className="display mt-2 text-[2.4rem] text-ink">
                   Visit the Studio
                 </h3>
@@ -102,7 +102,7 @@ export function PlaceOrMine() {
                 </ul>
                 <Link
                   href="/contact"
-                  className="deco-link mt-8 inline-flex min-h-11 items-center text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-brass-ink"
+                  className="deco-link mt-8 inline-flex min-h-11 items-center text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-rose-ink"
                 >
                   Ask about the studio
                 </Link>

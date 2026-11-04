@@ -11,7 +11,7 @@ export function CtaBand({
   body?: string;
 }) {
   return (
-    <section aria-labelledby="cta-title" className="fan-texture relative overflow-hidden bg-emerald py-24 text-center text-pearl md:py-28">
+    <section aria-labelledby="cta-title" className="fan-texture relative overflow-hidden bg-wine py-24 text-center text-pearl md:py-28">
       <RayField opacity={0.16} />
       <div className="relative mx-auto max-w-[760px] px-6">
         <Reveal>
@@ -19,7 +19,7 @@ export function CtaBand({
           <h2 id="cta-title" className="display mt-6 text-[clamp(2.3rem,1.7rem+2.6vw,3.8rem)]">
             {title}
           </h2>
-          <p className="lede mx-auto mt-4 max-w-[44ch] text-sage">{body}</p>
+          <p className="lede mx-auto mt-4 max-w-[44ch] text-mauve">{body}</p>
           <div className="mt-9">
             <BookButton />
           </div>

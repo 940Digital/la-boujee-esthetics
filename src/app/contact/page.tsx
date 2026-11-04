@@ -37,7 +37,7 @@ export default function ContactPage() {
 
           <div className="mt-16 grid gap-12 border-t border-ink/15 pt-12 md:grid-cols-3">
             <Reveal>
-              <h3 className="label text-brass-ink">Hours</h3>
+              <h3 className="label text-rose-ink">Hours</h3>
               <dl className="mt-4 space-y-2">
                 {business.HOURS.map((h, i) => (
                   <div key={i} className="flex justify-between gap-6 border-b border-ink/10 pb-2">
@@ -48,18 +48,18 @@ export default function ContactPage() {
               </dl>
             </Reveal>
             <Reveal delay={0.08}>
-              <h3 className="label text-brass-ink">Studio</h3>
+              <h3 className="label text-rose-ink">Studio</h3>
               <p className="mt-4 text-ink">{business.STUDIO_ADDRESS}</p>
               <p className="mt-1 text-graphite">
                 {business.CITY}, {business.STATE}
               </p>
             </Reveal>
             <Reveal delay={0.16}>
-              <h3 className="label text-brass-ink">Mobile service area</h3>
+              <h3 className="label text-rose-ink">Mobile service area</h3>
               <p className="mt-4 text-ink">{business.SERVICE_AREA.join(", ")}</p>
               <Link
                 href="/mobile-service"
-                className="deco-link mt-2 inline-flex min-h-11 items-center text-[0.78rem] font-semibold uppercase tracking-[0.2em] text-brass-ink"
+                className="deco-link mt-2 inline-flex min-h-11 items-center text-[0.78rem] font-semibold uppercase tracking-[0.2em] text-rose-ink"
               >
                 How mobile service works
               </Link>

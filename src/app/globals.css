@@ -2,8 +2,11 @@
 
 /*
   La' Boujee Esthetics design tokens.
-  Locked palette: near-black, pearl, champagne brass (sparingly), deep emerald.
-  brass-ink is the same brass darkened only so small text passes WCAG AA on pearl.
+  Palette (from her business card): near-black and her brand pink, with pearl
+  for light sections, a deep black-cherry for depth, and champagne brass kept
+  only for thin Deco line-work. Rule: text accents and buttons are pink,
+  ornament lines are gold. rose-ink / rose-soft are the same pink shifted so
+  small text passes WCAG AA on pearl / on wine.
 */
 @theme {
   --color-ink: #121212;
@@ -13,10 +16,14 @@
   --color-brass: #c9a66b;
   --color-brass-soft: #e3cfa6;
   --color-brass-ink: #7a5c28;
-  --color-emerald: #0f3b33;
-  --color-emerald-deep: #0a2b25;
+  --color-rose: #d4508c; /* her brand pink */
+  --color-rose-light: #e27aa8;
+  --color-rose-ink: #a8336a; /* pink text on pearl */
+  --color-rose-soft: #e7a9c4; /* pink text on wine */
+  --color-wine: #2a1420;
+  --color-wine-deep: #1f0e17;
   --color-mist: #b9b2a6; /* muted text on ink */
-  --color-sage: #c8c2b6; /* muted text on emerald */
+  --color-mauve: #d8c3cc; /* muted text on wine */
   --color-graphite: #4a4640; /* muted text on pearl */
 
   --font-serif: var(--font-cormorant), "Times New Roman", serif;
@@ -53,12 +60,12 @@ body {
 }
 
 ::selection {
-  background: var(--color-brass);
+  background: var(--color-rose);
   color: var(--color-ink);
 }
 
 :focus-visible {
-  outline: 1.5px solid var(--color-brass);
+  outline: 1.5px solid var(--color-rose);
   outline-offset: 4px;
 }
 
@@ -135,29 +142,27 @@ p {
     box-shadow 0.4s var(--ease-deco);
 }
 
-/* Brass fill with an inset hairline, like a gilded theatre ticket. */
-.btn-brass {
-  background: var(--color-brass);
+/* Brand-pink fill with an inset hairline, like a theatre ticket. */
+.btn-rose {
+  background: var(--color-rose);
   color: var(--color-ink);
   box-shadow:
-    inset 0 0 0 1px var(--color-brass),
-    inset 0 0 0 4px var(--color-brass),
+    inset 0 0 0 4px var(--color-rose),
     inset 0 0 0 5px rgba(18, 18, 18, 0.55);
 }
-.btn-brass:hover {
-  background: var(--color-brass-soft);
+.btn-rose:hover {
+  background: var(--color-rose-light);
   box-shadow:
-    inset 0 0 0 1px var(--color-brass-soft),
-    inset 0 0 0 4px var(--color-brass-soft),
+    inset 0 0 0 4px var(--color-rose-light),
     inset 0 0 0 5px rgba(18, 18, 18, 0.7);
 }
 
 .btn-outline-light {
   color: var(--color-pearl);
-  box-shadow: inset 0 0 0 1px rgba(201, 166, 107, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(212, 80, 140, 0.8);
 }
 .btn-outline-light:hover {
-  background: rgba(201, 166, 107, 0.12);
+  background: rgba(212, 80, 140, 0.16);
 }
 
 .btn-outline-dark {
@@ -187,7 +192,7 @@ p {
 
 /* Faint fan texture for dark sections. */
 .fan-texture {
-  background-image: radial-gradient(ellipse at 50% 115%, rgba(201, 166, 107, 0.12), transparent 60%);
+  background-image: radial-gradient(ellipse at 50% 115%, rgba(212, 80, 140, 0.13), transparent 60%);
 }
 
 /* Native details/summary FAQ styling */

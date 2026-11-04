@@ -37,12 +37,12 @@ function HeaderPhone() {
   const tel = telHref();
   const cls = "hidden text-[0.78rem] uppercase tracking-[0.2em] text-pearl/80 md:inline-flex md:min-h-11 md:items-center";
   return tel ? (
-    <a href={tel} className={`${cls} hover:text-brass`}>
-      <span className="mr-2 text-brass">Call or text</span> {business.PHONE}
+    <a href={tel} className={`${cls} hover:text-rose`}>
+      <span className="mr-2 text-rose">Call or text</span> {business.PHONE}
     </a>
   ) : (
     <p className={cls}>
-      <span className="mr-2 text-brass">Call or text</span> {business.PHONE}
+      <span className="mr-2 text-rose">Call or text</span> {business.PHONE}
     </p>
   );
 }
@@ -112,7 +112,7 @@ export function Header() {
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   className={`inline-flex min-h-11 items-center whitespace-nowrap px-3 text-[0.74rem] font-normal uppercase tracking-[0.22em] transition-colors ${
-                    isActive(item.href) ? "text-brass" : "text-pearl/85 hover:text-brass"
+                    isActive(item.href) ? "text-rose" : "text-pearl/85 hover:text-rose"
                   }`}
                 >
                   {item.label}
@@ -137,7 +137,7 @@ export function Header() {
             <div className="mx-auto flex h-16 max-w-[1320px] items-center justify-between px-5 md:px-10">
               <Wordmark size="sm" stacked={false} />
               <div className="flex items-center gap-3">
-                <BookButton variant="brass" className="!hidden !min-h-11 !px-5 !py-2 !text-[0.7rem] md:!inline-flex" />
+                <BookButton variant="rose" className="!hidden !min-h-11 !px-5 !py-2 !text-[0.7rem] md:!inline-flex" />
                 <MenuButton open={open} onClick={() => setOpen(true)} />
               </div>
             </div>
@@ -166,7 +166,7 @@ export function Header() {
             </div>
             <div className="mx-auto flex max-w-md flex-col items-center px-6 pb-16 pt-8 text-center">
               <FanMark size={44} />
-              <p className="label mt-5 text-brass">Treatments</p>
+              <p className="label mt-5 text-rose">Treatments</p>
               <ul className="mt-3 space-y-1">
                 {services.map((s) => (
                   <li key={s.slug}>
@@ -174,7 +174,7 @@ export function Header() {
                       href={`/${s.slug}`}
                       onClick={() => setOpen(false)}
                       aria-current={isActive(`/${s.slug}`) ? "page" : undefined}
-                      className="inline-flex min-h-12 items-center font-serif text-[2rem] leading-tight text-pearl transition-colors hover:text-brass aria-[current=page]:text-brass"
+                      className="inline-flex min-h-12 items-center font-serif text-[2rem] leading-tight text-pearl transition-colors hover:text-rose aria-[current=page]:text-rose"
                     >
                       {s.name}
                     </Link>
@@ -189,7 +189,7 @@ export function Header() {
                       href={item.href}
                       onClick={() => setOpen(false)}
                       aria-current={isActive(item.href) ? "page" : undefined}
-                      className="inline-flex min-h-11 items-center text-[0.85rem] uppercase tracking-[0.24em] text-pearl/85 transition-colors hover:text-brass aria-[current=page]:text-brass"
+                      className="inline-flex min-h-11 items-center text-[0.85rem] uppercase tracking-[0.24em] text-pearl/85 transition-colors hover:text-rose aria-[current=page]:text-rose"
                     >
                       {item.label}
                     </Link>
@@ -199,7 +199,7 @@ export function Header() {
                   <Link
                     href="/"
                     onClick={() => setOpen(false)}
-                    className="inline-flex min-h-11 items-center text-[0.85rem] uppercase tracking-[0.24em] text-pearl/85 transition-colors hover:text-brass"
+                    className="inline-flex min-h-11 items-center text-[0.85rem] uppercase tracking-[0.24em] text-pearl/85 transition-colors hover:text-rose"
                   >
                     Home
                   </Link>

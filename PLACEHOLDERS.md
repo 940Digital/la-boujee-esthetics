@@ -14,8 +14,8 @@ Nothing on this list was invented. Each item still needs a real answer from the 
 | `STATE` | Two-letter state, e.g. `TX` | Footer, contact page, schema |
 | `SERVICE_AREA` | List of cities/neighborhoods she travels to (any length) | Mobile Service page, footer, contact page, schema `areaServed` |
 | `TRAVEL_RADIUS` | How far she travels, e.g. `15 miles` | Mobile Service page diagram, footer |
-| `PHONE` | Phone number for calls and texts | Header, footer, contact, book page. Becomes a tap-to-call link once filled |
-| `EMAIL` | Booking/contact email | Footer, contact, book page |
+| `PHONE` | Done: 214.893.4272 (from her business card) | Header, footer, contact, book page. Becomes a tap-to-call link once filled |
+| `EMAIL` | Done: LaBoujeeEsthetics@gmail.com (from her business card) | Footer, contact, book page |
 | `BOOKING_URL` | Full link to her online booking page (Square, Vagaro, GlossGenius, etc.) | Every "Book Your Appointment" button. Until it's set, buttons go to /book, which shows contact options |
 | `INSTAGRAM_URL` | Full Instagram profile link | Footer, contact, gallery, schema |
 | `INSTAGRAM_HANDLE` | e.g. `@laboujeeesthetics` | Same places as above |
@@ -66,7 +66,8 @@ Each service has `setting: "unconfirmed"`. Change it to `"mobile"`, `"studio"` o
 
 ## 6. Optional
 
-- **Logo**: the header uses a typeset wordmark (Cormorant + Poiret One with a fan mark). If she has a logo file, swap it into `src/components/Wordmark.tsx`.
+- **Logo**: the header, footer and share image use her real logo, cut out of her business card photo (`public/brand/logo-pink.png`, 573x416). If she has the original vector or a higher-resolution file, drop it in for sharper edges.
+- **Name spelling**: her logo reads "Lá Boujee" (accent), while the site text uses "La' Boujee" (apostrophe) per the original brief. Confirm which she prefers.
 - **Share image**: `public/og.png` (1200x630) uses the wordmark only, so it's safe to keep. Replace with a branded photo later if she likes.
 
 ## 7. Draft copy to review with her

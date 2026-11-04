@@ -25,7 +25,7 @@ export function PriceList({ service }: { service: Service }) {
                     {m.note ? <span className="mt-1 block font-sans text-sm text-graphite">{m.note}</span> : null}
                   </dt>
                   <span aria-hidden className="mb-[0.3em] flex-1 border-b border-dotted border-ink/35" />
-                  <dd className="font-serif text-[1.35rem] text-brass-ink">{m.price}</dd>
+                  <dd className="font-serif text-[1.35rem] text-rose-ink">{m.price}</dd>
                 </div>
               ))}
             </dl>

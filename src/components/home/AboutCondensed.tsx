@@ -34,12 +34,12 @@ export function AboutCondensed() {
               />
             </div>
           </Curtain>
-          <p className="label mt-5 text-center text-brass-ink">{business.OWNER_NAME}</p>
+          <p className="label mt-5 text-center text-rose-ink">{business.OWNER_NAME}</p>
         </div>
 
         <div>
           <Reveal>
-            <p className="label text-brass-ink">Meet your esthetician</p>
+            <p className="label text-rose-ink">Meet your esthetician</p>
             <h2 id="about-title" className="h2 mt-4 max-w-[18ch] text-ink">
               Professional skin care, brought to your door
             </h2>

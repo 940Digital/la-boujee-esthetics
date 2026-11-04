@@ -97,7 +97,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
                   <p className="mt-1 text-graphite">{settingCopy[s.setting]}</p>
                   <Link
                     href="/mobile-service"
-                    className="deco-link mt-2 inline-flex min-h-11 items-center text-[0.78rem] font-semibold uppercase tracking-[0.2em] text-brass-ink"
+                    className="deco-link mt-2 inline-flex min-h-11 items-center text-[0.78rem] font-semibold uppercase tracking-[0.2em] text-rose-ink"
                   >
                     How mobile service works
                   </Link>
@@ -117,7 +117,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
       </section>
 
       {/* Good for */}
-      <section aria-labelledby="good-for" className="fan-texture bg-emerald py-24 text-pearl md:py-28">
+      <section aria-labelledby="good-for" className="fan-texture bg-wine py-24 text-pearl md:py-28">
         <div className="mx-auto max-w-[1080px] px-6 md:px-10">
           <Reveal className="text-center">
             <Ornament className="mx-auto" />
@@ -131,7 +131,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
                 <span aria-hidden className="mt-3 h-2 w-2 shrink-0 rotate-45 border border-brass" />
                 <div>
                   <h3 className="font-serif text-[1.5rem] font-medium leading-tight">{g.title}</h3>
-                  <p className="mt-2 text-sage">{g.body}</p>
+                  <p className="mt-2 text-mauve">{g.body}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -143,7 +143,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
       <section aria-labelledby="expect" className="bg-pearl py-24 md:py-28">
         <div className="mx-auto max-w-[1180px] px-6 md:px-10">
           <Reveal className="text-center">
-            <p className="label text-brass-ink">Your appointment</p>
+            <p className="label text-rose-ink">Your appointment</p>
             <h2 id="expect" className="h2 mt-4 text-ink">
               What to Expect
             </h2>
@@ -153,7 +153,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             <Stagger as="li" className="relative grid gap-12 md:grid-cols-3 md:gap-10">
               {s.expect.map((e, i) => (
                 <StaggerItem as="li" key={e.title} className="flex flex-col items-center text-center">
-                  <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full border border-brass-ink bg-pearl font-deco text-[1.4rem] text-brass-ink">
+                  <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full border border-brass-ink bg-pearl font-deco text-[1.4rem] text-rose-ink">
                     {numerals[i]}
                   </span>
                   <h3 className="mt-5 font-serif text-[1.6rem] font-medium leading-tight text-ink">{e.title}</h3>
@@ -181,7 +181,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             ].map((col, ci) => (
               <Reveal key={col.title} delay={ci * 0.1}>
                 <div className="h-full border-t border-brass/50 pt-7">
-                  <h3 className="label text-brass">{col.title}</h3>
+                  <h3 className="label text-rose">{col.title}</h3>
                   <ul className="mt-5 space-y-4">
                     {col.items.map((t) => (
                       <li key={t} className="flex gap-4 text-pearl/90">

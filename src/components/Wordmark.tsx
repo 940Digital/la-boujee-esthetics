@@ -1,20 +1,27 @@
+import Image from "next/image";
 import Link from "next/link";
-import { FanMark } from "./deco";
+import logo from "../../public/brand/logo-pink.png";
 
-/** Typeset logo. Swap for a real logo file in PLACEHOLDERS.md if she has one. */
-export function Wordmark({ size = "md", stacked = true }: { size?: "sm" | "md" | "lg"; stacked?: boolean }) {
-  const name = size === "lg" ? "text-[2.6rem]" : size === "md" ? "text-[1.85rem]" : "text-[1.45rem]";
+/**
+ * Her real logo, cut out of the business card as a transparent PNG
+ * (public/brand/logo-pink.png, 573x416). Replace with a vector file if she has one.
+ */
+const heights = { sm: 48, md: 92, lg: 132 } as const;
+
+export function Wordmark({ size = "md" }: { size?: keyof typeof heights; stacked?: boolean }) {
+  const h = heights[size];
+  const w = Math.round((h * logo.width) / logo.height);
   return (
-    <Link
-      href="/"
-      aria-label="La' Boujee Esthetics, home"
-      className={`group inline-flex min-h-11 items-center text-pearl ${stacked ? "flex-col gap-1" : "flex-row gap-3"}`}
-    >
-      <FanMark size={size === "sm" ? 26 : 34} className="transition-transform duration-700 group-hover:-translate-y-0.5" />
-      <span className={`flex flex-col ${stacked ? "items-center" : "items-start"} leading-none`}>
-        <span className={`font-serif ${name} font-medium tracking-[0.02em]`}>La&rsquo; Boujee</span>
-        <span className="mt-1 font-deco text-[0.7rem] tracking-[0.5em] text-brass">ESTHETICS</span>
-      </span>
+    <Link href="/" aria-label="La' Boujee Esthetics, home" className="inline-flex min-h-11 items-center">
+      <Image
+        src={logo}
+        alt="La' Boujee Esthetics"
+        width={w}
+        height={h}
+        priority={size !== "lg"}
+        className="h-auto transition-opacity duration-500 hover:opacity-85"
+        style={{ width: w }}
+      />
     </Link>
   );
 }

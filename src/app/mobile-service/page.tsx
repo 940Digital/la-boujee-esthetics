@@ -90,7 +90,7 @@ function AreaDiagram() {
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
         <span className="font-serif text-[1.15rem] leading-tight text-pearl">{business.CITY}</span>
       </div>
-      <p className="label absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap bg-pearl px-3 text-[0.68rem] text-brass-ink">
+      <p className="label absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap bg-pearl px-3 text-[0.68rem] text-rose-ink">
         Within {business.TRAVEL_RADIUS}
       </p>
     </div>
@@ -124,7 +124,7 @@ export default function MobileServicePage() {
       <section aria-labelledby="how" className="bg-pearl py-24 md:py-32">
         <div className="mx-auto max-w-[1180px] px-6 md:px-10">
           <Reveal className="text-center">
-            <p className="label text-brass-ink">Step by step</p>
+            <p className="label text-rose-ink">Step by step</p>
             <h2 id="how" className="h2 mt-4 text-ink">
               How a Home Appointment Works
             </h2>
@@ -138,7 +138,7 @@ export default function MobileServicePage() {
             <Stagger as="li" className="relative grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
               {steps.map((s) => (
                 <StaggerItem as="li" key={s.n} className="flex flex-col items-center text-center">
-                  <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full border border-brass-ink bg-pearl font-deco text-[1.35rem] text-brass-ink">
+                  <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full border border-brass-ink bg-pearl font-deco text-[1.35rem] text-rose-ink">
                     {s.n}
                   </span>
                   <h3 className="mt-5 font-serif text-[1.55rem] font-medium leading-tight text-ink">{s.title}</h3>
@@ -173,7 +173,7 @@ export default function MobileServicePage() {
           </Stagger>
           {showHygieneDetails ? (
             <Reveal className="mx-auto mt-14 max-w-[640px]">
-              <h3 className="label text-center text-brass">Hygiene at every appointment</h3>
+              <h3 className="label text-center text-rose">Hygiene at every appointment</h3>
               <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                 {hygienePractices.map((h) => (
                   <li key={h} className="flex gap-3 text-pearl/90">
@@ -188,13 +188,13 @@ export default function MobileServicePage() {
       </section>
 
       {/* Getting ready */}
-      <section aria-labelledby="ready" className="bg-emerald py-24 text-pearl md:py-28">
+      <section aria-labelledby="ready" className="bg-wine py-24 text-pearl md:py-28">
         <div className="mx-auto grid max-w-[1080px] gap-12 px-6 md:grid-cols-[0.9fr_1fr] md:px-10">
           <Reveal>
             <h2 id="ready" className="h2">
               Getting your space ready
             </h2>
-            <p className="mt-5 max-w-[40ch] text-sage">
+            <p className="mt-5 max-w-[40ch] text-mauve">
               There&apos;s very little to do. A few small things make the appointment smoother.
             </p>
           </Reveal>
@@ -207,7 +207,7 @@ export default function MobileServicePage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 space-y-2 border-t border-brass/40 pt-6 text-[0.95rem] text-sage">
+            <div className="mt-8 space-y-2 border-t border-brass/40 pt-6 text-[0.95rem] text-mauve">
               <p>{policies.SPACE_NEEDED}</p>
               <p>{policies.PETS_AND_KIDS}</p>
               <p>{policies.TRAVEL_FEE}</p>
@@ -223,7 +223,7 @@ export default function MobileServicePage() {
             <AreaDiagram />
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="label text-brass-ink">Service area</p>
+            <p className="label text-rose-ink">Service area</p>
             <h2 id="area" className="h2 mt-4 text-ink">
               Where She Travels
             </h2>

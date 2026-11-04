@@ -27,5 +27,5 @@ All business details live in `src/site.config.ts`. See **PLACEHOLDERS.md** for t
 
 ## Design system
 
-- Palette: near-black `#121212`, pearl `#F8F6F2`, champagne brass `#C9A66B` (accent), deep emerald `#0F3B33`. `brass-ink #7A5C28` is the same brass darkened for small text on pearl (WCAG AA)
+- Palette (from her business card): near-black `#121212` and her brand pink `#D4508C`, pearl `#F8F6F2`, black-cherry `#2A1420` for depth, champagne brass `#C9A66B` for thin Deco line-work only. Rule: text accents and buttons are pink, ornament lines are gold. `rose-ink #A8336A` and `rose-soft #E7A9C4` are the pink adjusted for small text on pearl and on black-cherry (WCAG AA)
 - Type: Cormorant Garamond (headings), Josefin Sans (body/UI), Poiret One (small labels only)

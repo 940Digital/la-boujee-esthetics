@@ -2,13 +2,13 @@ import Link from "next/link";
 import { bookingHref, isExternal } from "@/lib/site";
 
 type Props = {
-  variant?: "brass" | "outline-light" | "outline-dark";
+  variant?: "rose" | "outline-light" | "outline-dark";
   className?: string;
   label?: string;
 };
 
 /** The single site-wide call to action. Always the same words, always the same place. */
-export function BookButton({ variant = "brass", className = "", label = "Book Your Appointment" }: Props) {
+export function BookButton({ variant = "rose", className = "", label = "Book Your Appointment" }: Props) {
   const href = bookingHref();
   const cls = `btn btn-${variant} ${className}`;
   if (isExternal(href)) {
