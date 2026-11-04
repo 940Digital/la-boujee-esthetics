@@ -9,8 +9,8 @@ import { ArchCrown, Ornament, StepFrame } from "@/components/deco";
 import { Curtain, Reveal, Stagger, StaggerItem } from "@/components/motion";
 
 export const metadata: Metadata = {
-  title: `About ${business.OWNER_NAME}, Licensed Esthetician | La' Boujee Esthetics`,
-  description: `Meet ${business.OWNER_NAME}, the licensed esthetician behind La' Boujee Esthetics in ${business.CITY}, offering mobile and studio facials, waxing, tinting, lash lifts and peels.`,
+  title: `About ${business.OWNER_NAME}, Licensed Esthetician | Lá Boujee Esthetics`,
+  description: `Meet ${business.OWNER_NAME}, the licensed esthetician behind Lá Boujee Esthetics in ${business.CITY}, offering mobile and studio facials, waxing, tinting, lash lifts and peels.`,
   alternates: { canonical: "/about" },
 };
 
@@ -52,7 +52,7 @@ export default function AboutPage() {
           <div>
             <Reveal>
               <h2 id="story" className="h2 text-ink">
-                The woman behind La&apos;&nbsp;Boujee
+                The woman behind Lá&nbsp;Boujee
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -94,7 +94,7 @@ export default function AboutPage() {
           <Reveal className="text-center">
             <Ornament className="mx-auto" />
             <h2 id="why" className="h2 mt-6">
-              Why Clients Choose La&apos;&nbsp;Boujee
+              Why Clients Choose Lá&nbsp;Boujee
             </h2>
           </Reveal>
           <Stagger className="mt-14 grid gap-6 md:grid-cols-3">

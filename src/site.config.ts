@@ -1,12 +1,12 @@
 /**
- * La' Boujee Esthetics: the single source of truth for every business detail.
+ * Lá Boujee Esthetics: the single source of truth for every business detail.
  *
  * Anything wrapped in [SQUARE_BRACKETS] is a placeholder that has not been
  * verified with the owner yet. Replace it with the real value and the whole
  * site updates. See PLACEHOLDERS.md for the full checklist.
  *
  * Verified facts (safe to show today):
- *   - Business name: La' Boujee Esthetics
+ *   - Business name: Lá Boujee Esthetics
  *   - Owner is a licensed esthetician (no license number is shown)
  *   - Services: custom facials, waxing, tinting, eyelash lifts, chemical peels
  *   - Mobile service: depending on the treatment, she travels to the client's
@@ -59,8 +59,8 @@ export const showGallery = true;
 /* ------------------------------------------------------------------ */
 
 export const business = {
-  name: "La' Boujee Esthetics",
-  shortName: "La' Boujee",
+  name: "Lá Boujee Esthetics",
+  shortName: "Lá Boujee",
   credential: "Licensed Esthetician",
 
   OWNER_NAME: "Laurel Porter",
@@ -160,12 +160,12 @@ export const services: Service[] = [
     name: "Custom Facials",
     navName: "Facials",
     h1: "Custom Facials in {CITY}",
-    metaTitle: "Custom Facials in {CITY} | La' Boujee Esthetics",
+    metaTitle: "Custom Facials in {CITY} | Lá Boujee Esthetics",
     metaDescription:
       "Custom facials from a licensed esthetician in {CITY}, built around your skin that day. Mobile appointments at home or visits to the studio.",
     benefit: "Built around your skin as it is today, never a one-size routine.",
     entitySentence:
-      "La' Boujee Esthetics offers custom facials in {CITY}, performed by a licensed esthetician at your home or in her studio, depending on the treatment.",
+      "Lá Boujee Esthetics offers custom facials in {CITY}, performed by a licensed esthetician at your home or in her studio, depending on the treatment.",
     intro: [
       "A custom facial starts with your skin, not a script. Cleansing, exfoliation, extractions, masks and massage are chosen for what your skin needs on the day you book.",
       "It's a treatment many people keep on a regular rhythm, because skin changes with seasons, stress and sleep.",
@@ -205,12 +205,12 @@ export const services: Service[] = [
     name: "Waxing",
     navName: "Waxing",
     h1: "Waxing in {CITY}",
-    metaTitle: "Waxing in {CITY} | La' Boujee Esthetics",
+    metaTitle: "Waxing in {CITY} | Lá Boujee Esthetics",
     metaDescription:
       "Professional waxing in {CITY} from a licensed esthetician. Smooth results with a private, unhurried appointment at home or in the studio.",
     benefit: "Clean, smooth results with a calm, private appointment.",
     entitySentence:
-      "La' Boujee Esthetics provides professional waxing in {CITY}, with mobile appointments for clients who would rather stay home.",
+      "Lá Boujee Esthetics provides professional waxing in {CITY}, with mobile appointments for clients who would rather stay home.",
     intro: [
       "Waxing removes hair from the root, so skin stays smooth longer than with shaving. A licensed esthetician works quickly and cleanly, which makes it far more comfortable.",
       "With a mobile esthetician, it can also be one of the most private appointments you book.",
@@ -250,12 +250,12 @@ export const services: Service[] = [
     name: "Tinting",
     navName: "Tinting",
     h1: "Brow and Lash Tinting in {CITY}",
-    metaTitle: "Brow and Lash Tinting in {CITY} | La' Boujee Esthetics",
+    metaTitle: "Brow and Lash Tinting in {CITY} | Lá Boujee Esthetics",
     metaDescription:
       "Brow and lash tinting in {CITY} from a licensed esthetician. Defined, polished color so you can skip the pencil and mascara.",
     benefit: "Defined brows and lashes that look finished without makeup.",
     entitySentence:
-      "La' Boujee Esthetics offers brow and lash tinting in {CITY}, and it pairs naturally with a lash lift or brow wax in the same visit.",
+      "Lá Boujee Esthetics offers brow and lash tinting in {CITY}, and it pairs naturally with a lash lift or brow wax in the same visit.",
     intro: [
       "Tinting adds semi-permanent color to brows or lashes, so fine or light hairs show up and your face looks put together before any makeup.",
       "It's quick, and it's the easiest add-on to pair with a lash lift or a brow wax.",
@@ -295,12 +295,12 @@ export const services: Service[] = [
     name: "Eyelash Lifts",
     navName: "Eyelash Lifts",
     h1: "Eyelash Lifts in {CITY}",
-    metaTitle: "Eyelash Lifts in {CITY} | La' Boujee Esthetics",
+    metaTitle: "Eyelash Lifts in {CITY} | Lá Boujee Esthetics",
     metaDescription:
       "Eyelash lifts in {CITY} from a licensed esthetician. A lasting curl from your own natural lashes, with mobile or studio appointments.",
     benefit: "A lasting curl from your own lashes, no extensions to maintain.",
     entitySentence:
-      "La' Boujee Esthetics performs eyelash lifts in {CITY}, giving natural lashes a lasting curl at your home or in her studio.",
+      "Lá Boujee Esthetics performs eyelash lifts in {CITY}, giving natural lashes a lasting curl at your home or in her studio.",
     intro: [
       "A lash lift curls your natural lashes from the base, so they look longer and more open without extensions, glue or fills.",
       "Most clients pair it with a lash tint for even more definition.",
@@ -340,12 +340,12 @@ export const services: Service[] = [
     name: "Chemical Peels",
     navName: "Chemical Peels",
     h1: "Chemical Peels in {CITY}",
-    metaTitle: "Chemical Peels in {CITY} | La' Boujee Esthetics",
+    metaTitle: "Chemical Peels in {CITY} | Lá Boujee Esthetics",
     metaDescription:
       "Chemical peels in {CITY} from a licensed esthetician. Refresh tone and texture with a peel chosen for your skin and your schedule.",
     benefit: "Fresher tone and smoother texture, chosen for your skin.",
     entitySentence:
-      "La' Boujee Esthetics offers chemical peels in {CITY}, chosen by a licensed esthetician to suit your skin and your schedule.",
+      "Lá Boujee Esthetics offers chemical peels in {CITY}, chosen by a licensed esthetician to suit your skin and your schedule.",
     intro: [
       "A chemical peel uses a carefully applied exfoliating solution to lift away dull surface cells, so newer skin shows through.",
       "Esthetician-level peels are designed for refreshing tone and texture, with little to no downtime for most people.",
@@ -389,7 +389,7 @@ export const services: Service[] = [
 export const images = {
   ownerPortrait: {
     src: "/placeholders/owner-portrait.svg",
-    alt: "Portrait of Laurel Porter, licensed esthetician and owner of La' Boujee Esthetics",
+    alt: "Portrait of Laurel Porter, licensed esthetician and owner of Lá Boujee Esthetics",
     width: 1200,
     height: 1500,
     aspect: "4 / 5",

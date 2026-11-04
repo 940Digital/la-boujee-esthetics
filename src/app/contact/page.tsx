@@ -8,8 +8,8 @@ import { CtaBand } from "@/components/CtaBand";
 import { Reveal } from "@/components/motion";
 
 export const metadata: Metadata = {
-  title: `Contact La' Boujee Esthetics | Licensed Esthetician in ${business.CITY}`,
-  description: `Questions about a treatment, home visits, or the studio? Contact La' Boujee Esthetics in ${business.CITY} by phone, text, email or Instagram.`,
+  title: `Contact Lá Boujee Esthetics | Licensed Esthetician in ${business.CITY}`,
+  description: `Questions about a treatment, home visits, or the studio? Contact Lá Boujee Esthetics in ${business.CITY} by phone, text, email or Instagram.`,
   alternates: { canonical: "/contact" },
 };
 

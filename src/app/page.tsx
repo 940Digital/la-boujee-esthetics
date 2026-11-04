@@ -12,7 +12,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { homeFaqs } from "@/lib/faq";
 
 export const metadata: Metadata = {
-  title: `Custom Facials, Waxing and Lash Lifts in ${business.CITY} | La' Boujee Esthetics`,
+  title: `Custom Facials, Waxing and Lash Lifts in ${business.CITY} | Lá Boujee Esthetics`,
   description: `Licensed mobile esthetician in ${business.CITY}. Custom facials, waxing, brow and lash tinting, eyelash lifts and chemical peels at your home or in the studio.`,
   alternates: { canonical: "/" },
 };

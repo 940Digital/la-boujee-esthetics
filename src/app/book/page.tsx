@@ -10,8 +10,8 @@ import { isPlaceholder } from "@/lib/site";
 import { bookingFaq, prepFaq, whichAtHomeFaq } from "@/lib/faq";
 
 export const metadata: Metadata = {
-  title: `Book an Esthetics Appointment in ${business.CITY} | La' Boujee Esthetics`,
-  description: `Book a custom facial, waxing, tinting, eyelash lift or chemical peel with La' Boujee Esthetics in ${business.CITY}. Choose a home visit or the studio.`,
+  title: `Book an Esthetics Appointment in ${business.CITY} | Lá Boujee Esthetics`,
+  description: `Book a custom facial, waxing, tinting, eyelash lift or chemical peel with Lá Boujee Esthetics in ${business.CITY}. Choose a home visit or the studio.`,
   alternates: { canonical: "/book" },
 };
 

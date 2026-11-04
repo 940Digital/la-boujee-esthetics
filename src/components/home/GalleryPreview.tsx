@@ -21,7 +21,7 @@ export function GalleryPreview() {
             The Old Hollywood Look
           </h2>
           <p className="mt-4 max-w-[46ch] text-graphite">
-            Sculpted waves, a sharp wing, pearls and polish. The golden-age glamour behind La&apos; Boujee.
+            Sculpted waves, a sharp wing, pearls and polish. The golden-age glamour behind Lá Boujee.
           </p>
         </Reveal>
 

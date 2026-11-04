@@ -34,16 +34,16 @@ const poiret = Poiret_One({
 export const metadata: Metadata = {
   metadataBase: new URL(business.SITE_URL),
   title: {
-    default: `Custom Facials, Waxing and Lash Lifts in ${business.CITY} | La' Boujee Esthetics`,
+    default: `Custom Facials, Waxing and Lash Lifts in ${business.CITY} | Lá Boujee Esthetics`,
     template: "%s",
   },
-  description: `La' Boujee Esthetics: a licensed, mobile esthetician in ${business.CITY} offering custom facials, waxing, tinting, eyelash lifts and chemical peels at your home or in the studio.`,
+  description: `Lá Boujee Esthetics: a licensed, mobile esthetician in ${business.CITY} offering custom facials, waxing, tinting, eyelash lifts and chemical peels at your home or in the studio.`,
   applicationName: business.name,
   openGraph: {
     type: "website",
     siteName: business.name,
     locale: "en_US",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "La' Boujee Esthetics, licensed esthetician" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Lá Boujee Esthetics, licensed esthetician" }],
   },
   twitter: { card: "summary_large_image", images: ["/og.png"] },
   formatDetection: { telephone: false },

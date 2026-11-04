@@ -56,7 +56,7 @@ export const aftercareFaq: Faq = {
 export const privacyFaq: Faq = {
   q: "Who comes to my home?",
   a: [
-    "La' Boujee Esthetics is a solo practice, so the licensed esthetician you book is the person who arrives. It's your space, and you choose the room.",
+    "Lá Boujee Esthetics is a solo practice, so the licensed esthetician you book is the person who arrives. It's your space, and you choose the room.",
   ],
   policy: [policies.PETS_AND_KIDS],
 };

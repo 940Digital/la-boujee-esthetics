@@ -37,7 +37,7 @@ export function TreatmentMenu() {
 
             <header className="mt-8 text-center">
               <FanMark size={46} tone="brass-ink" className="mx-auto" />
-              <p className="label mt-4 text-rose-ink">La&apos; Boujee Esthetics presents</p>
+              <p className="label mt-4 text-rose-ink">Lá Boujee Esthetics presents</p>
               <h2 id="menu-title" className="display mt-3 text-[clamp(2.5rem,1.9rem+2.6vw,4rem)] text-ink">
                 The Treatment Menu
               </h2>

@@ -1,6 +1,6 @@
-# La' Boujee Esthetics
+# Lá Boujee Esthetics
 
-Website for La' Boujee Esthetics, a licensed solo esthetician offering custom facials, waxing, tinting, eyelash lifts and chemical peels, at clients' homes or in her studio.
+Website for Lá Boujee Esthetics, a licensed solo esthetician offering custom facials, waxing, tinting, eyelash lifts and chemical peels, at clients' homes or in her studio.
 
 Next.js (App Router) + Tailwind 4 + Framer Motion, fully static, ready for Vercel.
 

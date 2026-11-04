@@ -47,7 +47,7 @@ export function AboutCondensed() {
           <Reveal delay={0.1}>
             <div className="prose-measure mt-6 space-y-4 text-graphite">
               <p>
-                {business.OWNER_NAME} is the licensed esthetician behind La&apos; Boujee Esthetics. She offers custom
+                {business.OWNER_NAME} is the licensed esthetician behind Lá Boujee Esthetics. She offers custom
                 facials, waxing, brow and lash tinting, eyelash lifts and chemical peels in {business.CITY}.
               </p>
               <p>

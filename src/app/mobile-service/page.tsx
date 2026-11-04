@@ -11,8 +11,8 @@ import { Reveal, RuleDraw, Stagger, StaggerItem } from "@/components/motion";
 import { mobileFaqs } from "@/lib/faq";
 
 export const metadata: Metadata = {
-  title: `Mobile Esthetician in ${business.CITY} | La' Boujee Esthetics`,
-  description: `How mobile esthetics appointments work with La' Boujee Esthetics: a licensed esthetician who travels to your home in ${business.CITY} and nearby areas, depending on the treatment.`,
+  title: `Mobile Esthetician in ${business.CITY} | Lá Boujee Esthetics`,
+  description: `How mobile esthetics appointments work with Lá Boujee Esthetics: a licensed esthetician who travels to your home in ${business.CITY} and nearby areas, depending on the treatment.`,
   alternates: { canonical: "/mobile-service" },
 };
 
@@ -129,7 +129,7 @@ export default function MobileServicePage() {
               How a Home Appointment Works
             </h2>
             <p className="mx-auto mt-5 max-w-[56ch] text-graphite">
-              La&apos; Boujee Esthetics offers mobile esthetician services in {business.CITY}, bringing licensed
+              Lá Boujee Esthetics offers mobile esthetician services in {business.CITY}, bringing licensed
               esthetics treatments to your home whenever the treatment allows.
             </p>
           </Reveal>

@@ -12,10 +12,10 @@ export function Wordmark({ size = "md" }: { size?: keyof typeof heights; stacked
   const h = heights[size];
   const w = Math.round((h * logo.width) / logo.height);
   return (
-    <Link href="/" aria-label="La' Boujee Esthetics, home" className="inline-flex min-h-11 items-center">
+    <Link href="/" aria-label="Lá Boujee Esthetics, home" className="inline-flex min-h-11 items-center">
       <Image
         src={logo}
-        alt="La' Boujee Esthetics"
+        alt="Lá Boujee Esthetics"
         width={w}
         height={h}
         priority={size !== "lg"}

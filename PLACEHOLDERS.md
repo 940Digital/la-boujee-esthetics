@@ -1,4 +1,4 @@
-# La' Boujee Esthetics: what to replace before launch
+# Lá Boujee Esthetics: what to replace before launch
 
 Every unknown lives in one file: `src/site.config.ts`. Anything in `[SQUARE_BRACKETS]` is a placeholder. Replace it there and the whole site updates (pages, footer, meta titles, structured data, sitemap).
 
@@ -67,7 +67,7 @@ Each service has `setting: "unconfirmed"`. Change it to `"mobile"`, `"studio"` o
 ## 6. Optional
 
 - **Logo**: the header, footer and share image use her real logo, cut out of her business card photo (`public/brand/logo-pink.png`, 573x416). If she has the original vector or a higher-resolution file, drop it in for sharper edges.
-- **Name spelling**: her logo reads "Lá Boujee" (accent), while the site text uses "La' Boujee" (apostrophe) per the original brief. Confirm which she prefers.
+- **Name spelling**: the site uses "Lá Boujee" with the accent, matching her logo and business card.
 - **Share image**: `public/og.png` (1200x630) uses the wordmark only, so it's safe to keep. Replace with a branded photo later if she likes.
 
 ## 7. Draft copy to review with her
