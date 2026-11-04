@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# La' Boujee Esthetics
 
-## Getting Started
+Website for La' Boujee Esthetics, a licensed solo esthetician offering custom facials, waxing, tinting, eyelash lifts and chemical peels, at clients' homes or in her studio.
 
-First, run the development server:
+Next.js (App Router) + Tailwind 4 + Framer Motion, fully static, ready for Vercel.
+
+## Run it
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Before launch
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All business details live in `src/site.config.ts`. See **PLACEHOLDERS.md** for the full checklist.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Structure
 
-## Learn More
+- `src/site.config.ts`: business facts, policies, services, image slots, display flags
+- `src/app/`: one folder per page (`/facials`, `/waxing`, `/tinting`, `/eyelash-lifts`, `/chemical-peels`, `/mobile-service`, `/about`, `/book`, `/contact`)
+- `src/components/ServicePage.tsx`: shared template for the five service pages
+- `src/components/HeroArt.tsx`: the animated sunburst hero (the one section with extra motion)
+- `src/components/deco.tsx`: Art Deco line-work (frames, fans, medallions, ornaments)
+- `src/components/motion.tsx`: scroll reveals. All use `viewport={{ once: false }}` so they reverse on scroll up, and honor reduced motion
+- `scripts/make-placeholders.mjs`: regenerates the placeholder art panels
 
-To learn more about Next.js, take a look at the following resources:
+## Design system
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Palette: near-black `#121212`, pearl `#F8F6F2`, champagne brass `#C9A66B` (accent), deep emerald `#0F3B33`. `brass-ink #7A5C28` is the same brass darkened for small text on pearl (WCAG AA)
+- Type: Cormorant Garamond (headings), Josefin Sans (body/UI), Poiret One (small labels only)
