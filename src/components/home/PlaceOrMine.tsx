@@ -18,7 +18,7 @@ const studio = [
 
 function Medallion() {
   return (
-    <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-brass bg-wine text-rose shadow-[0_0_0_6px_var(--color-wine),0_0_0_7px_rgba(201,166,107,0.45)]">
+    <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-blush bg-wine text-rose shadow-[0_0_0_6px_var(--color-wine),0_0_0_7px_rgba(201,166,107,0.45)]">
       <span className="font-serif text-[1.9rem] italic leading-none">or</span>
     </div>
   );
@@ -58,7 +58,7 @@ export function PlaceOrMine() {
                 <ul className="mt-6 w-full max-w-[34ch] space-y-2.5 text-left text-[0.97rem] text-pearl/90">
                   {comeToYou.map((t) => (
                     <li key={t} className="flex gap-3">
-                      <span aria-hidden className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rotate-45 border border-brass" />
+                      <span aria-hidden className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rotate-45 border border-blush" />
                       {t}
                     </li>
                   ))}
@@ -81,10 +81,10 @@ export function PlaceOrMine() {
           {/* Visit the Studio */}
           <Reveal className="relative" y={26} delay={0.12}>
             <article aria-labelledby="studio-title" className="relative h-full bg-pearl p-3 text-ink md:p-4">
-              <StepFrame inset={8} tone="brass-ink" />
+              <StepFrame inset={8} tone="blush-ink" />
               <ImageSlot slot={images.studio} sizes="(min-width: 768px) 560px, 92vw" />
               <div className="flex flex-col items-center px-5 pb-10 pt-8 text-center md:px-10">
-                <StudioIcon tone="brass-ink" />
+                <StudioIcon tone="blush-ink" />
                 <p className="label mt-4 text-rose-ink">Studio</p>
                 <h3 id="studio-title" className="display mt-2 text-[2.4rem] text-ink">
                   Visit the Studio
@@ -95,7 +95,7 @@ export function PlaceOrMine() {
                 <ul className="mt-6 w-full max-w-[34ch] space-y-2.5 text-left text-[0.97rem] text-ink/90">
                   {studio.map((t) => (
                     <li key={t} className="flex gap-3">
-                      <span aria-hidden className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rotate-45 border border-brass-ink" />
+                      <span aria-hidden className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rotate-45 border border-blush-ink" />
                       {t}
                     </li>
                   ))}

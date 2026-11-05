@@ -23,10 +23,10 @@ function MenuButton({ open, onClick }: { open: boolean; onClick: () => void }) {
       <span className="label hidden text-[0.7rem] text-pearl sm:inline">{open ? "Close" : "Menu"}</span>
       <span className="relative block h-3 w-7">
         <span
-          className={`absolute left-0 top-0 h-px w-7 bg-brass transition-transform duration-500 ${open ? "translate-y-1.5 rotate-45" : ""}`}
+          className={`absolute left-0 top-0 h-px w-7 bg-blush transition-transform duration-500 ${open ? "translate-y-1.5 rotate-45" : ""}`}
         />
         <span
-          className={`absolute bottom-0 left-0 h-px w-7 bg-brass transition-transform duration-500 ${open ? "-translate-y-1.5 -rotate-45" : ""}`}
+          className={`absolute bottom-0 left-0 h-px w-7 bg-blush transition-transform duration-500 ${open ? "-translate-y-1.5 -rotate-45" : ""}`}
         />
       </span>
     </button>
@@ -103,11 +103,11 @@ export function Header() {
         </div>
 
         <nav aria-label="Primary" className="mx-auto mt-6 hidden max-w-[1100px] px-10 lg:block">
-          <div className="h-px bg-gradient-to-r from-transparent via-brass/50 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-blush/50 to-transparent" />
           <ul className="flex items-center justify-center gap-x-1 py-1">
             {primaryNav.map((item, i) => (
               <li key={item.href} className="flex items-center">
-                {i === services.length && <span aria-hidden className="mx-3 h-4 w-px bg-brass/50" />}
+                {i === services.length && <span aria-hidden className="mx-3 h-4 w-px bg-blush/50" />}
                 <Link
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
@@ -120,7 +120,7 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <div className="h-px bg-gradient-to-r from-transparent via-brass/50 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-blush/50 to-transparent" />
         </nav>
       </header>
 
@@ -132,7 +132,7 @@ export function Header() {
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-x-0 top-0 z-40 border-b border-brass/40 bg-ink/95 backdrop-blur-sm"
+            className="fixed inset-x-0 top-0 z-40 border-b border-blush/40 bg-ink/95 backdrop-blur-sm"
           >
             <div className="mx-auto flex h-16 max-w-[1320px] items-center justify-between px-5 md:px-10">
               <Wordmark size="sm" stacked={false} />
@@ -181,7 +181,7 @@ export function Header() {
                   </li>
                 ))}
               </ul>
-              <span aria-hidden className="my-6 h-px w-24 bg-brass/60" />
+              <span aria-hidden className="my-6 h-px w-24 bg-blush/60" />
               <ul className="space-y-1">
                 {primaryNav.slice(services.length).map((item) => (
                   <li key={item.href}>

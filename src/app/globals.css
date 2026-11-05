@@ -2,29 +2,29 @@
 
 /*
   Lá Boujee Esthetics design tokens.
-  Palette (from her business card): near-black and her brand pink, with pearl
-  for light sections, a deep black-cherry for depth, and champagne brass kept
-  only for thin Deco line-work. Rule: text accents and buttons are pink,
-  ornament lines are gold. rose-ink / rose-soft are the same pink shifted so
-  small text passes WCAG AA on pearl / on wine.
+  Palette (from her business card): near-black and her brand pink, with a
+  pink-white pearl for light sections and a deep black-cherry for depth.
+  Everything is one pink family: text accents and buttons use her pink,
+  thin Deco line-work uses blush (a lighter tint of the same pink), and
+  blush-ink is the line colour on light backgrounds. rose-ink / rose-soft are
+  her pink shifted so small text passes WCAG AA on pearl / on wine.
 */
 @theme {
   --color-ink: #121212;
-  --color-ink-2: #1b1a18;
-  --color-pearl: #f8f6f2;
-  --color-pearl-2: #efebe4;
-  --color-brass: #c9a66b;
-  --color-brass-soft: #e3cfa6;
-  --color-brass-ink: #7a5c28;
+  --color-ink-2: #1c1a1b;
+  --color-pearl: #f9f6f7;
+  --color-pearl-2: #f2eaed;
+  --color-blush: #e8b7cb; /* line-work on dark */
+  --color-blush-ink: #c2809e; /* line-work on pearl */
   --color-rose: #d4508c; /* her brand pink */
   --color-rose-light: #e27aa8;
   --color-rose-ink: #a8336a; /* pink text on pearl */
   --color-rose-soft: #e7a9c4; /* pink text on wine */
   --color-wine: #2a1420;
   --color-wine-deep: #1f0e17;
-  --color-mist: #b9b2a6; /* muted text on ink */
+  --color-mist: #bcb3b8; /* muted text on ink */
   --color-mauve: #d8c3cc; /* muted text on wine */
-  --color-graphite: #4a4640; /* muted text on pearl */
+  --color-graphite: #4b4347; /* muted text on pearl */
 
   --font-serif: var(--font-cormorant), "Times New Roman", serif;
   --font-sans: var(--font-josefin), "Futura", "Century Gothic", sans-serif;

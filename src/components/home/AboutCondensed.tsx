@@ -24,9 +24,9 @@ export function AboutCondensed() {
     <section aria-labelledby="about-title" className="bg-pearl py-24 md:py-32">
       <div className="mx-auto grid max-w-[1180px] items-center gap-14 px-6 md:grid-cols-[0.85fr_1fr] md:gap-20 md:px-10">
         <div className="relative mx-auto w-full max-w-[420px]">
-          <ArchCrown tone="brass-ink" className="mx-auto mb-[-2px] w-[44%]" />
+          <ArchCrown tone="blush-ink" className="mx-auto mb-[-2px] w-[44%]" />
           <Curtain>
-            <div className="rounded-t-[999px] border border-brass-ink/60 p-2.5">
+            <div className="rounded-t-[999px] border border-blush-ink/60 p-2.5">
               <ImageSlot
                 slot={images.ownerPortrait}
                 sizes="(min-width: 768px) 420px, 90vw"

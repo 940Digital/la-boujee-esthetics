@@ -40,7 +40,7 @@ export function Ritual() {
                   className="absolute top-[66px] hidden md:block"
                   style={{ left: "calc(50% + 74px)", width: "calc(100% + 2.5rem - 148px)" }}
                 >
-                  <RuleDraw className="bg-brass/45" delay={0.4} />
+                  <RuleDraw className="bg-blush/45" delay={0.4} />
                 </span>
               ) : null}
               <NumeralMedallion numeral={s.numeral} />

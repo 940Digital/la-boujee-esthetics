@@ -72,8 +72,8 @@ export default function BookPage() {
                     </span>
                   </Link>
                   <Link href="/contact" className="group relative flex items-center gap-5 bg-pearl-2 p-6 text-ink">
-                    <StepFrame tone="brass-ink" inset={6} step={10} opacity={0.6} />
-                    <StudioIcon tone="brass-ink" size={52} />
+                    <StepFrame tone="blush-ink" inset={6} step={10} opacity={0.6} />
+                    <StudioIcon tone="blush-ink" size={52} />
                     <span>
                       <span className="block font-serif text-[1.45rem]">Visit the Studio</span>
                       <span className="text-[0.9rem] text-graphite group-hover:text-ink">Ask about the studio</span>

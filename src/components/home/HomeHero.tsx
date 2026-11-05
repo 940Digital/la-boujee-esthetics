@@ -13,9 +13,9 @@ export function HomeHero() {
       <div className="relative mx-auto w-full max-w-[1100px] px-6 pb-[42svh] pt-36 text-center md:pb-[36vh] md:pt-[15.5rem]">
         <Reveal y={10}>
           <p className="label flex items-center justify-center gap-4 text-rose">
-            <span aria-hidden className="h-px w-8 bg-brass/70" />
+            <span aria-hidden className="h-px w-8 bg-blush/70" />
             {business.credential}
-            <span aria-hidden className="h-px w-8 bg-brass/70" />
+            <span aria-hidden className="h-px w-8 bg-blush/70" />
           </p>
         </Reveal>
         <Reveal delay={0.15}>

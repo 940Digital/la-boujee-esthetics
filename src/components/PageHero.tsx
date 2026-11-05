@@ -33,7 +33,7 @@ export function PageHero({
             </li>
             {crumbs.map((c, i) => (
               <li key={c.href} className="flex items-center gap-2">
-                <span aria-hidden className="h-1 w-1 rotate-45 border border-brass" />
+                <span aria-hidden className="h-1 w-1 rotate-45 border border-blush" />
                 {i === crumbs.length - 1 ? (
                   <span aria-current="page" className="text-pearl/90">
                     {c.name}
@@ -64,7 +64,7 @@ export function PageHero({
           </Reveal>
         ) : null}
       </div>
-      <div aria-hidden className="h-px bg-gradient-to-r from-transparent via-brass/70 to-transparent" />
+      <div aria-hidden className="h-px bg-gradient-to-r from-transparent via-blush/70 to-transparent" />
     </section>
   );
 }

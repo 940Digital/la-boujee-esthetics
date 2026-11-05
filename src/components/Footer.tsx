@@ -11,7 +11,7 @@ export function Footer() {
 
   return (
     <footer className="relative bg-ink text-pearl">
-      <div className="h-px bg-gradient-to-r from-transparent via-brass/70 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-blush/70 to-transparent" />
       <div className="mx-auto max-w-[1240px] px-6 pb-12 pt-16 md:px-10 md:pt-20">
         <div className="flex flex-col items-center text-center">
           <Wordmark size="lg" />
@@ -21,7 +21,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-12 border-t border-brass/25 pt-12 text-[0.95rem] sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-12 border-t border-blush/25 pt-12 text-[0.95rem] sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <h2 className="label text-rose">Treatments</h2>
             <ul className="mt-4 space-y-1">

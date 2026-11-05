@@ -1,11 +1,11 @@
 /* Art Deco line-work primitives. All decorative, so all aria-hidden. */
 
-type Tone = "brass" | "brass-ink" | "pearl" | "ink";
+type Tone = "blush" | "blush-ink" | "pearl" | "ink";
 
 const toneColor: Record<Tone, string> = {
-  brass: "#C9A66B",
-  "brass-ink": "#7A5C28",
-  pearl: "#F8F6F2",
+  blush: "#E8B7CB",
+  "blush-ink": "#C2809E",
+  pearl: "#F9F6F7",
   ink: "#121212",
 };
 
@@ -14,7 +14,7 @@ const toneColor: Record<Tone, string> = {
  * stretch; straight edges are hairline divs that flex with the box.
  */
 export function StepFrame({
-  tone = "brass",
+  tone = "blush",
   inset = 10,
   step = 14,
   opacity = 0.7,
@@ -65,7 +65,7 @@ export function StepFrame({
 }
 
 /** The brand fan: a half sunburst with ribs, used as the logo mark. */
-export function FanMark({ size = 28, tone = "brass", className = "" }: { size?: number; tone?: Tone; className?: string }) {
+export function FanMark({ size = 28, tone = "blush", className = "" }: { size?: number; tone?: Tone; className?: string }) {
   const c = toneColor[tone];
   const rays = 9;
   const lines = Array.from({ length: rays }, (_, i) => {
@@ -86,7 +86,7 @@ export function FanMark({ size = 28, tone = "brass", className = "" }: { size?: 
 }
 
 /** Centered ornament: rule, diamond, fan, diamond, rule. */
-export function Ornament({ tone = "brass", className = "", width = 220 }: { tone?: Tone; className?: string; width?: number }) {
+export function Ornament({ tone = "blush", className = "", width = 220 }: { tone?: Tone; className?: string; width?: number }) {
   const c = toneColor[tone];
   return (
     <svg aria-hidden width={width} height="22" viewBox="0 0 220 22" className={className}>
@@ -114,7 +114,7 @@ export function Ornament({ tone = "brass", className = "", width = 220 }: { tone
 }
 
 /** Sunburst medallion with an Art Deco numeral in the centre. */
-export function NumeralMedallion({ numeral, tone = "brass" }: { numeral: string; tone?: Tone }) {
+export function NumeralMedallion({ numeral, tone = "blush" }: { numeral: string; tone?: Tone }) {
   const c = toneColor[tone];
   const rays = 32;
   return (
@@ -154,7 +154,7 @@ export function NumeralMedallion({ numeral, tone = "brass" }: { numeral: string;
 }
 
 /** Stepped ziggurat arch used to crown cards and image frames. */
-export function SteppedArch({ tone = "brass", className = "" }: { tone?: Tone; className?: string }) {
+export function SteppedArch({ tone = "blush", className = "" }: { tone?: Tone; className?: string }) {
   const c = toneColor[tone];
   return (
     <svg aria-hidden viewBox="0 0 300 60" preserveAspectRatio="xMidYMax meet" className={className}>
@@ -176,7 +176,7 @@ export function SteppedArch({ tone = "brass", className = "" }: { tone?: Tone; c
 }
 
 /** Line illustration: a front door with a fanlight (for mobile, "Come to You"). */
-export function DoorIcon({ tone = "brass", size = 72 }: { tone?: Tone; size?: number }) {
+export function DoorIcon({ tone = "blush", size = 72 }: { tone?: Tone; size?: number }) {
   const c = toneColor[tone];
   return (
     <svg aria-hidden width={size} height={size} viewBox="0 0 72 72" fill="none" stroke={c} strokeWidth="1">
@@ -195,7 +195,7 @@ export function DoorIcon({ tone = "brass", size = 72 }: { tone?: Tone; size?: nu
 }
 
 /** Line illustration: a treatment bed under a stepped canopy (for "Visit the Studio"). */
-export function StudioIcon({ tone = "brass", size = 72 }: { tone?: Tone; size?: number }) {
+export function StudioIcon({ tone = "blush", size = 72 }: { tone?: Tone; size?: number }) {
   const c = toneColor[tone];
   return (
     <svg aria-hidden width={size} height={size} viewBox="0 0 72 72" fill="none" stroke={c} strokeWidth="1">
@@ -236,7 +236,7 @@ export function RayField({ origin = "bottom", opacity = 0.14 }: { origin?: "bott
             y1={cy}
             x2={(cx + Math.cos(a) * reach).toFixed(2)}
             y2={(cy + Math.sin(a) * reach).toFixed(2)}
-            stroke="#C9A66B"
+            stroke="#E8B7CB"
             strokeWidth="1"
             vectorEffect="non-scaling-stroke"
             opacity={i % 2 ? opacity * 0.55 : opacity}
@@ -248,7 +248,7 @@ export function RayField({ origin = "bottom", opacity = 0.14 }: { origin?: "bott
 }
 
 /** A half sunburst that crowns the apex of a rounded arch frame, like a keystone. */
-export function ArchCrown({ tone = "brass", className = "" }: { tone?: Tone; className?: string }) {
+export function ArchCrown({ tone = "blush", className = "" }: { tone?: Tone; className?: string }) {
   const c = toneColor[tone];
   const rays = 13;
   return (

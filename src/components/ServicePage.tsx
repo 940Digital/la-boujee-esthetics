@@ -90,7 +90,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             <Reveal delay={0.15}>
               <div className="mt-10 flex gap-5 border-t border-ink/15 pt-8">
                 <div className="shrink-0">
-                  <DoorIcon tone="brass-ink" size={56} />
+                  <DoorIcon tone="blush-ink" size={56} />
                 </div>
                 <div>
                   <h3 className="font-serif text-[1.4rem] font-medium text-ink">Where it happens</h3>
@@ -106,9 +106,9 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             </Reveal>
           </div>
           <div className="order-1 mx-auto w-full max-w-[440px] md:order-2">
-            <SteppedArch tone="brass-ink" className="mx-auto mb-[-1px] w-[70%]" />
+            <SteppedArch tone="blush-ink" className="mx-auto mb-[-1px] w-[70%]" />
             <Curtain>
-              <div className="border border-brass-ink/60 p-2.5">
+              <div className="border border-blush-ink/60 p-2.5">
                 <ImageSlot slot={s.image} sizes="(min-width: 768px) 440px, 90vw" />
               </div>
             </Curtain>
@@ -127,8 +127,8 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
           </Reveal>
           <Stagger className="mt-14 grid gap-x-14 md:grid-cols-2">
             {s.goodFor.map((g) => (
-              <StaggerItem key={g.title} className="flex gap-5 border-t border-brass/30 py-7">
-                <span aria-hidden className="mt-3 h-2 w-2 shrink-0 rotate-45 border border-brass" />
+              <StaggerItem key={g.title} className="flex gap-5 border-t border-blush/30 py-7">
+                <span aria-hidden className="mt-3 h-2 w-2 shrink-0 rotate-45 border border-blush" />
                 <div>
                   <h3 className="font-serif text-[1.5rem] font-medium leading-tight">{g.title}</h3>
                   <p className="mt-2 text-mauve">{g.body}</p>
@@ -149,11 +149,11 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             </h2>
           </Reveal>
           <div className="relative mt-14">
-            <RuleDraw className="absolute left-[16%] right-[16%] top-[30px] hidden bg-brass-ink/40 md:block" />
+            <RuleDraw className="absolute left-[16%] right-[16%] top-[30px] hidden bg-blush-ink/40 md:block" />
             <Stagger as="li" className="relative grid gap-12 md:grid-cols-3 md:gap-10">
               {s.expect.map((e, i) => (
                 <StaggerItem as="li" key={e.title} className="flex flex-col items-center text-center">
-                  <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full border border-brass-ink bg-pearl font-deco text-[1.4rem] text-rose-ink">
+                  <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full border border-blush-ink bg-pearl font-deco text-[1.4rem] text-rose-ink">
                     {numerals[i]}
                   </span>
                   <h3 className="mt-5 font-serif text-[1.6rem] font-medium leading-tight text-ink">{e.title}</h3>
@@ -180,12 +180,12 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
               { title: "Aftercare", items: s.after },
             ].map((col, ci) => (
               <Reveal key={col.title} delay={ci * 0.1}>
-                <div className="h-full border-t border-brass/50 pt-7">
+                <div className="h-full border-t border-blush/50 pt-7">
                   <h3 className="label text-rose">{col.title}</h3>
                   <ul className="mt-5 space-y-4">
                     {col.items.map((t) => (
                       <li key={t} className="flex gap-4 text-pearl/90">
-                        <span aria-hidden className="mt-[0.65em] h-1.5 w-1.5 shrink-0 rotate-45 border border-brass" />
+                        <span aria-hidden className="mt-[0.65em] h-1.5 w-1.5 shrink-0 rotate-45 border border-blush" />
                         {t}
                       </li>
                     ))}

@@ -36,9 +36,9 @@ export function FaqSection({
           <p className="mt-4 text-mist">{subtitle}</p>
         </Reveal>
 
-        <Stagger className="faq mt-12 border-t border-brass/30">
+        <Stagger className="faq mt-12 border-t border-blush/30">
           {faqs.map((f) => (
-            <StaggerItem key={f.q} className="border-b border-brass/30">
+            <StaggerItem key={f.q} className="border-b border-blush/30">
               <details className="group">
                 <summary className="flex min-h-16 items-center justify-between gap-6 py-5">
                   <h3 className="font-serif text-[1.35rem] font-medium leading-snug text-pearl md:text-[1.55rem]">{f.q}</h3>
@@ -46,8 +46,8 @@ export function FaqSection({
                     aria-hidden
                     className="faq-icon relative h-4 w-4 shrink-0 transition-transform duration-500 ease-[var(--ease-deco)]"
                   >
-                    <span className="absolute left-0 top-1/2 h-px w-4 bg-brass" />
-                    <span className="absolute left-1/2 top-0 h-4 w-px bg-brass" />
+                    <span className="absolute left-0 top-1/2 h-px w-4 bg-blush" />
+                    <span className="absolute left-1/2 top-0 h-4 w-px bg-blush" />
                   </span>
                 </summary>
                 <div className="space-y-3 pb-7 pr-10 text-mist">

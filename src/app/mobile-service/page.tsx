@@ -76,14 +76,14 @@ function AreaDiagram() {
               y1={(220 + Math.sin(a) * 64).toFixed(2)}
               x2={(220 + Math.cos(a) * (i % 2 ? 196 : 214)).toFixed(2)}
               y2={(220 + Math.sin(a) * (i % 2 ? 196 : 214)).toFixed(2)}
-              stroke="#7A5C28"
+              stroke="#C2809E"
               strokeWidth="0.6"
               opacity={i % 2 ? 0.25 : 0.4}
             />
           );
         })}
         {rings.map((r, i) => (
-          <circle key={r} cx="220" cy="220" r={r} fill="none" stroke="#7A5C28" strokeWidth={i === rings.length - 1 ? 1.2 : 0.8} opacity={0.75 - i * 0.1} strokeDasharray={i === rings.length - 1 ? "2 5" : undefined} />
+          <circle key={r} cx="220" cy="220" r={r} fill="none" stroke="#C2809E" strokeWidth={i === rings.length - 1 ? 1.2 : 0.8} opacity={0.75 - i * 0.1} strokeDasharray={i === rings.length - 1 ? "2 5" : undefined} />
         ))}
         <circle cx="220" cy="220" r="52" fill="#0F3B33" />
       </svg>
@@ -134,11 +134,11 @@ export default function MobileServicePage() {
             </p>
           </Reveal>
           <div className="relative mt-16">
-            <RuleDraw className="absolute left-[12%] right-[12%] top-[30px] hidden bg-brass-ink/40 lg:block" />
+            <RuleDraw className="absolute left-[12%] right-[12%] top-[30px] hidden bg-blush-ink/40 lg:block" />
             <Stagger as="li" className="relative grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
               {steps.map((s) => (
                 <StaggerItem as="li" key={s.n} className="flex flex-col items-center text-center">
-                  <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full border border-brass-ink bg-pearl font-deco text-[1.35rem] text-rose-ink">
+                  <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full border border-blush-ink bg-pearl font-deco text-[1.35rem] text-rose-ink">
                     {s.n}
                   </span>
                   <h3 className="mt-5 font-serif text-[1.55rem] font-medium leading-tight text-ink">{s.title}</h3>
@@ -177,7 +177,7 @@ export default function MobileServicePage() {
               <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                 {hygienePractices.map((h) => (
                   <li key={h} className="flex gap-3 text-pearl/90">
-                    <span aria-hidden className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rotate-45 border border-brass" />
+                    <span aria-hidden className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rotate-45 border border-blush" />
                     {h}
                   </li>
                 ))}
@@ -199,15 +199,15 @@ export default function MobileServicePage() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <ul className="space-y-4 border-t border-brass/40 pt-6">
+            <ul className="space-y-4 border-t border-blush/40 pt-6">
               {ready.map((r) => (
                 <li key={r} className="flex gap-4 text-pearl/95">
-                  <span aria-hidden className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rotate-45 border border-brass" />
+                  <span aria-hidden className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rotate-45 border border-blush" />
                   {r}
                 </li>
               ))}
             </ul>
-            <div className="mt-8 space-y-2 border-t border-brass/40 pt-6 text-[0.95rem] text-mauve">
+            <div className="mt-8 space-y-2 border-t border-blush/40 pt-6 text-[0.95rem] text-mauve">
               <p>{policies.SPACE_NEEDED}</p>
               <p>{policies.PETS_AND_KIDS}</p>
               <p>{policies.TRAVEL_FEE}</p>
@@ -234,7 +234,7 @@ export default function MobileServicePage() {
             <ul className="mt-6 max-w-[420px]">
               {business.SERVICE_AREA.map((a, i) => (
                 <li key={`${a}-${i}`} className="flex items-center gap-3 border-b border-ink/10 py-2 font-serif text-[1.3rem] text-ink">
-                  <span aria-hidden className="h-1.5 w-1.5 rotate-45 border border-brass-ink" />
+                  <span aria-hidden className="h-1.5 w-1.5 rotate-45 border border-blush-ink" />
                   {a}
                 </li>
               ))}

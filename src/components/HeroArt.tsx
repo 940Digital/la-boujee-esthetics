@@ -3,13 +3,13 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 /*
-  The one section allowed extra flair: a brass sunburst rising from a pleated
+  The one section allowed extra flair: a blush sunburst rising from a pleated
   fan at the foot of the page. Rays draw in from the centre outward, then a
   slow glow breathes behind the fan. Two compositions (wide and tall) so the
   fan is never cropped awkwardly on a phone.
 */
 
-const BRASS = "#C9A66B";
+const BLUSH = "#E8B7CB";
 const ROSE = "#D4508C";
 const f = (n: number) => Number(n.toFixed(2));
 
@@ -104,7 +104,7 @@ function Composition({ w, h, fanR, rays, className }: Props) {
       />
 
       {/* sunburst rays */}
-      <g stroke={BRASS} fill="none">
+      <g stroke={BLUSH} fill="none">
         {rayData.map((r, i) => (
           <motion.line
             key={i}
@@ -123,13 +123,13 @@ function Composition({ w, h, fanR, rays, className }: Props) {
       <rect x="0" y="0" width={w} height={h} fill={`url(#veil-${w})`} />
 
       {/* concentric horizon arcs */}
-      <g stroke={BRASS} fill="none">
+      <g stroke={BLUSH} fill="none">
         <motion.path d={arc(fanR + 26)} strokeWidth="0.8" strokeOpacity="0.55" {...draw(0.2, 1.8)} />
         <motion.path d={arc(fanR + 34)} strokeWidth="0.5" strokeOpacity="0.35" {...draw(0.35, 1.8)} />
       </g>
 
       {/* the pleated fan */}
-      <g stroke={BRASS} fill="none">
+      <g stroke={BLUSH} fill="none">
         <motion.path d={scallop} strokeWidth="1" strokeOpacity="0.9" {...draw(0.1, 2)} />
         {pleatLines.map((p, i) => (
           <motion.line key={i} {...p} strokeWidth="0.7" strokeOpacity="0.7" {...draw(0.25 + Math.abs(i - 6) * 0.06, 1.2)} />
@@ -144,7 +144,7 @@ function Composition({ w, h, fanR, rays, className }: Props) {
         y1={cy - 0.5}
         x2={f(cx + w * 0.48)}
         y2={cy - 0.5}
-        stroke={BRASS}
+        stroke={BLUSH}
         strokeWidth="1"
         strokeOpacity="0.6"
         {...draw(0, 1.6)}

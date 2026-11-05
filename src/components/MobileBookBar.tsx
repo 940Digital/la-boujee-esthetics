@@ -24,7 +24,7 @@ export function MobileBookBar() {
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-x-0 bottom-0 z-30 border-t border-brass/50 bg-ink/95 px-4 pb-[calc(10px+env(safe-area-inset-bottom))] pt-2.5 backdrop-blur-sm md:hidden"
+          className="fixed inset-x-0 bottom-0 z-30 border-t border-blush/50 bg-ink/95 px-4 pb-[calc(10px+env(safe-area-inset-bottom))] pt-2.5 backdrop-blur-sm md:hidden"
         >
           <BookButton className="w-full !min-h-[50px]" />
         </motion.div>
