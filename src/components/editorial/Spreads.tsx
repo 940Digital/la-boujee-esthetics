@@ -81,22 +81,22 @@ export function Profile() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Your place or mine: a two-page spread                              */
+/* Your home or her studio: a two-page spread                         */
 /* ------------------------------------------------------------------ */
 
-export function PlaceOrMine() {
+export function HomeOrStudio() {
   const halves = [
     {
-      id: "yours",
-      big: "Your Place",
+      id: "home",
+      big: "Your Home",
       img: images.comeToYou,
       title: "Come to You",
       body: "She brings the appointment to your home. No drive, no parking, no waiting room, and you stay comfortable afterward.",
       link: { href: "/mobile-service", label: "How home visits work" },
     },
     {
-      id: "mine",
-      big: "or Mine",
+      id: "studio",
+      big: "or Her Studio",
       img: images.studio,
       title: "Visit the Studio",
       body: "Some treatments are best with the full studio setup. Step out of the house and let the time be all about you.",
@@ -114,7 +114,7 @@ export function PlaceOrMine() {
         <Reveal className="flex flex-col items-center text-center">
           <p className="kicker text-rose">The signature</p>
           <h2 id="place-title" className="sr-only">
-            Your Place or Mine
+            Your home or her studio
           </h2>
           <p className="mt-4 max-w-[52ch] text-mist">Where your appointment happens depends on the treatment. Either way, it&apos;s the same licensed care.</p>
         </Reveal>
@@ -123,7 +123,7 @@ export function PlaceOrMine() {
           {halves.map((h, i) => (
             <article key={h.id} aria-labelledby={`${h.id}-title`} className="flex flex-col">
               <Reveal delay={i * 0.12}>
-                <p aria-hidden className={`display text-[clamp(3rem,1.6rem+5.4vw,7rem)] italic leading-none ${i === 1 ? "text-rose md:text-right" : "text-pearl"}`}>
+                <p aria-hidden className={`display text-[clamp(2.8rem,1.4rem+4.6vw,6.2rem)] italic leading-none ${i === 1 ? "text-rose md:text-right" : "text-pearl"}`}>
                   {h.big}
                 </p>
               </Reveal>

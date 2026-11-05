@@ -49,7 +49,7 @@ export default function MobileServicePage() {
         }}
       />
       <Opener
-        kicker="Your place"
+        kicker="At your home"
         title={`Mobile Esthetician Services in ${business.CITY}`}
         standfirst="Depending on the treatment, she comes to you. Here's how a home appointment works, and where she travels."
         crumbs={[{ href: "/mobile-service", name: "Mobile Service" }]}

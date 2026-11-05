@@ -64,11 +64,11 @@ export default function BookPage() {
             <p className="mt-2 text-graphite">Depending on the treatment, she comes to you or you visit the studio.</p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <Link href="/mobile-service" className="group block bg-ink p-6 text-pearl">
-                <span className="display block text-[1.7rem] italic">Your place</span>
+                <span className="display block text-[1.7rem] italic">Your home</span>
                 <span className="kicker mt-2 block text-rose group-hover:text-rose-light">How home visits work</span>
               </Link>
               <Link href="/contact" className="group block border border-ink p-6 text-ink">
-                <span className="display block text-[1.7rem] italic">Or mine</span>
+                <span className="display block text-[1.7rem] italic">Her studio</span>
                 <span className="kicker mt-2 block text-rose-ink">Ask about the studio</span>
               </Link>
             </div>

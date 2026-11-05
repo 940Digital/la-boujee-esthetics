@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { business } from "@/site.config";
 import { Cover } from "@/components/editorial/Cover";
-import { Acts, CloseUp, Lookbook, PlaceOrMine, Profile, QandA } from "@/components/editorial/Spreads";
+import { Acts, CloseUp, Lookbook, HomeOrStudio, Profile, QandA } from "@/components/editorial/Spreads";
 import { ContactSheet } from "@/components/editorial/ContactSheet";
 import { homeFaqs } from "@/lib/faq";
 
@@ -20,7 +20,7 @@ export default function HomePage() {
     <>
       <Cover />
       <Profile />
-      <PlaceOrMine />
+      <HomeOrStudio />
       <Lookbook />
       <Acts />
       <ContactSheet />
