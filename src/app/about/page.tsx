@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 };
 
 const pillars = [
-  { title: "Licensed", body: "A licensed esthetician, professionally trained in skin care, hair removal, and brow and lash services." },
-  { title: "Personal", body: "A solo practice, so every appointment is one-on-one with the person whose name is on the door." },
+  { title: "Licensed", body: "I'm a licensed esthetician, professionally trained in skin care, hair removal, and brow and lash services." },
+  { title: "Personal", body: "It's just me, so every appointment is one-on-one with the person whose name is on the door." },
   { title: "Convenient", body: "Mobile when the treatment allows, studio when it calls for it. Either way, built around your schedule." },
 ];
 
@@ -26,7 +26,7 @@ export default function AboutPage() {
       <Opener
         kicker="The profile"
         title={`Meet ${business.OWNER_NAME}, Licensed Esthetician in ${business.CITY}`}
-        standfirst="The licensed esthetician behind Lá Boujee Esthetics, at your home or in her studio."
+        standfirst="The licensed esthetician behind Lá Boujee Esthetics, at your home or in my studio."
         crumbs={[{ href: "/about", name: "About" }]}
       />
 
@@ -46,7 +46,7 @@ export default function AboutPage() {
           <div>
             <Reveal>
               <h2 id="story" className="display text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)]">
-                The woman behind Lá&nbsp;Boujee
+                Behind Lá&nbsp;Boujee
               </h2>
               <RuleDraw className="mt-7 w-24 bg-rose" />
             </Reveal>
@@ -58,14 +58,14 @@ export default function AboutPage() {
                   </p>
                 ))}
                 <p className="text-ink">
-                  Today she offers custom facials, waxing, brow and lash tinting, eyelash lifts and chemical peels in{" "}
-                  {business.CITY}, traveling to clients&apos; homes or welcoming them to her studio depending on the treatment.
+                  Today I offer custom facials, waxing, brow and lash tinting, eyelash lifts and chemical peels in{" "}
+                  {business.CITY}, traveling to clients&apos; homes or welcoming them to my studio depending on the treatment.
                 </p>
               </div>
             </Reveal>
             <Reveal delay={0.15}>
               <div className="mt-12 border-t-2 border-ink pt-4">
-                <h3 className="kicker text-ink">Her treatments</h3>
+                <h3 className="kicker text-ink">My treatments</h3>
                 <ul className="mt-2">
                   {services.map((s) => (
                     <li key={s.slug} className="border-b border-ink/12">

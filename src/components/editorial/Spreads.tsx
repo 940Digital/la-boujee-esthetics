@@ -13,7 +13,7 @@ import { Curtain, Fade, Reveal, RuleDraw, Stagger, StaggerItem } from "../motion
 
 const atAGlance = [
   { k: "Credential", v: "Licensed esthetician" },
-  { k: "Where", v: "Your home or her studio, depending on the treatment" },
+  { k: "Where", v: "Your home or my studio, depending on the treatment" },
   { k: "Who you'll see", v: "Laurel, every time. It's a solo practice" },
   { k: "Treatments", v: "Facials, waxing, tinting, eyelash lifts, chemical peels" },
 ];
@@ -43,12 +43,12 @@ export function Profile() {
           <div className="mt-9 grid gap-10 md:grid-cols-[1.25fr_0.75fr]">
             <Reveal delay={0.1}>
               <div className="space-y-5 text-[1.05rem] text-graphite">
-                <p className="dropcap">
-                  {business.OWNER_NAME} is the licensed esthetician behind Lá Boujee Esthetics. She offers custom facials,
+                <p>
+                  <span className="dropcap-letter">I</span>&apos;m {business.OWNER_NAME}, the licensed esthetician behind Lá Boujee Esthetics. I offer custom facials,
                   waxing, brow and lash tinting, eyelash lifts and chemical peels in {business.CITY}.
                 </p>
                 <p>
-                  Depending on the treatment, she brings the appointment to your home or welcomes you to her studio. Either
+                  Depending on the treatment, I bring the appointment to your home or welcome you to my studio. Either
                   way, it&apos;s one-on-one.
                 </p>
                 <p className="display border-l-2 border-rose py-1 pl-5 text-[1.55rem] italic leading-snug text-ink">
@@ -81,7 +81,7 @@ export function Profile() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Your home or her studio: a two-page spread                         */
+/* Your home or my studio: a two-page spread, in her voice            */
 /* ------------------------------------------------------------------ */
 
 export function HomeOrStudio() {
@@ -91,16 +91,16 @@ export function HomeOrStudio() {
       big: "Your Home",
       img: images.comeToYou,
       title: "Come to You",
-      body: "She brings the appointment to your home. No drive, no parking, no waiting room, and you stay comfortable afterward.",
+      body: "I bring the appointment to your home. No drive, no parking, no waiting room, and you stay comfortable afterward.",
       link: { href: "/mobile-service", label: "How home visits work" },
     },
     {
       id: "studio",
-      big: "or Her Studio",
+      big: "or My Studio",
       img: images.studio,
       title: "Visit the Studio",
       body: "Some treatments are best with the full studio setup. Step out of the house and let the time be all about you.",
-      link: { href: "/contact", label: "Ask about the studio" },
+      link: { href: "/contact", label: "Ask about my studio" },
     },
   ];
   return (
@@ -114,7 +114,7 @@ export function HomeOrStudio() {
         <Reveal className="flex flex-col items-center text-center">
           <p className="kicker text-rose">The signature</p>
           <h2 id="place-title" className="sr-only">
-            Your home or her studio
+            Your home or my studio
           </h2>
           <p className="mt-4 max-w-[52ch] text-mist">Where your appointment happens depends on the treatment. Either way, it&apos;s the same licensed care.</p>
         </Reveal>
@@ -212,8 +212,8 @@ export function Lookbook() {
 /* ------------------------------------------------------------------ */
 
 const acts = [
-  { act: "Act I", title: "Book", body: "Choose your treatment and a time, and whether she comes to you or you visit the studio." },
-  { act: "Act II", title: "Relax", body: "Settle in at home or in the studio. Mention anything about your skin, then let her take it from there." },
+  { act: "Act I", title: "Book", body: "Choose your treatment and a time, and whether I come to you or you visit my studio." },
+  { act: "Act II", title: "Relax", body: "Settle in at home or in my studio. Mention anything about your skin, then let me take it from there." },
   { act: "Act III", title: "Glow", body: "Leave with skin, brows or lashes that feel cared for, and simple aftercare to keep it going." },
 ];
 
@@ -339,7 +339,7 @@ export function CloseUp({
             {title}
           </h2>
           <p className="mx-auto mt-6 max-w-[46ch] text-mauve">
-            At your home or in the studio, with a licensed esthetician in {business.CITY}.
+            At your home or in my studio, with a licensed esthetician in {business.CITY}.
           </p>
           <div className="mt-10">
             <BookButton />

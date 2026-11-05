@@ -17,13 +17,13 @@ export const metadata: Metadata = {
 const steps = [
   { act: "Act I", title: "Book your treatment", body: "Choose the service and a time, and note that you'd like a home appointment." },
   { act: "Act II", title: "Share the details", body: "Your address, plus anything useful to know: parking, gate codes, stairs, or which room you'd like to use." },
-  { act: "Act III", title: "She arrives and sets up", body: "She brings what the treatment needs and sets up in the space you've chosen." },
-  { act: "Act IV", title: "Relax, then carry on", body: "Your treatment happens at home, and she packs everything away when you're done. No drive home." },
+  { act: "Act III", title: "I arrive and set up", body: "I bring what the treatment needs and set up in the space you've chosen." },
+  { act: "Act IV", title: "Relax, then carry on", body: "Your treatment happens at home, and I pack everything away when we're done. No drive home." },
 ];
 
 const trust = [
-  { title: "Licensed and trained", body: "Licensed estheticians are trained in sanitation and safe technique. That training comes along to every home visit." },
-  { title: "One person, every time", body: "A solo practice. The licensed esthetician you book is the one who arrives at your door." },
+  { title: "Licensed and trained", body: "As a licensed esthetician, I'm trained in sanitation and safe technique, and that training comes with me to every home visit." },
+  { title: "One person, every time", body: "It's a solo practice. The esthetician you book is the one who arrives at your door: me." },
   { title: "Your space, your comfort", body: "You choose the room and the setting. Private treatments stay private, in your own home." },
 ];
 
@@ -51,7 +51,7 @@ export default function MobileServicePage() {
       <Opener
         kicker="At your home"
         title={`Mobile Esthetician Services in ${business.CITY}`}
-        standfirst="Depending on the treatment, she comes to you. Here's how a home appointment works, and where she travels."
+        standfirst="Depending on the treatment, I come to you. Here's how a home appointment works, and where I travel."
         crumbs={[{ href: "/mobile-service", name: "Mobile Service" }]}
         photo={images.comeToYou}
       >
@@ -152,13 +152,13 @@ export default function MobileServicePage() {
         </div>
       </section>
 
-      {/* Where she travels */}
+      {/* Where I travel */}
       <section aria-labelledby="area" className="bg-pearl py-24 text-ink md:py-32">
         <div className="mx-auto grid max-w-[1240px] gap-12 px-6 md:grid-cols-[0.8fr_1.2fr] md:px-10">
           <Reveal>
             <p className="kicker text-rose-ink">Service area</p>
             <h2 id="area" className="display mt-4 text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)]">
-              Where she travels
+              Where I travel
             </h2>
             <p className="mt-5 max-w-[38ch] text-graphite">
               Mobile appointments are available within {business.TRAVEL_RADIUS} of {business.CITY}, {business.STATE}.

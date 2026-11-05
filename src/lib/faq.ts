@@ -11,7 +11,7 @@ export type Faq = {
 export const hygieneFaq: Faq = {
   q: "Is it hygienic to have a treatment at home?",
   a: [
-    "Yes. Licensed estheticians are trained in sanitation and infection control, and those standards travel with her. The same care goes into a home visit as a studio appointment.",
+    "Yes. As a licensed esthetician, I'm trained in sanitation and infection control, and those standards travel with me. The same care goes into a home visit as a studio appointment.",
     "If you have a question about how a specific treatment is handled, ask before you book.",
   ],
 };
@@ -19,7 +19,7 @@ export const hygieneFaq: Faq = {
 export const mobileFaq: Faq = {
   q: "How do mobile appointments work?",
   a: [
-    "You book your treatment and share your address. She arrives at your appointment time with what the treatment needs, sets up in the room you choose, and packs everything away when you're done.",
+    "You book your treatment and share your address. I arrive at your appointment time with what the treatment needs, set up in the room you choose, and pack everything away when we're done.",
   ],
   policy: [policies.SPACE_NEEDED, policies.TRAVEL_FEE],
 };
@@ -27,7 +27,7 @@ export const mobileFaq: Faq = {
 export const whichAtHomeFaq: Faq = {
   q: "Which treatments can be done at home?",
   a: [
-    "It depends on the treatment. Some travel well, and some are best with the studio setup. Ask when you book and she'll point you to the right setting.",
+    "It depends on the treatment. Some travel well, and some are best with the studio setup. Ask when you book and I'll point you to the right setting.",
   ],
 };
 
@@ -56,14 +56,14 @@ export const aftercareFaq: Faq = {
 export const privacyFaq: Faq = {
   q: "Who comes to my home?",
   a: [
-    "Lá Boujee Esthetics is a solo practice, so the licensed esthetician you book is the person who arrives. It's your space, and you choose the room.",
+    "Me. Lá Boujee Esthetics is a solo practice, so the licensed esthetician you book is the one who arrives. It's your space, and you choose the room.",
   ],
   policy: [policies.PETS_AND_KIDS],
 };
 
 export const bookingFaq: Faq = {
   q: "What if I need to cancel or reschedule?",
-  a: ["Life happens. Reach out as early as you can and she'll help you find a new time."],
+  a: ["Life happens. Reach out as early as you can and I'll help you find a new time."],
   policy: [policies.CANCELLATION, policies.DEPOSIT, policies.PAYMENT_METHODS],
 };
 

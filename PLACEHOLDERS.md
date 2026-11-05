@@ -73,6 +73,9 @@ Each service has `setting: "unconfirmed"`. Change it to `"mobile"`, `"studio"` o
 
 ## 7. Draft copy to review with her
 
+The site speaks in Laurel's own first-person voice ("I come to your home, or you visit my studio"). Search titles, descriptions and schema stay neutral, which is normal. Her bio paragraphs should be written in first person too.
+
+
 These lines are general esthetics knowledge or describe how mobile service works in principle. Nothing claims a fact about her that wasn't given, but she should read them once:
 
 - Service page intros, "good for", "what to expect", prep and aftercare notes (`services` in site.config.ts)

@@ -92,8 +92,8 @@ export const business = {
   ],
 
   OWNER_BIO: [
-    "[OWNER_BIO_PARAGRAPH_1: how she got into esthetics, in her words]",
-    "[OWNER_BIO_PARAGRAPH_2: what she loves about the work and how she treats clients]",
+    "[OWNER_BIO_PARAGRAPH_1: how I got into esthetics, in my own words]",
+    "[OWNER_BIO_PARAGRAPH_2: what I love about the work and how I treat clients]",
   ],
 } as const;
 
@@ -108,7 +108,7 @@ export const policies = {
   PAYMENT_METHODS: "[POLICY: accepted payment methods]",
   PETS_AND_KIDS: "[POLICY: guidance for pets and children during home visits]",
   MINIMUM_AGE: "[POLICY: minimum age, and whether minors need a guardian present]",
-  SPACE_NEEDED: "[POLICY: space and setup she needs at home, e.g. floor area, outlet, lighting]",
+  SPACE_NEEDED: "[POLICY: space and setup I need at your home, e.g. floor area, outlet, lighting]",
 } as const;
 
 /** Specific hygiene practices. Hidden until showHygieneDetails is true. */
@@ -165,7 +165,7 @@ export const services: Service[] = [
       "Custom facials from a licensed esthetician in {CITY}, built around your skin that day. Mobile appointments at home or visits to the studio.",
     benefit: "Built around your skin as it is today, never a one-size routine.",
     entitySentence:
-      "Lá Boujee Esthetics offers custom facials in {CITY}, performed by a licensed esthetician at your home or in her studio, depending on the treatment.",
+      "Lá Boujee Esthetics offers custom facials in {CITY}, and I perform each one myself as a licensed esthetician, at your home or in my studio, depending on the treatment.",
     intro: [
       "A custom facial starts with your skin, not a script. Cleansing, exfoliation, extractions, masks and massage are chosen for what your skin needs on the day you book.",
       "It's a treatment many people keep on a regular rhythm, because skin changes with seasons, stress and sleep.",
@@ -273,7 +273,7 @@ export const services: Service[] = [
     ],
     before: [
       "Come without eye makeup if you're having lashes tinted.",
-      "Let her know about any sensitivity to hair dye. A patch test may be recommended.",
+      "Let me know about any sensitivity to hair dye. A patch test may be recommended.",
     ],
     after: [
       "Keep the area dry and avoid oil-based cleansers for about a day.",
@@ -300,7 +300,7 @@ export const services: Service[] = [
       "Eyelash lifts in {CITY} from a licensed esthetician. A lasting curl from your own natural lashes, with mobile or studio appointments.",
     benefit: "A lasting curl from your own lashes, no extensions to maintain.",
     entitySentence:
-      "Lá Boujee Esthetics performs eyelash lifts in {CITY}, giving natural lashes a lasting curl at your home or in her studio.",
+      "Lá Boujee Esthetics offers eyelash lifts in {CITY}, giving your natural lashes a lasting curl at your home or in my studio.",
     intro: [
       "A lash lift curls your natural lashes from the base, so they look longer and more open without extensions, glue or fills.",
       "Most clients pair it with a lash tint for even more definition.",
@@ -345,7 +345,7 @@ export const services: Service[] = [
       "Chemical peels in {CITY} from a licensed esthetician. Refresh tone and texture with a peel chosen for your skin and your schedule.",
     benefit: "Fresher tone and smoother texture, chosen for your skin.",
     entitySentence:
-      "Lá Boujee Esthetics offers chemical peels in {CITY}, chosen by a licensed esthetician to suit your skin and your schedule.",
+      "Lá Boujee Esthetics offers chemical peels in {CITY}, and as a licensed esthetician I choose each peel to suit your skin and your schedule.",
     intro: [
       "A chemical peel uses a carefully applied exfoliating solution to lift away dull surface cells, so newer skin shows through.",
       "Esthetician-level peels are designed for refreshing tone and texture, with little to no downtime for most people.",

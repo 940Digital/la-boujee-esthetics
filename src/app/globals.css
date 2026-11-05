@@ -107,6 +107,17 @@ p {
   color: var(--color-rose-ink);
 }
 
+/* Same drop cap as a span, for paragraphs whose first "letter" would
+   otherwise include punctuation (e.g. "I'm"). */
+.dropcap-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 4.6em;
+  line-height: 0.8;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--color-rose-ink);
+}
+
 /* ---------- Photography ---------- */
 
 /* Studio-portrait treatment: every photo prints black and white. */

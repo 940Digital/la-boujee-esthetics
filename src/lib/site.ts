@@ -43,10 +43,10 @@ export function servicePath(slug: ServiceSlug): string {
 
 export const settingCopy: Record<Service["setting"], string> = {
   unconfirmed:
-    "At your home or in the studio, depending on the treatment. Ask which applies to your treatment when you book.",
+    "At your home or in my studio, depending on the treatment. Ask which applies to your treatment when you book.",
   mobile: "Offered as a mobile appointment at your home.",
-  studio: "Offered in the studio, where the full setup lives.",
-  both: "Offered at your home or in the studio, whichever you prefer.",
+  studio: "Offered in my studio, where the full setup lives.",
+  both: "Offered at your home or in my studio, whichever you prefer.",
 };
 
 export const primaryNav = [
