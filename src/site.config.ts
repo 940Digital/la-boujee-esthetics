@@ -193,8 +193,8 @@ export const services: Service[] = [
     setting: "unconfirmed",
     menu: priceRows("FACIAL"),
     image: {
-      src: "/photos/facials-gel-mask.jpg",
-      alt: "Client relaxing under a cooling gel mask while an esthetician glides a facial roller across her cheek",
+      src: "/photos/facials-cream-mask.jpg",
+      alt: "Client resting with eyes closed as a cream mask is brushed on during a facial",
       width: 1200,
       height: 1500,
       aspect: "4 / 5",
@@ -238,8 +238,8 @@ export const services: Service[] = [
     setting: "unconfirmed",
     menu: priceRows("WAXING"),
     image: {
-      src: "/photos/waxing-smooth-legs.jpg",
-      alt: "Silhouette of smooth, bare legs crossed against a white backdrop",
+      src: "/photos/waxing-warm-wax.jpg",
+      alt: "A ribbon of warm wax falling from an applicator",
       width: 1200,
       height: 1500,
       aspect: "4 / 5",
@@ -373,8 +373,8 @@ export const services: Service[] = [
     setting: "unconfirmed",
     menu: priceRows("PEEL"),
     image: {
-      src: "/photos/chemical-peel-serum-drop.jpg",
-      alt: "Glass dropper releasing a single drop of clear treatment serum into a bottle",
+      src: "/photos/chemical-peel-skincare-ritual.jpg",
+      alt: "Hand reaching for an open jar of cream beside a small serum bottle, leaves casting soft shadows",
       width: 1200,
       height: 1500,
       aspect: "4 / 5",
@@ -446,8 +446,8 @@ export const images = {
       aspect: "1 / 1",
     },
     {
-      src: "/photos/gallery-bulb-vanity.jpg",
-      alt: "Hollywood dressing-room vanity ringed with bulbs, brushes and makeup laid out on the counter",
+      src: "/photos/gallery-gel-mask.jpg",
+      alt: "Client relaxing under a cooling gel mask while an esthetician glides a facial roller across her cheek",
       width: 1000,
       height: 1000,
       aspect: "1 / 1",
