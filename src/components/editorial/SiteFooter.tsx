@@ -17,7 +17,7 @@ export function SiteFooter() {
           <div>
             <Wordmark size="lg" />
             <p className="kicker mt-6 text-silver">{business.credential}</p>
-            <p className="mt-2 max-w-[34ch] text-[0.95rem] text-mist">
+            <p className="mt-2 max-w-[34ch] text-[1.0625rem] md:text-[0.98rem] text-mist">
               Facials, waxing, tinting, eyelash lifts and chemical peels in {business.CITY}, at your home or in my studio.
             </p>
           </div>
@@ -35,10 +35,10 @@ export function SiteFooter() {
           </div>
           <div>
             <h2 className={col}>Service area</h2>
-            <p className="mt-4 text-[0.95rem] text-pearl/85">
+            <p className="mt-4 text-[1.0625rem] md:text-[0.98rem] text-pearl/85">
               Within {business.TRAVEL_RADIUS} of {business.CITY}, {business.STATE}.
             </p>
-            <ul className="mt-2 text-[0.95rem] text-mist">
+            <ul className="mt-2 text-[1.0625rem] md:text-[0.98rem] text-mist">
               {business.SERVICE_AREA.map((a, i) => (
                 <li key={`${a}-${i}`}>{a}</li>
               ))}
@@ -82,7 +82,7 @@ export function SiteFooter() {
             </Link>
           ))}
         </nav>
-        <p className="mt-4 text-[0.8rem] text-mist">
+        <p className="mt-4 text-[0.9rem] text-mist">
           &copy; {business.name}. {business.credential}, {business.CITY}, {business.STATE}.
         </p>
       </div>

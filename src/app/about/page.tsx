@@ -71,7 +71,7 @@ export default function AboutPage() {
                     <li key={s.slug} className="border-b border-ink/12">
                       <Link href={`/${s.slug}`} className="group flex min-h-12 flex-col py-3">
                         <span className="display text-[1.5rem] leading-tight transition-colors group-hover:text-rose-ink">{s.name}</span>
-                        <span className="mt-1 text-[0.95rem] text-graphite">{s.benefit}</span>
+                        <span className="mt-1 text-[1.0625rem] md:text-[0.98rem] text-graphite">{s.benefit}</span>
                       </Link>
                     </li>
                   ))}

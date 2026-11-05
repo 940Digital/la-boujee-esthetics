@@ -45,7 +45,7 @@ export function Opener({
       <div className={`relative z-10 mx-auto max-w-[1400px] px-6 pb-16 md:px-10 md:pb-20 ${photo ? "pt-6 lg:pt-44 xl:pt-52" : "pt-32 lg:pt-44 xl:pt-52"} lg:min-h-[560px]`}>
         <div className={photo ? "lg:max-w-[54%]" : "max-w-[900px]"}>
           <nav aria-label="Breadcrumb">
-            <ol className="kicker flex flex-wrap items-center gap-3 !text-[0.66rem] text-mist">
+            <ol className="kicker flex flex-wrap items-center gap-3 !text-[0.78rem] md:!text-[0.7rem] text-mist">
               <li>
                 <Link href="/" className="inline-flex min-h-11 items-center hover:text-rose">
                   Home

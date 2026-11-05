@@ -47,7 +47,7 @@ export function ContactSheet() {
               <ul className="grid grid-cols-5 gap-2 px-2">
                 {frames.map((f, i) => (
                   <li key={f.src} className="relative">
-                    <p aria-hidden className="mb-1 font-sans text-[0.62rem] tracking-[0.2em] text-silver/80">
+                    <p aria-hidden className="mb-1 font-sans text-[0.7rem] font-semibold tracking-[0.2em] text-silver">
                       {String(i + 1).padStart(2, "0")}
                     </p>
                     <div className="bw grain relative aspect-square overflow-hidden">

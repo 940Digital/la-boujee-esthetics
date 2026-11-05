@@ -95,12 +95,12 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
               <h3 className="kicker text-ink">At a glance</h3>
               <dl className="mt-3">
                 <div className="border-b border-ink/12 py-3">
-                  <dt className="kicker !text-[0.66rem] text-rose-ink">Where it happens</dt>
-                  <dd className="mt-1 text-[0.95rem] leading-snug">{settingCopy[s.setting]}</dd>
+                  <dt className="kicker !text-[0.78rem] md:!text-[0.7rem] text-rose-ink">Where it happens</dt>
+                  <dd className="mt-1 text-[1.0625rem] md:text-[0.98rem] leading-snug">{settingCopy[s.setting]}</dd>
                 </div>
                 <div className="border-b border-ink/12 py-3">
-                  <dt className="kicker !text-[0.66rem] text-rose-ink">Who you&apos;ll see</dt>
-                  <dd className="mt-1 text-[0.95rem] leading-snug">
+                  <dt className="kicker !text-[0.78rem] md:!text-[0.7rem] text-rose-ink">Who you&apos;ll see</dt>
+                  <dd className="mt-1 text-[1.0625rem] md:text-[0.98rem] leading-snug">
                     {business.OWNER_NAME}, {business.credential.toLowerCase()}
                   </dd>
                 </div>
@@ -223,7 +223,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
                   <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
                     <h3 className="display text-[1.7rem] text-pearl">{r.name}</h3>
-                    <p className="mt-1 text-[0.95rem] text-pearl/80">{r.benefit}</p>
+                    <p className="mt-1 text-[1.0625rem] md:text-[0.98rem] text-pearl/80">{r.benefit}</p>
                   </div>
                 </Link>
               </Fade>

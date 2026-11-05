@@ -21,7 +21,7 @@ export function PriceList({ service }: { service: Service }) {
                 <div key={m.name} className="flex items-baseline gap-4 border-b border-ink/12 py-4 last:border-b-0">
                   <dt className="display text-[1.35rem]">
                     {m.name}
-                    {m.note ? <span className="mt-1 block font-sans text-sm text-graphite">{m.note}</span> : null}
+                    {m.note ? <span className="mt-1 block font-sans text-[0.95rem] text-graphite">{m.note}</span> : null}
                   </dt>
                   <span aria-hidden className="mb-[0.3em] flex-1 border-b border-dotted border-ink/35" />
                   <dd className="display text-[1.35rem] text-rose-ink">{m.price}</dd>

@@ -31,7 +31,7 @@ function Step({ act, title, children }: { act: string; title: string; children: 
 export default function BookPage() {
   const online = !isPlaceholder(business.BOOKING_URL);
   const chip =
-    "inline-flex min-h-11 items-center border border-ink/25 px-4 text-[0.92rem] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-pearl";
+    "inline-flex min-h-11 items-center border border-ink/25 px-4 text-[1rem] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-pearl";
   return (
     <>
       <Opener
@@ -97,7 +97,7 @@ export default function BookPage() {
           <Reveal>
             <div className="border-t-2 border-ink pt-4">
               <h3 className="kicker text-ink">Good to know</h3>
-              <ul className="mt-2 text-[0.95rem] text-graphite">
+              <ul className="mt-2 text-[1.0625rem] md:text-[0.98rem] text-graphite">
                 {[policies.DEPOSIT, policies.CANCELLATION, policies.PAYMENT_METHODS, policies.MINIMUM_AGE].map((p) => (
                   <li key={p} className="border-b border-ink/12 py-3">
                     {p}

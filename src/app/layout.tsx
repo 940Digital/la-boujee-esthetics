@@ -20,7 +20,7 @@ const bodoni = Bodoni_Moda({
 
 const josefin = Josefin_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "600"],
+  weight: ["400", "600"],
   variable: "--font-josefin",
   display: "swap",
 });

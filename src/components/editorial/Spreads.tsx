@@ -66,8 +66,8 @@ export function Profile() {
                 <dl className="mt-3">
                   {atAGlance.map((a) => (
                     <div key={a.k} className="border-b border-ink/12 py-3">
-                      <dt className="kicker text-[0.66rem] text-rose-ink">{a.k}</dt>
-                      <dd className="mt-1 text-[0.95rem] leading-snug text-ink">{a.v}</dd>
+                      <dt className="kicker !text-[0.78rem] md:!text-[0.7rem] text-rose-ink">{a.k}</dt>
+                      <dd className="mt-1 text-[1.0625rem] md:text-[0.98rem] leading-snug text-ink">{a.v}</dd>
                     </div>
                   ))}
                 </dl>

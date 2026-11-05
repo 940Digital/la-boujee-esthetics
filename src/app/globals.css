@@ -24,9 +24,9 @@
   --color-rose-soft: #e7a9c4; /* pink text on wine */
   --color-wine: #2a1420;
   --color-wine-deep: #1f0e17;
-  --color-mist: #bcb3b8; /* muted text on ink */
+  --color-mist: #c9c1c6; /* muted text on ink */
   --color-mauve: #d8c3cc; /* muted text on wine */
-  --color-graphite: #4b4347; /* muted text on pearl */
+  --color-graphite: #423b3f; /* muted text on pearl */
 
   --font-display: var(--font-bodoni), "Didot", "Bodoni 72", serif;
   --font-sans: var(--font-josefin), "Futura", "Century Gothic", sans-serif;
@@ -51,13 +51,18 @@ html {
   }
 }
 
+/*
+  Josefin Sans has a small x-height, so it reads smaller than its pixel size.
+  Body copy uses the regular weight (300 was too thin on phones) and steps up
+  to 18px on small screens.
+*/
 body {
   background: var(--color-pearl);
   color: var(--color-ink);
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -88,13 +93,23 @@ p {
   overflow-wrap: anywhere;
 }
 
-/* Spaced small caps in Josefin, the fashion-magazine kicker. */
+/* Spaced small caps in Josefin, the fashion-magazine kicker.
+   Never smaller than 12.5px; a touch less tracking on phones so it doesn't sprawl. */
 .kicker {
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 0.72rem;
-  letter-spacing: 0.34em;
+  font-size: 0.78rem;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 1.0625rem;
+  }
+  .kicker {
+    font-size: 0.74rem;
+    letter-spacing: 0.32em;
+  }
 }
 
 /* Drop cap for features, set in Bodoni and her pink. */

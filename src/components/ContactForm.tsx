@@ -38,15 +38,15 @@ export function ContactForm({ endpoint }: { endpoint: string }) {
 
   return (
     <form onSubmit={onSubmit} className="grid gap-7 sm:grid-cols-2">
-      <label className="block text-[0.85rem] uppercase tracking-[0.18em] text-graphite">
+      <label className="block text-[0.9rem] font-semibold uppercase tracking-[0.16em] text-graphite">
         Name
         <input name="name" required autoComplete="name" className={field} />
       </label>
-      <label className="block text-[0.85rem] uppercase tracking-[0.18em] text-graphite">
+      <label className="block text-[0.9rem] font-semibold uppercase tracking-[0.16em] text-graphite">
         Phone or email
         <input name="contact" required autoComplete="email" className={field} />
       </label>
-      <label className="block text-[0.85rem] uppercase tracking-[0.18em] text-graphite sm:col-span-2">
+      <label className="block text-[0.9rem] font-semibold uppercase tracking-[0.16em] text-graphite sm:col-span-2">
         Treatment
         <select name="treatment" className={field} defaultValue="">
           <option value="">Not sure yet</option>
@@ -55,7 +55,7 @@ export function ContactForm({ endpoint }: { endpoint: string }) {
           ))}
         </select>
       </label>
-      <label className="block text-[0.85rem] uppercase tracking-[0.18em] text-graphite sm:col-span-2">
+      <label className="block text-[0.9rem] font-semibold uppercase tracking-[0.16em] text-graphite sm:col-span-2">
         Message
         <textarea name="message" rows={4} className={field} />
       </label>
@@ -64,7 +64,7 @@ export function ContactForm({ endpoint }: { endpoint: string }) {
           {state === "sending" ? "Sending" : "Send Message"}
         </button>
         {state === "error" ? (
-          <p role="alert" className="mt-4 text-[0.95rem] text-ink">
+          <p role="alert" className="mt-4 text-[1.0625rem] md:text-[0.98rem] text-ink">
             The message didn&apos;t go through. Check your connection and try again, or reach out by phone or email.
           </p>
         ) : null}

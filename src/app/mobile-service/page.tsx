@@ -143,7 +143,7 @@ export default function MobileServicePage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 space-y-2 text-[0.95rem] text-graphite">
+            <div className="mt-8 space-y-2 text-[1.0625rem] md:text-[0.98rem] text-graphite">
               <p>{policies.SPACE_NEEDED}</p>
               <p>{policies.PETS_AND_KIDS}</p>
               <p>{policies.TRAVEL_FEE}</p>
