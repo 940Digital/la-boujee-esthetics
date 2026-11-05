@@ -24,7 +24,7 @@ export function Reviews({ tone = "pearl" }: { tone?: "pearl" | "ink" | "wine" })
           {reviews.map((r, i) => (
             <StaggerItem key={i}>
               <figure className={`relative h-full px-8 py-12 text-center ${card}`}>
-                <StepFrame tone={dark ? "blush" : "blush-ink"} inset={8} step={12} opacity={0.6} />
+                <StepFrame tone={dark ? "silver" : "silver-ink"} inset={8} step={12} opacity={0.6} />
                 <span aria-hidden className={`font-serif text-6xl leading-none ${dark ? "text-rose" : "text-rose-ink"}`}>
                   &ldquo;
                 </span>

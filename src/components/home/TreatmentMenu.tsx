@@ -10,7 +10,7 @@ function Bulbs() {
       aria-hidden
       className="h-2 w-full"
       style={{
-        backgroundImage: "radial-gradient(circle, #C2809E 1.6px, transparent 2.2px)",
+        backgroundImage: "radial-gradient(circle, #9A939D 1.6px, transparent 2.2px)",
         backgroundSize: "18px 8px",
         backgroundPosition: "center",
       }}
@@ -30,18 +30,18 @@ export function TreatmentMenu() {
       <div className="mx-auto max-w-[880px] px-5 md:px-10">
         <Reveal y={24}>
           <div className="relative bg-pearl px-6 py-14 shadow-[0_30px_80px_-40px_rgba(18,18,18,0.35)] ring-1 ring-ink/10 md:px-16 md:py-20">
-            <StepFrame tone="blush-ink" inset={12} step={16} opacity={0.8} />
+            <StepFrame tone="silver-ink" inset={12} step={16} opacity={0.8} />
             <div className="mx-auto max-w-[520px]">
               <Bulbs />
             </div>
 
             <header className="mt-8 text-center">
-              <FanMark size={46} tone="blush-ink" className="mx-auto" />
+              <FanMark size={46} tone="silver-ink" className="mx-auto" />
               <p className="label mt-4 text-rose-ink">Lá Boujee Esthetics presents</p>
               <h2 id="menu-title" className="display mt-3 text-[clamp(2.5rem,1.9rem+2.6vw,4rem)] text-ink">
                 The Treatment Menu
               </h2>
-              <RuleDraw className="mx-auto mt-6 w-40 bg-blush-ink" />
+              <RuleDraw className="mx-auto mt-6 w-40 bg-silver-ink" />
             </header>
 
             <Stagger className="mt-10" as="li">

@@ -13,7 +13,7 @@ export function PriceList({ service }: { service: Service }) {
       <div className="mx-auto max-w-[720px] px-6">
         <Reveal>
           <div className="relative px-6 py-12 ring-1 ring-ink/10 md:px-14">
-            <StepFrame tone="blush-ink" inset={10} step={14} />
+            <StepFrame tone="silver-ink" inset={10} step={14} />
             <h2 id="prices-title" className="h2 text-center text-ink">
               {service.name} Prices
             </h2>

@@ -3,13 +3,13 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 /*
-  The one section allowed extra flair: a blush sunburst rising from a pleated
+  The one section allowed extra flair: a silver sunburst rising from a pleated
   fan at the foot of the page. Rays draw in from the centre outward, then a
   slow glow breathes behind the fan. Two compositions (wide and tall) so the
   fan is never cropped awkwardly on a phone.
 */
 
-const BLUSH = "#E8B7CB";
+const SILVER = "#C4BFC6";
 const ROSE = "#D4508C";
 const f = (n: number) => Number(n.toFixed(2));
 
@@ -80,8 +80,8 @@ function Composition({ w, h, fanR, rays, className }: Props) {
     >
       <defs>
         <radialGradient id={`glow-${w}`} cx="50%" cy="100%" r="60%" fx="50%" fy="100%">
-          <stop offset="0%" stopColor={ROSE} stopOpacity="0.38" />
-          <stop offset="45%" stopColor={ROSE} stopOpacity="0.1" />
+          <stop offset="0%" stopColor={ROSE} stopOpacity="0.44" />
+          <stop offset="55%" stopColor={ROSE} stopOpacity="0.16" />
           <stop offset="100%" stopColor={ROSE} stopOpacity="0" />
         </radialGradient>
         <radialGradient id={`veil-${w}`} cx="50%" cy="42%" r="42%">
@@ -91,20 +91,22 @@ function Composition({ w, h, fanR, rays, className }: Props) {
         </radialGradient>
       </defs>
 
-      {/* breathing glow */}
-      <motion.ellipse
-        cx={cx}
-        cy={cy}
-        rx={w * 0.7}
-        ry={h * 0.95}
+      {/* breathing pink glow. A full-frame rect so the gradient's 50%/100%
+          centre lands on the fan at the bottom edge (an ellipse put it a
+          screen-height below the page, where it never showed). */}
+      <motion.rect
+        x={0}
+        y={0}
+        width={w}
+        height={h}
         fill={`url(#glow-${w})`}
         initial={{ opacity: 0 }}
-        animate={reduce ? { opacity: 0.8 } : { opacity: [0, 0.9, 0.6, 0.9] }}
+        animate={reduce ? { opacity: 1 } : { opacity: [0, 1, 0.82, 1] }}
         transition={reduce ? undefined : { duration: 9, delay: 1.2, times: [0, 0.3, 0.65, 1], repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
       />
 
       {/* sunburst rays */}
-      <g stroke={BLUSH} fill="none">
+      <g stroke={SILVER} fill="none">
         {rayData.map((r, i) => (
           <motion.line
             key={i}
@@ -123,13 +125,13 @@ function Composition({ w, h, fanR, rays, className }: Props) {
       <rect x="0" y="0" width={w} height={h} fill={`url(#veil-${w})`} />
 
       {/* concentric horizon arcs */}
-      <g stroke={BLUSH} fill="none">
+      <g stroke={SILVER} fill="none">
         <motion.path d={arc(fanR + 26)} strokeWidth="0.8" strokeOpacity="0.55" {...draw(0.2, 1.8)} />
         <motion.path d={arc(fanR + 34)} strokeWidth="0.5" strokeOpacity="0.35" {...draw(0.35, 1.8)} />
       </g>
 
       {/* the pleated fan */}
-      <g stroke={BLUSH} fill="none">
+      <g stroke={SILVER} fill="none">
         <motion.path d={scallop} strokeWidth="1" strokeOpacity="0.9" {...draw(0.1, 2)} />
         {pleatLines.map((p, i) => (
           <motion.line key={i} {...p} strokeWidth="0.7" strokeOpacity="0.7" {...draw(0.25 + Math.abs(i - 6) * 0.06, 1.2)} />
@@ -144,7 +146,7 @@ function Composition({ w, h, fanR, rays, className }: Props) {
         y1={cy - 0.5}
         x2={f(cx + w * 0.48)}
         y2={cy - 0.5}
-        stroke={BLUSH}
+        stroke={SILVER}
         strokeWidth="1"
         strokeOpacity="0.6"
         {...draw(0, 1.6)}

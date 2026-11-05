@@ -4,9 +4,10 @@
   Lá Boujee Esthetics design tokens.
   Palette (from her business card): near-black and her brand pink, with a
   pink-white pearl for light sections and a deep black-cherry for depth.
-  Everything is one pink family: text accents and buttons use her pink,
-  thin Deco line-work uses blush (a lighter tint of the same pink), and
-  blush-ink is the line colour on light backgrounds. rose-ink / rose-soft are
+  Text accents and buttons use her pink; thin Deco line-work is platinum
+  silver (a silver-screen nod), with silver-ink as the line colour on light
+  backgrounds. A soft pink glow sits behind the dark sections so the
+  silver always reads against her pink. rose-ink / rose-soft are
   her pink shifted so small text passes WCAG AA on pearl / on wine.
 */
 @theme {
@@ -14,8 +15,8 @@
   --color-ink-2: #1c1a1b;
   --color-pearl: #f9f6f7;
   --color-pearl-2: #f2eaed;
-  --color-blush: #e8b7cb; /* line-work on dark */
-  --color-blush-ink: #c2809e; /* line-work on pearl */
+  --color-silver: #c4bfc6; /* line-work on dark */
+  --color-silver-ink: #9a939d; /* line-work on pearl */
   --color-rose: #d4508c; /* her brand pink */
   --color-rose-light: #e27aa8;
   --color-rose-ink: #a8336a; /* pink text on pearl */

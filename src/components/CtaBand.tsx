@@ -24,7 +24,7 @@ export function CtaBand({
             <BookButton />
           </div>
         </Reveal>
-        <RuleDraw className="mx-auto mt-14 w-48 bg-blush/60" />
+        <RuleDraw className="mx-auto mt-14 w-48 bg-silver/60" />
       </div>
     </section>
   );

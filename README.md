@@ -27,5 +27,5 @@ All business details live in `src/site.config.ts`. See **PLACEHOLDERS.md** for t
 
 ## Design system
 
-- Palette (from her business card), one pink family: near-black `#121212`, her brand pink `#D4508C` (text accents, buttons, logo), blush `#E8B7CB` for thin Deco line-work (`blush-ink #C2809E` on light backgrounds), pink-white pearl `#F9F6F7`, black-cherry `#2A1420` for depth. `rose-ink #A8336A` and `rose-soft #E7A9C4` are the pink adjusted for small text on pearl and on black-cherry (WCAG AA). Gold was tried and dropped: it fought the pink.
+- Palette (from her business card): near-black `#121212`, her brand pink `#D4508C` (text accents, buttons, logo), platinum silver `#C4BFC6` for thin Deco line-work (`silver-ink #9A939D` on light backgrounds), a pink radial glow behind the hero fan and dark sections, pink-white pearl `#F9F6F7`, black-cherry `#2A1420` for depth. `rose-ink #A8336A` and `rose-soft #E7A9C4` are the pink adjusted for small text on pearl and on black-cherry (WCAG AA). Gold and blush line-work were tried and dropped.
 - Type: Cormorant Garamond (headings), Josefin Sans (body/UI), Poiret One (small labels only)
