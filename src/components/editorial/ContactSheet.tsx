@@ -35,7 +35,7 @@ export function ContactSheet() {
             </h2>
           </div>
           <p className="max-w-[40ch] text-graphite">
-            Opera gloves, a wide-brim hat, pinned curls and a ringing telephone. The golden-age glamour behind Lá Boujee.
+            Opera gloves, a wide-brim hat, pinned curls and bare shoulders. The golden-age glamour behind Lá Boujee.
           </p>
         </Reveal>
 

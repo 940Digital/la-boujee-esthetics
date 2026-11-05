@@ -410,8 +410,8 @@ export const images = {
     aspect: "3 / 2",
   },
   studio: {
-    src: "/photos/studio-tufted-velvet.jpg",
-    alt: "Close-up of a tufted velvet chaise",
+    src: "/photos/studio-still-life.jpg",
+    alt: "A rolled towel, a plain pump bottle, a lit tea light and pink tulips on a white table",
     width: 1500,
     height: 1000,
     aspect: "3 / 2",
@@ -439,8 +439,8 @@ export const images = {
       aspect: "1 / 1",
     },
     {
-      src: "/photos/gallery-gold-telephone.jpg",
-      alt: "Gloved hand lifting the receiver of a vintage rotary telephone, leopard coat behind",
+      src: "/photos/gallery-off-shoulder-gown.jpg",
+      alt: "Woman in an off-shoulder gown against a dark studio backdrop, hand resting at her shoulder",
       width: 1000,
       height: 1000,
       aspect: "1 / 1",
