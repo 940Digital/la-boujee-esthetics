@@ -11,6 +11,15 @@ npm install
 npm run dev
 ```
 
+## Design options (demo)
+
+Two directions share the same config, copy facts, logo and palette. A tab bar at the top flips between them.
+
+- **Option 1, Art Deco** (`/` and every inner page): `src/app/(v1)`, components in `src/components`.
+- **Option 2, Hollywood Editorial** (`/option-2`, noindex): a one-page 1940s and 50s fashion-magazine layout with a black-and-white cover, lookbook, a contact-sheet gallery and an interview-style Q&A. Components in `src/components/v2`, styles in the `.v2` block at the end of `globals.css`, Bodoni Moda loaded in `src/app/option-2/layout.tsx`.
+
+When she picks one, delete the other's route and components, `src/components/OptionSwitcher.tsx`, and the `top-9` offsets in the headers.
+
 ## Before launch
 
 All business details live in `src/site.config.ts`. See **PLACEHOLDERS.md** for the full checklist.

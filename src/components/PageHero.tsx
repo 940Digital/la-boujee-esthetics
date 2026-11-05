@@ -23,7 +23,7 @@ export function PageHero({
   return (
     <section className="fan-texture relative overflow-hidden bg-ink text-pearl">
       <RayField opacity={0.1} />
-      <div className="relative mx-auto max-w-[1000px] px-6 pb-20 pt-32 text-center md:pb-24 md:pt-[15rem]">
+      <div className="relative mx-auto max-w-[1000px] px-6 pb-20 pt-40 text-center md:pb-24 md:pt-[17.25rem]">
         <nav aria-label="Breadcrumb">
           <ol className="flex flex-wrap items-center justify-center gap-2 text-[0.72rem] uppercase tracking-[0.22em] text-mist">
             <li>

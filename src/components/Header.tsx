@@ -85,7 +85,7 @@ export function Header() {
       </a>
 
       {/* Full header, sits over each page's dark opening band */}
-      <header className="absolute inset-x-0 top-0 z-40">
+      <header className="absolute inset-x-0 top-9 z-40">
         <div className="mx-auto flex max-w-[1320px] items-center justify-between px-5 pt-5 md:grid md:grid-cols-[1fr_auto_1fr] md:px-10 md:pt-7">
           <HeaderPhone />
           <div className="md:hidden">
@@ -132,7 +132,7 @@ export function Header() {
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-x-0 top-0 z-40 border-b border-silver/40 bg-ink/95 backdrop-blur-sm"
+            className="fixed inset-x-0 top-9 z-40 border-b border-silver/40 bg-ink/95 backdrop-blur-sm"
           >
             <div className="mx-auto flex h-16 max-w-[1320px] items-center justify-between px-5 md:px-10">
               <Wordmark size="sm" stacked={false} />
@@ -158,7 +158,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fan-texture fixed inset-0 z-50 overflow-y-auto bg-ink"
+            className="fan-texture fixed inset-x-0 bottom-0 top-9 z-50 overflow-y-auto bg-ink"
           >
             <div className="mx-auto flex h-16 max-w-[1320px] items-center justify-between px-5 md:px-10">
               <Wordmark size="sm" stacked={false} />

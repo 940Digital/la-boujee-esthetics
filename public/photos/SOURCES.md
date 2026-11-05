@@ -12,6 +12,7 @@ All photos are from Unsplash (free under the Unsplash License, no attribution re
 | come-to-you-vanity.jpg | 1686109831633-d35231b5c623 |
 | studio-still-life.jpg | 1540555700478-4be289fbecef |
 | gallery-finger-waves.jpg | 1654168080461-87e8081d68c7 |
+| cover-finger-waves.jpg (Option 2 cover) | 1654168080461-87e8081d68c7 |
 | gallery-black-white-portrait.jpg | 1641901960200-1e878f0cbf63 |
 | gallery-winged-liner.jpg | 1595550912256-b24059bb08e8 |
 | gallery-pearls.jpg | 1595345705177-ffe090eb0784 |

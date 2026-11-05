@@ -4,7 +4,7 @@ import { FanMark } from "@/components/deco";
 
 export default function NotFound() {
   return (
-    <section className="fan-texture flex min-h-[90svh] items-center bg-ink px-6 pb-20 pt-36 text-center text-pearl md:pt-56">
+    <section className="fan-texture flex min-h-[90svh] items-center bg-ink px-6 pb-20 pt-44 text-center text-pearl md:pt-64">
       <div className="mx-auto max-w-[640px]">
         <FanMark size={64} className="mx-auto" />
         <p className="label mt-6 text-rose">Page not found</p>

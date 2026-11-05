@@ -8,14 +8,14 @@ import { BookButton } from "./BookButton";
  * Sticky booking bar on phones. It waits until the visitor scrolls past the
  * opening band (which has its own button), so the first screen shows one CTA.
  */
-export function MobileBookBar() {
+export function MobileBookBar({ showAfter = 380 }: { showAfter?: number }) {
   const [show, setShow] = useState(false);
   useEffect(() => {
-    const onScroll = () => setShow(window.scrollY > 380);
+    const onScroll = () => setShow(window.scrollY >= showAfter);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [showAfter]);
   return (
     <AnimatePresence>
       {show && (

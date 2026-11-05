@@ -2,12 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Josefin_Sans, Poiret_One } from "next/font/google";
 import "./globals.css";
 import { business, services } from "@/site.config";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { MobileBookBar } from "@/components/MobileBookBar";
 import { MotionProvider } from "@/components/motion";
 import { JsonLd } from "@/components/JsonLd";
 import { bookingHref, isPlaceholder } from "@/lib/site";
+import { OptionSwitcher } from "@/components/OptionSwitcher";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -104,10 +102,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <JsonLd data={businessSchema()} />
         <MotionProvider>
-          <Header />
-          <main id="main">{children}</main>
-          <Footer />
-          <MobileBookBar />
+          {/* Demo only: lets Laurel flip between design options. Remove with the option-2 route. */}
+          <OptionSwitcher />
+          {children}
         </MotionProvider>
       </body>
     </html>

@@ -387,6 +387,14 @@ export const services: Service[] = [
 /* ------------------------------------------------------------------ */
 
 export const images = {
+  /** Option 2 cover. Full 4:5 frame of the finger-waves portrait. */
+  cover: {
+    src: "/photos/cover-finger-waves.jpg",
+    alt: "Woman with sculpted vintage finger waves, soft matte lips and a tulle collar",
+    width: 1600,
+    height: 2000,
+    aspect: "4 / 5",
+  },
   ownerPortrait: {
     src: "/placeholders/owner-portrait.svg",
     alt: "Portrait of Laurel Porter, licensed esthetician and owner of Lá Boujee Esthetics",

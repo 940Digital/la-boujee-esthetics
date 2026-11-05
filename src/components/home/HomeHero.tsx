@@ -10,7 +10,7 @@ export function HomeHero() {
       className="relative isolate flex min-h-[max(100svh,640px)] items-start overflow-hidden bg-ink text-pearl md:min-h-[max(100svh,780px)]"
     >
       <HeroArt />
-      <div className="relative mx-auto w-full max-w-[1100px] px-6 pb-[42svh] pt-36 text-center md:pb-[36vh] md:pt-[15.5rem]">
+      <div className="relative mx-auto w-full max-w-[1100px] px-6 pb-[42svh] pt-44 text-center md:pb-[36vh] md:pt-[17.5rem]">
         <Reveal y={10}>
           <p className="label flex items-center justify-center gap-4 text-rose">
             <span aria-hidden className="h-px w-8 bg-silver/70" />
