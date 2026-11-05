@@ -9,7 +9,7 @@ All photos are from Unsplash (free under the Unsplash License, no attribution re
 | gallery-wide-brim-hat.jpg | 1495462911434-be47104d70fa |
 | gallery-polka-dot.jpg | 1653688257587-004cb9193bd4 |
 | gallery-off-shoulder-gown.jpg | 1626818590179-66ae6d62b8cf |
-| gallery-gel-mask.jpg | 1647004692483-c5d942fe1137 (cropped away from towel lettering) |
+| gallery-winged-profile.jpg | 1609360706137-c59ba75b4d26 |
 | facials-cream-mask.jpg | 1616394584738-fc6e612e71b9 |
 | tinting-brow-close-up.jpg | 1685702673311-e7c4ce28e561 |
 | waxing-warm-wax.jpg | 1696192410531-dc179772a0e8 (cropped above the branded jar) |

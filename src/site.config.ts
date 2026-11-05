@@ -446,8 +446,8 @@ export const images = {
       aspect: "1 / 1",
     },
     {
-      src: "/photos/gallery-gel-mask.jpg",
-      alt: "Client relaxing under a cooling gel mask while an esthetician glides a facial roller across her cheek",
+      src: "/photos/gallery-winged-profile.jpg",
+      alt: "Profile of a woman with a sleek updo, a classic winged liner and a bare shoulder",
       width: 1000,
       height: 1000,
       aspect: "1 / 1",
