@@ -49,7 +49,7 @@ export function Fade({ children, className, delay = 0 }: Omit<RevealProps, "y" |
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={viewport}
-      transition={{ duration: 1.2, ease, delay }}
+      transition={{ duration: 0.7, ease, delay }}
     >
       {children}
     </motion.div>
@@ -82,7 +82,7 @@ export function Curtain({ children, className, delay = 0 }: Omit<RevealProps, "y
         className="h-full"
         variants={{
           hidden: { clipPath: "inset(0% 50% 0% 50%)", opacity: 0.4 },
-          show: { clipPath: "inset(0% 0% 0% 0%)", opacity: 1, transition: { duration: 1.4, ease, delay } },
+          show: { clipPath: "inset(0% 0% 0% 0%)", opacity: 1, transition: { duration: 0.9, ease, delay } },
         }}
       >
         {children}

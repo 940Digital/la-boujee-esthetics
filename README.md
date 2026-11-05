@@ -28,6 +28,7 @@ All business details live in `src/site.config.ts`. See **PLACEHOLDERS.md** for t
 - `src/components/editorial/`: the cover, spreads, contact sheet, page opener, header, footer, and the shared service-page template (`ServicePage.tsx`)
 - `src/components/motion.tsx`: scroll reveals. All use `viewport={{ once: false }}` so they reverse on scroll up, and honor reduced motion
 - `scripts/make-placeholders.mjs`: regenerates the owner-portrait placeholder
+- `scripts/prepare-photos.mjs`: run after adding or replacing a photo. Converts it to black and white once and regenerates the blurred loading previews in `src/lib/photo-blur.ts`
 
 ## Design system
 

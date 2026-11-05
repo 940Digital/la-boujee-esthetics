@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import logo from "../../../public/brand/logo-pink.png";
 import { business, images } from "@/site.config";
+import { blurProps } from "@/lib/blur";
 import { BookButton } from "../BookButton";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -48,9 +49,9 @@ export function Cover() {
         <div className="relative order-1 h-[44svh] min-h-[330px] lg:absolute lg:inset-y-0 lg:right-0 lg:order-2 lg:h-auto lg:w-[48%]">
           <motion.div
             className="bw grain absolute inset-0 overflow-hidden"
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0.6 }}
             animate={{ opacity: 1 }}
-            transition={t(0, 1.4)}
+            transition={t(0, 0.6)}
           >
             <motion.div className="absolute inset-0" initial={{ scale: 1.1 }} animate={{ scale: 1 }} transition={t(0, 2.6)}>
               <Image
@@ -58,6 +59,7 @@ export function Cover() {
                 alt={images.cover.alt}
                 fill
                 priority
+                {...blurProps(images.cover.src)}
                 sizes="(min-width: 1024px) 48vw, 100vw"
                 className="object-cover object-[50%_22%]"
               />

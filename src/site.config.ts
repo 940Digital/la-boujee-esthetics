@@ -193,8 +193,8 @@ export const services: Service[] = [
     setting: "unconfirmed",
     menu: priceRows("FACIAL"),
     image: {
-      src: "/photos/facials-glow-portrait.jpg",
-      alt: "Black and white portrait of a woman with luminous skin, resting her cheek on her hand",
+      src: "/photos/facials-luminous-profile.jpg",
+      alt: "Soft-lit black and white profile of a woman with luminous skin and loose curls",
       width: 1200,
       height: 1500,
       aspect: "4 / 5",
@@ -238,8 +238,8 @@ export const services: Service[] = [
     setting: "unconfirmed",
     menu: priceRows("WAXING"),
     image: {
-      src: "/photos/waxing-warm-wax.jpg",
-      alt: "A ribbon of warm golden wax falling from an applicator",
+      src: "/photos/waxing-bare-shoulder.jpg",
+      alt: "Woman with soft curls glancing over a smooth bare shoulder, painted studio backdrop",
       width: 1200,
       height: 1500,
       aspect: "4 / 5",
@@ -373,8 +373,8 @@ export const services: Service[] = [
     setting: "unconfirmed",
     menu: priceRows("PEEL"),
     image: {
-      src: "/photos/chemical-peel-application.jpg",
-      alt: "Gloved esthetician brushing a treatment onto a client's face as she rests on a treatment bed",
+      src: "/photos/chemical-peel-fresh-skin.jpg",
+      alt: "Black and white portrait of a woman with clear, even skin and soft curls",
       width: 1200,
       height: 1500,
       aspect: "4 / 5",
@@ -446,8 +446,8 @@ export const images = {
       aspect: "1 / 1",
     },
     {
-      src: "/photos/gallery-sculpted-waves.jpg",
-      alt: "Studio portrait of a woman with soft waves, lit from one side",
+      src: "/photos/gallery-hand-to-cheek.jpg",
+      alt: "Classic glamour portrait of a woman resting her fingertips on her cheek",
       width: 1000,
       height: 1000,
       aspect: "1 / 1",

@@ -135,10 +135,9 @@ p {
 
 /* ---------- Photography ---------- */
 
-/* Studio-portrait treatment: every photo prints black and white. */
-.bw img {
-  filter: grayscale(1) contrast(1.08) brightness(1.02);
-}
+/* Studio-portrait treatment: every photo prints black and white. The files in
+   /public/photos are stored already converted (scripts/prepare-photos.mjs),
+   so no CSS filter is needed. `.bw` stays as a marker on photo frames. */
 
 /* Fine film grain over photos, drawn with SVG noise. Only position elements
    that aren't already absolute (the cover photo is). */

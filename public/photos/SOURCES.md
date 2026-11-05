@@ -1,6 +1,6 @@
 # Photo sources
 
-All photos are from Unsplash (free under the Unsplash License, no attribution required), chosen for a 1940s and 50s studio-glamour look and printed black and white on the site. Each was cropped to its slot's aspect ratio. Original page: `https://unsplash.com/photos/<id>`.
+All photos are from Unsplash (free under the Unsplash License, no attribution required), chosen for a 1940s and 50s studio-glamour look. Files are stored already converted to black and white (smaller, no CSS filter needed); run `node scripts/prepare-photos.mjs` after adding or replacing one. Each was cropped to its slot's aspect ratio. Original page: `https://unsplash.com/photos/<id>`.
 
 | File | Unsplash photo id |
 | --- | --- |
@@ -9,11 +9,11 @@ All photos are from Unsplash (free under the Unsplash License, no attribution re
 | gallery-wide-brim-hat.jpg | 1495462911434-be47104d70fa |
 | gallery-polka-dot.jpg | 1653688257587-004cb9193bd4 |
 | gallery-off-shoulder-gown.jpg | 1626818590179-66ae6d62b8cf |
-| gallery-sculpted-waves.jpg | 1642290687545-8ab7e6002472 |
-| facials-glow-portrait.jpg | 1611831308092-a7cdafdd34fc |
+| gallery-hand-to-cheek.jpg | 1603775020644-eb8decd79994 |
+| facials-luminous-profile.jpg | 1440589473619-3cde28941638 |
 | tinting-brow-close-up.jpg | 1685702673311-e7c4ce28e561 |
-| waxing-warm-wax.jpg | 1696192410531-dc179772a0e8 (cropped above the branded jar) |
+| waxing-bare-shoulder.jpg | 1668191174028-75d894fab7ee |
 | lash-lift-curled-lashes.jpg | 1548902378-2ec44c906391 |
-| chemical-peel-application.jpg | 1611169035510-f9af52e6dbe2 |
+| chemical-peel-fresh-skin.jpg | 1658336842029-b24b44a1e75f |
 | come-to-you-vanity.jpg | 1686109831633-d35231b5c623 |
 | studio-still-life.jpg | 1540555700478-4be289fbecef |

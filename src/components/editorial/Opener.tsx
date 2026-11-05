@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { ImageSlot } from "@/site.config";
 import { Reveal } from "../motion";
+import { blurProps } from "@/lib/blur";
 
 /**
  * Inner-page opener: a smaller cousin of the homepage cover. Black page,
@@ -35,7 +36,7 @@ export function Opener({
       {photo ? (
         <div className="relative h-[42svh] min-h-[300px] lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[44%]">
           <div className="bw grain absolute inset-0 overflow-hidden">
-            <Image src={photo.src} alt={photo.alt} fill priority sizes="(min-width: 1024px) 44vw, 100vw" className="object-cover" />
+            <Image src={photo.src} alt={photo.alt} fill priority sizes="(min-width: 1024px) 44vw, 100vw" {...blurProps(photo.src)} className="object-cover" />
           </div>
           <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-ink/50 lg:bg-gradient-to-r lg:from-ink lg:via-ink/5 lg:to-transparent" />
           <div aria-hidden className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-ink/85 to-transparent" />

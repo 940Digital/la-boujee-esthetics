@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { images } from "@/site.config";
+import { blurProps } from "@/lib/blur";
 import { Reveal } from "../motion";
 
 /** A row of sprocket holes along the film edge. */
@@ -51,7 +52,7 @@ export function ContactSheet() {
                       {String(i + 1).padStart(2, "0")}
                     </p>
                     <div className="bw grain relative aspect-square overflow-hidden">
-                      <Image src={f.src} alt={f.alt} fill sizes="(min-width: 768px) 20vw, 160px" className="object-cover" />
+                      <Image src={f.src} alt={f.alt} fill sizes="(min-width: 768px) 20vw, 160px" {...blurProps(f.src)} className="object-cover" />
                     </div>
                     {i === 0 ? (
                       <svg

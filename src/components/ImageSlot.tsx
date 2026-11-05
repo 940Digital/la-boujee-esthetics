@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ImageSlot as Slot } from "@/site.config";
+import { blurProps } from "@/lib/blur";
 
 /**
  * Every image on the site goes through here. The box reserves the slot's
@@ -24,6 +25,7 @@ export function ImageSlot({
         fill
         sizes={sizes}
         priority={priority}
+        {...blurProps(slot.src)}
         className="object-cover"
       />
     </div>
