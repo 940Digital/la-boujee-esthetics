@@ -9,11 +9,11 @@ All photos are from Unsplash (free under the Unsplash License, no attribution re
 | gallery-wide-brim-hat.jpg | 1495462911434-be47104d70fa |
 | gallery-polka-dot.jpg | 1653688257587-004cb9193bd4 |
 | gallery-off-shoulder-gown.jpg | 1626818590179-66ae6d62b8cf |
-| gallery-hand-to-cheek.jpg | 1603775020644-eb8decd79994 |
-| facials-luminous-profile.jpg | 1440589473619-3cde28941638 |
+| gallery-bulb-vanity.jpg | 1551723454-7565a1f5b161 |
+| facials-gel-mask.jpg | 1647004692483-c5d942fe1137 |
 | tinting-brow-close-up.jpg | 1685702673311-e7c4ce28e561 |
-| waxing-bare-shoulder.jpg | 1668191174028-75d894fab7ee |
+| waxing-smooth-legs.jpg | 1587179790059-5f5d937fb87d |
 | lash-lift-curled-lashes.jpg | 1548902378-2ec44c906391 |
-| chemical-peel-fresh-skin.jpg | 1658336842029-b24b44a1e75f |
+| chemical-peel-serum-drop.jpg | 1679394270597-e90694d70350 |
 | come-to-you-vanity.jpg | 1686109831633-d35231b5c623 |
 | studio-still-life.jpg | 1540555700478-4be289fbecef |
