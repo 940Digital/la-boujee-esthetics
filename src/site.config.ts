@@ -402,8 +402,8 @@ export const images = {
     aspect: "3 / 2",
   },
   studio: {
-    src: "/photos/studio-treatment-room.jpg",
-    alt: "A bright treatment room with a dressed treatment bed, vanity and arched mirror",
+    src: "/photos/studio-still-life.jpg",
+    alt: "A rolled towel, a plain pump bottle, a lit tea light and pink tulips on a white table",
     width: 1500,
     height: 1000,
     aspect: "3 / 2",

@@ -60,7 +60,7 @@ Each service has `setting: "unconfirmed"`. Change it to `"mobile"`, `"studio"` o
 | --- | --- | --- | --- |
 | `images.ownerPortrait` | 4:5 | Art Deco placeholder | **Needed.** A portrait of Laurel. Stock can't stand in for her |
 | `images.comeToYou` | 3:2 | Stock: vintage dressing table | Her mobile setup in a client's home |
-| `images.studio` | 3:2 | Stock: treatment room | **Recommended.** Her actual studio, since visitors will assume this is it |
+| `images.studio` | 3:2 | Stock: towel, bottle and tulips still life (a detail, so it can't be mistaken for her room) | Her actual studio when she has a photo |
 | `images.gallery[0-4]` | 1:1 | Stock: finger waves, B&W portrait, winged liner, pearls, makeup application | Her client results. When swapped, retitle the section from "The Old Hollywood Look" back to "Recent Work" in `GalleryPreview.tsx` |
 | `services[*].image` | 4:5 | Stock per treatment | Her own treatment photos |
 
