@@ -1,10 +1,9 @@
 import { business } from "@/site.config";
 import { isPlaceholder, mailHref, telHref } from "@/lib/site";
-import { StepFrame } from "./deco";
 import { Stagger, StaggerItem } from "./motion";
 
-/** Three ways to reach her. Placeholders render as plain text until filled. */
-export function ContactMethods({ tone = "pearl" }: { tone?: "pearl" | "ink" }) {
+/** Three ways to reach her, set like a magazine's contact column. Placeholders render as plain text. */
+export function ContactMethods({ tone = "pearl", stacked = false }: { tone?: "pearl" | "ink"; stacked?: boolean }) {
   const dark = tone === "ink";
   const items = [
     { title: "Call or text", value: business.PHONE, href: telHref() },
@@ -15,18 +14,18 @@ export function ContactMethods({ tone = "pearl" }: { tone?: "pearl" | "ink" }) {
       href: isPlaceholder(business.INSTAGRAM_URL) ? null : business.INSTAGRAM_URL,
     },
   ];
+  const value = "display mt-2 inline-flex min-h-11 items-center text-[1.5rem] [overflow-wrap:anywhere]";
   return (
-    <Stagger className="grid gap-5 md:grid-cols-3">
+    <Stagger className={`grid gap-x-10 ${stacked ? "" : "md:grid-cols-3"}`}>
       {items.map((m) => (
-        <StaggerItem key={m.title} className={`relative px-6 py-10 text-center ${dark ? "bg-ink-2 text-pearl" : "bg-pearl-2 text-ink"}`}>
-          <StepFrame tone={dark ? "silver" : "silver-ink"} inset={7} step={10} opacity={0.6} />
-          <h3 className={`label ${dark ? "text-rose" : "text-rose-ink"}`}>{m.title}</h3>
+        <StaggerItem key={m.title} className={`border-t-2 py-5 ${dark ? "border-silver/50 text-pearl" : "border-ink text-ink"}`}>
+          <h3 className={`kicker ${dark ? "text-rose-soft" : "text-rose-ink"}`}>{m.title}</h3>
           {m.href ? (
-            <a href={m.href} rel="noopener" className="deco-link mt-3 inline-flex min-h-11 items-center font-serif text-[1.45rem] [overflow-wrap:anywhere]">
+            <a href={m.href} rel="noopener" className={`deco-link ${value}`}>
               {m.value}
             </a>
           ) : (
-            <p className="mt-3 inline-flex min-h-11 items-center font-serif text-[1.35rem] [overflow-wrap:anywhere]">{m.value}</p>
+            <p className={value}>{m.value}</p>
           )}
         </StaggerItem>
       ))}

@@ -58,15 +58,16 @@ Each service has `setting: "unconfirmed"`. Change it to `"mobile"`, `"studio"` o
 
 | Slot | Aspect | Now | Replace with her own when possible |
 | --- | --- | --- | --- |
-| `images.ownerPortrait` | 4:5 | Art Deco placeholder | **Needed.** A portrait of Laurel. Stock can't stand in for her |
+| `images.ownerPortrait` | 4:5 | Placeholder panel | **Needed.** A portrait of Laurel. Stock can't stand in for her |
+| `images.cover` | 4:5 | Stock: finger-waves portrait (homepage cover) | A black-and-white glamour portrait of Laurel would make the strongest cover |
 | `images.comeToYou` | 3:2 | Stock: vintage dressing table | Her mobile setup in a client's home |
 | `images.studio` | 3:2 | Stock: towel, bottle and tulips still life (a detail, so it can't be mistaken for her room) | Her actual studio when she has a photo |
-| `images.gallery[0-4]` | 1:1 | Stock: finger waves, B&W portrait, winged liner, pearls, makeup application | Her client results. When swapped, retitle the section from "The Old Hollywood Look" back to "Recent Work" in `GalleryPreview.tsx` |
+| `images.gallery[0-4]` | 1:1 | Stock: finger waves, B&W portrait, winged liner, pearls, makeup application | Her client results. When swapped, retitle the contact-sheet section from "The Old Hollywood Look" to "Recent Work" in `src/components/editorial/ContactSheet.tsx` |
 | `services[*].image` | 4:5 | Stock per treatment | Her own treatment photos |
 
 ## 6. Optional
 
-- **Logo**: the header, footer and share image use her real logo, cut out of her business card photo (`public/brand/logo-pink.png`, 573x416). If she has the original vector or a higher-resolution file, drop it in for sharper edges.
+- **Logo**: the cover masthead, header, footer and share image use her real logo, cut out of her business card photo (`public/brand/logo-pink.png`, 573x416). If she has the original vector or a higher-resolution file, drop it in for sharper edges.
 - **Name spelling**: the site uses "Lá Boujee" with the accent, matching her logo and business card.
 - **Share image**: `public/og.png` (1200x630) uses the wordmark only, so it's safe to keep. Replace with a branded photo later if she likes.
 

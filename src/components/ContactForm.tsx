@@ -27,7 +27,7 @@ export function ContactForm({ endpoint }: { endpoint: string }) {
 
   if (state === "sent") {
     return (
-      <p role="status" className="font-serif text-[1.6rem] text-ink">
+      <p role="status" className="display text-[1.6rem] text-ink">
         Message sent. She&apos;ll be in touch soon.
       </p>
     );

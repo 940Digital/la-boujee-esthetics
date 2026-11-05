@@ -1,17 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Josefin_Sans, Poiret_One } from "next/font/google";
+import { Bodoni_Moda, Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import { business, services } from "@/site.config";
 import { MotionProvider } from "@/components/motion";
 import { JsonLd } from "@/components/JsonLd";
 import { bookingHref, isPlaceholder } from "@/lib/site";
-import { OptionSwitcher } from "@/components/OptionSwitcher";
+import { SiteHeader } from "@/components/editorial/SiteHeader";
+import { SiteFooter } from "@/components/editorial/SiteFooter";
+import { MobileBookBar } from "@/components/MobileBookBar";
 
-const cormorant = Cormorant_Garamond({
+/* Bodoni: the high-contrast Didone of 1940s and 50s fashion magazines. */
+const bodoni = Bodoni_Moda({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  variable: "--font-bodoni",
   display: "swap",
 });
 
@@ -19,13 +22,6 @@ const josefin = Josefin_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "600"],
   variable: "--font-josefin",
-  display: "swap",
-});
-
-const poiret = Poiret_One({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-poiret",
   display: "swap",
 });
 
@@ -98,13 +94,14 @@ function businessSchema() {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${josefin.variable} ${poiret.variable}`}>
+    <html lang="en" className={`${bodoni.variable} ${josefin.variable}`}>
       <body>
         <JsonLd data={businessSchema()} />
         <MotionProvider>
-          {/* Demo only: lets Laurel flip between design options. Remove with the option-2 route. */}
-          <OptionSwitcher />
-          {children}
+          <SiteHeader />
+          <main id="main">{children}</main>
+          <SiteFooter />
+          <MobileBookBar />
         </MotionProvider>
       </body>
     </html>

@@ -2,13 +2,16 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { BookButton } from "./BookButton";
 
 /**
  * Sticky booking bar on phones. It waits until the visitor scrolls past the
  * opening band (which has its own button), so the first screen shows one CTA.
  */
-export function MobileBookBar({ showAfter = 380 }: { showAfter?: number }) {
+export function MobileBookBar() {
+  // On the homepage the cover's own button sits below the fold on phones, so the bar shows from the start.
+  const showAfter = usePathname() === "/" ? 0 : 380;
   const [show, setShow] = useState(false);
   useEffect(() => {
     const onScroll = () => setShow(window.scrollY >= showAfter);
