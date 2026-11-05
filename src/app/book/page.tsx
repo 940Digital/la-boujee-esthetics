@@ -6,7 +6,7 @@ import { Reveal } from "@/components/motion";
 import { Opener } from "@/components/editorial/Opener";
 import { QandA } from "@/components/editorial/Spreads";
 import { isPlaceholder } from "@/lib/site";
-import { bookingFaq, prepFaq, whichAtHomeFaq } from "@/lib/faq";
+import { bookingFaq, prepFaq } from "@/lib/faq";
 
 export const metadata: Metadata = {
   title: `Book an Esthetics Appointment in ${business.CITY} | Lá Boujee Esthetics`,
@@ -61,7 +61,6 @@ export default function BookPage() {
           </Step>
 
           <Step act="Act II" title="Choose your setting">
-            <p className="mt-2 text-graphite">Depending on the treatment, I come to you or you visit my studio.</p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <Link href="/mobile-service" className="group block bg-ink p-6 text-pearl">
                 <span className="display block text-[1.7rem] italic">Your home</span>
@@ -85,7 +84,7 @@ export default function BookPage() {
             ) : (
               <>
                 <p className="mt-2 text-graphite">
-                  Reach out by phone, text, email or Instagram to find a time. Online booking: {business.BOOKING_URL}
+                  Reach out any way below to find a time. Online booking: {business.BOOKING_URL}
                 </p>
                 <div className="mt-6">
                   <ContactMethods stacked />
@@ -109,7 +108,7 @@ export default function BookPage() {
         </div>
       </section>
 
-      <QandA faqs={[whichAtHomeFaq, prepFaq, bookingFaq]} title="Before you book" kicker="Settings, prep and scheduling" id="book-qa" />
+      <QandA faqs={[prepFaq, bookingFaq]} title="Before you book" kicker="Prep and scheduling" id="book-qa" />
     </>
   );
 }

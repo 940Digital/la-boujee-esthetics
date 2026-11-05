@@ -11,69 +11,40 @@ import { Curtain, Fade, Reveal, RuleDraw, Stagger, StaggerItem } from "../motion
 /* The profile: a magazine feature on Laurel, built only from facts    */
 /* ------------------------------------------------------------------ */
 
-const atAGlance = [
-  { k: "Credential", v: "Licensed esthetician" },
-  { k: "Where", v: "Your home or my studio, depending on the treatment" },
-  { k: "Who you'll see", v: "Laurel, every time. It's a solo practice" },
-  { k: "Treatments", v: "Facials, waxing, tinting, eyelash lifts, chemical peels" },
-];
-
 export function Profile() {
   return (
     <section id="profile" aria-labelledby="profile-title" className="bg-pearl py-24 text-ink md:py-32">
-      <div className="mx-auto grid max-w-[1240px] gap-14 px-6 md:px-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+      <div className="mx-auto grid max-w-[1240px] gap-14 px-6 md:px-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20">
         <Curtain>
           <figure>
             <div className="border border-silver-ink/50 p-2">
               <ImageSlot slot={images.ownerPortrait} sizes="(min-width: 1024px) 420px, 90vw" />
             </div>
-            <figcaption className="kicker mt-4 text-graphite">{business.OWNER_NAME}, licensed esthetician</figcaption>
           </figure>
         </Curtain>
 
         <div>
           <Reveal>
-            <p className="kicker text-rose-ink">The profile</p>
-            <h2 id="profile-title" className="display mt-5 text-[clamp(2.4rem,1.6rem+3vw,4.4rem)]">
+            <h2 id="profile-title" className="display text-[clamp(2.4rem,1.6rem+3vw,4.4rem)]">
               Meet {business.OWNER_NAME}
             </h2>
             <RuleDraw className="mt-7 w-24 bg-rose" />
           </Reveal>
 
-          <div className="mt-9 grid gap-10 md:grid-cols-[1.25fr_0.75fr]">
-            <Reveal delay={0.1}>
-              <div className="space-y-5 text-[1.05rem] text-graphite">
-                <p>
-                  <span className="dropcap-letter">I</span>&apos;m {business.OWNER_NAME}, the licensed esthetician behind Lá Boujee Esthetics. I offer custom facials,
-                  waxing, brow and lash tinting, eyelash lifts and chemical peels in {business.CITY}.
-                </p>
-                <p>
-                  Depending on the treatment, I bring the appointment to your home or welcome you to my studio. Either
-                  way, it&apos;s one-on-one.
-                </p>
-                <p className="display border-l-2 border-rose py-1 pl-5 text-[1.55rem] italic leading-snug text-ink">
-                  The person you book is the person who takes care of you.
-                </p>
-                <Link href="/about" className="kicker deco-link inline-flex min-h-11 items-center text-rose-ink">
-                  More about {business.OWNER_FIRST_NAME}
-                </Link>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.2}>
-              <aside aria-label="At a glance" className="border-t-2 border-ink pt-4">
-                <h3 className="kicker text-ink">At a glance</h3>
-                <dl className="mt-3">
-                  {atAGlance.map((a) => (
-                    <div key={a.k} className="border-b border-ink/12 py-3">
-                      <dt className="kicker !text-[0.78rem] md:!text-[0.7rem] text-rose-ink">{a.k}</dt>
-                      <dd className="mt-1 text-[1.0625rem] md:text-[0.98rem] leading-snug text-ink">{a.v}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </aside>
-            </Reveal>
-          </div>
+          <Reveal delay={0.1}>
+            <div className="mt-9 max-w-[52ch] space-y-6 text-graphite">
+              <p>
+                <span className="dropcap-letter">I</span>&apos;m {business.OWNER_NAME}, the licensed esthetician behind Lá Boujee
+                Esthetics in {business.CITY}.
+              </p>
+              <p className="display border-l-2 border-rose py-1 pl-5 text-[clamp(1.6rem,1.2rem+1.4vw,2.5rem)] italic leading-snug text-ink">
+                The person you book is the person who takes care of you.
+              </p>
+              <Link href="/about" className="kicker deco-link inline-flex min-h-11 items-center text-rose-ink">
+                More about {business.OWNER_FIRST_NAME}
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -90,16 +61,14 @@ export function HomeOrStudio() {
       id: "home",
       big: "Your Home",
       img: images.comeToYou,
-      title: "Come to You",
-      body: "I bring the appointment to your home. No drive, no parking, no waiting room, and you stay comfortable afterward.",
+      body: "No drive, no parking, no waiting room. You stay comfortable afterward.",
       link: { href: "/mobile-service", label: "How home visits work" },
     },
     {
       id: "studio",
       big: "or My Studio",
       img: images.studio,
-      title: "Visit the Studio",
-      body: "Some treatments are best with the full studio setup. Step out of the house and let the time be all about you.",
+      body: "For treatments that need the full setup, and a little time out of the house.",
       link: { href: "/contact", label: "Ask about my studio" },
     },
   ];
@@ -111,32 +80,25 @@ export function HomeOrStudio() {
         style={{ background: "radial-gradient(ellipse 60% 50% at 50% 100%, rgba(212,80,140,0.22), transparent 70%)" }}
       />
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
-        <Reveal className="flex flex-col items-center text-center">
-          <p className="kicker text-rose">The signature</p>
-          <h2 id="place-title" className="sr-only">
-            Your home or my studio
-          </h2>
-          <p className="mt-4 max-w-[52ch] text-mist">Where your appointment happens depends on the treatment. Either way, it&apos;s the same licensed care.</p>
-        </Reveal>
+        <h2 id="place-title" className="sr-only">
+          Your home or my studio
+        </h2>
 
-        <div className="mt-12 grid gap-10 md:grid-cols-2 md:gap-6">
+        <div className="grid gap-10 md:grid-cols-2 md:gap-6">
           {halves.map((h, i) => (
             <article key={h.id} aria-labelledby={`${h.id}-title`} className="flex flex-col">
               <Reveal delay={i * 0.12}>
-                <p aria-hidden className={`display text-[clamp(2.8rem,1.4rem+4.6vw,6.2rem)] italic leading-none ${i === 1 ? "text-rose md:text-right" : "text-pearl"}`}>
+                <h3 id={`${h.id}-title`} className={`display text-[clamp(2.8rem,1.4rem+4.6vw,6.2rem)] italic leading-none ${i === 1 ? "text-rose md:text-right" : "text-pearl"}`}>
                   {h.big}
-                </p>
+                </h3>
               </Reveal>
               <Curtain className="mt-6" delay={0.1 + i * 0.12}>
                 <div className="bw grain">
                   <ImageSlot slot={h.img} sizes="(min-width: 768px) 50vw, 92vw" />
                 </div>
               </Curtain>
-              <Reveal delay={0.2 + i * 0.12} className="mt-6 grid gap-2 md:grid-cols-[0.8fr_1.2fr] md:gap-6">
-                <h3 id={`${h.id}-title`} className="display text-[1.9rem]">
-                  {h.title}
-                </h3>
-                <div>
+              <Reveal delay={0.2 + i * 0.12} className="mt-6 grid gap-2">
+                <div className="md:col-span-2">
                   <p className="text-mist">{h.body}</p>
                   <Link href={h.link.href} className="kicker deco-link mt-3 inline-flex min-h-11 items-center text-rose">
                     {h.link.label}
@@ -169,9 +131,7 @@ function Plate({ s, big = false }: { s: (typeof services)[number]; big?: boolean
       <div className="absolute inset-x-0 bottom-0 p-4 md:p-6">
         <h3 className={`display text-pearl ${big ? "text-[clamp(2rem,1.4rem+2vw,3.2rem)]" : "text-[1.35rem] md:text-[1.6rem]"}`}>{s.name}</h3>
         {big ? <p className="mt-2 max-w-[36ch] text-pearl/85">{s.benefit}</p> : null}
-        <span className={`kicker mt-3 text-rose transition-colors group-hover:text-rose-light ${big ? "inline-block" : "hidden md:inline-block"}`}>
-          See the treatment
-        </span>
+        {big ? <span className="kicker mt-3 inline-block text-rose transition-colors group-hover:text-rose-light">See the treatment</span> : null}
       </div>
     </Link>
   );
@@ -182,14 +142,13 @@ export function Lookbook() {
   return (
     <section id="treatments" aria-labelledby="treatments-title" className="bg-pearl py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <Reveal className="grid items-end gap-6 md:grid-cols-[1fr_auto]">
+        <Reveal>
           <div>
             <p className="kicker text-rose-ink">The lookbook</p>
             <h2 id="treatments-title" className="display mt-4 text-[clamp(2.6rem,1.6rem+3.6vw,5rem)] text-ink">
               The Treatments
             </h2>
           </div>
-          <p className="max-w-[38ch] text-graphite">Five treatments, each with its own page for what it&apos;s for, what to expect, and how to prepare.</p>
         </Reveal>
 
         <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-[2fr_1fr_1fr] md:grid-rows-2 md:gap-4">
@@ -212,9 +171,9 @@ export function Lookbook() {
 /* ------------------------------------------------------------------ */
 
 const acts = [
-  { act: "Act I", title: "Book", body: "Choose your treatment and a time, and whether I come to you or you visit my studio." },
-  { act: "Act II", title: "Relax", body: "Settle in at home or in my studio. Mention anything about your skin, then let me take it from there." },
-  { act: "Act III", title: "Glow", body: "Leave with skin, brows or lashes that feel cared for, and simple aftercare to keep it going." },
+  { act: "Act I", title: "Book", body: "Pick a treatment, a time, and your home or my studio." },
+  { act: "Act II", title: "Relax", body: "Tell me about your skin, then let me take it from there." },
+  { act: "Act III", title: "Glow", body: "Leave looking finished, with simple aftercare to keep it going." },
 ];
 
 export function Acts() {
@@ -257,7 +216,7 @@ export function Acts() {
 export function QandA({
   faqs,
   title = "Questions & Answers",
-  kicker = "Hygiene, prep, home visits and aftercare",
+  kicker = "Good to know",
   id = "questions",
 }: {
   faqs: Faq[];
@@ -318,7 +277,7 @@ export function QandA({
 
 export function CloseUp({
   title = "Ready for your close-up?",
-  kicker = "Book your appointment",
+  kicker = "",
   showContact = true,
 }: {
   title?: string;
@@ -334,13 +293,10 @@ export function CloseUp({
       />
       <div className="relative mx-auto max-w-[1100px] px-6 text-center md:px-10">
         <Reveal>
-          <p className="kicker text-rose-soft">{kicker}</p>
-          <h2 id="book-title" className="display mt-5 text-[clamp(3rem,1.8rem+5vw,6.4rem)] italic">
+          {kicker ? <p className="kicker mb-5 text-rose-soft">{kicker}</p> : null}
+          <h2 id="book-title" className="display text-[clamp(3rem,1.8rem+5vw,6.4rem)] italic">
             {title}
           </h2>
-          <p className="mx-auto mt-6 max-w-[46ch] text-mauve">
-            At your home or in my studio, with a licensed esthetician in {business.CITY}.
-          </p>
           <div className="mt-10">
             <BookButton />
           </div>

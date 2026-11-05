@@ -20,18 +20,18 @@ export default function ContactPage() {
       <Opener
         kicker={business.credential}
         title={`Contact ${business.name.replace(" ", " ")}`}
-        standfirst="Questions about a treatment, a home visit, or the studio? Reach out any way you like."
+        standfirst="Questions? Reach out any way you like."
         crumbs={[{ href: "/contact", name: "Contact" }]}
       />
 
       <section aria-labelledby="reach" className="bg-pearl py-24 text-ink md:py-28">
         <div className="mx-auto max-w-[1240px] px-6 md:px-10">
           <Reveal>
-            <h2 id="reach" className="display text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)]">
+            <h2 id="reach" className="sr-only">
               Get in touch
             </h2>
           </Reveal>
-          <div className="mt-10">
+          <div>
             <ContactMethods />
           </div>
 

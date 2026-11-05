@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 };
 
 const pillars = [
-  { title: "Licensed", body: "I'm a licensed esthetician, professionally trained in skin care, hair removal, and brow and lash services." },
-  { title: "Personal", body: "It's just me, so every appointment is one-on-one with the person whose name is on the door." },
-  { title: "Convenient", body: "Mobile when the treatment allows, studio when it calls for it. Either way, built around your schedule." },
+  { title: "Licensed", body: "Professionally trained in skin care, hair removal, brows and lashes." },
+  { title: "Personal", body: "It's just me, so every appointment is one-on-one." },
+  { title: "Convenient", body: "Mobile when the treatment allows, studio when it calls for it." },
 ];
 
 export default function AboutPage() {
@@ -26,7 +26,6 @@ export default function AboutPage() {
       <Opener
         kicker="The profile"
         title={`Meet ${business.OWNER_NAME}, Licensed Esthetician in ${business.CITY}`}
-        standfirst="The licensed esthetician behind Lá Boujee Esthetics, at your home or in my studio."
         crumbs={[{ href: "/about", name: "About" }]}
       />
 
@@ -37,9 +36,6 @@ export default function AboutPage() {
               <div className="border border-silver-ink/50 p-2">
                 <ImageSlot slot={images.ownerPortrait} sizes="(min-width: 1024px) 420px, 90vw" priority />
               </div>
-              <figcaption className="kicker mt-4 text-graphite">
-                {business.OWNER_NAME}, {business.credential.toLowerCase()}
-              </figcaption>
             </figure>
           </Curtain>
 
@@ -57,10 +53,6 @@ export default function AboutPage() {
                     {p}
                   </p>
                 ))}
-                <p className="text-ink">
-                  Today I offer custom facials, waxing, brow and lash tinting, eyelash lifts and chemical peels in{" "}
-                  {business.CITY}, traveling to clients&apos; homes or welcoming them to my studio depending on the treatment.
-                </p>
               </div>
             </Reveal>
             <Reveal delay={0.15}>
@@ -71,7 +63,6 @@ export default function AboutPage() {
                     <li key={s.slug} className="border-b border-ink/12">
                       <Link href={`/${s.slug}`} className="group flex min-h-12 flex-col py-3">
                         <span className="display text-[1.5rem] leading-tight transition-colors group-hover:text-rose-ink">{s.name}</span>
-                        <span className="mt-1 text-[1.0625rem] md:text-[0.98rem] text-graphite">{s.benefit}</span>
                       </Link>
                     </li>
                   ))}
@@ -90,8 +81,7 @@ export default function AboutPage() {
         />
         <div className="relative mx-auto max-w-[1240px] px-6 md:px-10">
           <Reveal className="text-center">
-            <p className="kicker text-rose">At a glance</p>
-            <h2 id="why" className="display mt-4 text-[clamp(2.4rem,1.6rem+3vw,4.4rem)] italic">
+            <h2 id="why" className="display text-[clamp(2.4rem,1.6rem+3vw,4.4rem)] italic">
               Why clients choose Lá&nbsp;Boujee
             </h2>
           </Reveal>

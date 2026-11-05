@@ -165,7 +165,7 @@ export const services: Service[] = [
       "Custom facials from a licensed esthetician in {CITY}, built around your skin that day. Mobile appointments at home or visits to the studio.",
     benefit: "Built around your skin as it is today, never a one-size routine.",
     entitySentence:
-      "Lá Boujee Esthetics offers custom facials in {CITY}, and I perform each one myself as a licensed esthetician, at your home or in my studio, depending on the treatment.",
+      "I offer custom facials in {CITY}, at your home or in my studio.",
     intro: [
       "A custom facial starts with your skin, not a script. Cleansing, exfoliation, extractions, masks and massage are chosen for what your skin needs on the day you book.",
       "It's a treatment many people keep on a regular rhythm, because skin changes with seasons, stress and sleep.",
@@ -210,7 +210,7 @@ export const services: Service[] = [
       "Professional waxing in {CITY} from a licensed esthetician. Smooth results with a private, unhurried appointment at home or in the studio.",
     benefit: "Clean, smooth results with a calm, private appointment.",
     entitySentence:
-      "Lá Boujee Esthetics provides professional waxing in {CITY}, with mobile appointments for clients who would rather stay home.",
+      "I offer professional waxing in {CITY}, including home visits for clients who would rather stay in.",
     intro: [
       "Waxing removes hair from the root, so skin stays smooth longer than with shaving. A licensed esthetician works quickly and cleanly, which makes it far more comfortable.",
       "With a mobile esthetician, it can also be one of the most private appointments you book.",
@@ -255,7 +255,7 @@ export const services: Service[] = [
       "Brow and lash tinting in {CITY} from a licensed esthetician. Defined, polished color so you can skip the pencil and mascara.",
     benefit: "Defined brows and lashes that look finished without makeup.",
     entitySentence:
-      "Lá Boujee Esthetics offers brow and lash tinting in {CITY}, and it pairs naturally with a lash lift or brow wax in the same visit.",
+      "I offer brow and lash tinting in {CITY}.",
     intro: [
       "Tinting adds semi-permanent color to brows or lashes, so fine or light hairs show up and your face looks put together before any makeup.",
       "It's quick, and it's the easiest add-on to pair with a lash lift or a brow wax.",
@@ -300,7 +300,7 @@ export const services: Service[] = [
       "Eyelash lifts in {CITY} from a licensed esthetician. A lasting curl from your own natural lashes, with mobile or studio appointments.",
     benefit: "A lasting curl from your own lashes, no extensions to maintain.",
     entitySentence:
-      "Lá Boujee Esthetics offers eyelash lifts in {CITY}, giving your natural lashes a lasting curl at your home or in my studio.",
+      "I offer eyelash lifts in {CITY}, at your home or in my studio.",
     intro: [
       "A lash lift curls your natural lashes from the base, so they look longer and more open without extensions, glue or fills.",
       "Most clients pair it with a lash tint for even more definition.",
@@ -345,7 +345,7 @@ export const services: Service[] = [
       "Chemical peels in {CITY} from a licensed esthetician. Refresh tone and texture with a peel chosen for your skin and your schedule.",
     benefit: "Fresher tone and smoother texture, chosen for your skin.",
     entitySentence:
-      "Lá Boujee Esthetics offers chemical peels in {CITY}, and as a licensed esthetician I choose each peel to suit your skin and your schedule.",
+      "I offer chemical peels in {CITY}, each one chosen to suit your skin and your schedule.",
     intro: [
       "A chemical peel uses a carefully applied exfoliating solution to lift away dull surface cells, so newer skin shows through.",
       "Esthetician-level peels are designed for refreshing tone and texture, with little to no downtime for most people.",

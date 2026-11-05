@@ -17,9 +17,6 @@ export function SiteFooter() {
           <div>
             <Wordmark size="lg" />
             <p className="kicker mt-6 text-silver">{business.credential}</p>
-            <p className="mt-2 max-w-[34ch] text-[1.0625rem] md:text-[0.98rem] text-mist">
-              Facials, waxing, tinting, eyelash lifts and chemical peels in {business.CITY}, at your home or in my studio.
-            </p>
           </div>
           <div>
             <h2 className={col}>Treatments</h2>

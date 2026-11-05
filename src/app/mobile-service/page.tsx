@@ -15,22 +15,21 @@ export const metadata: Metadata = {
 };
 
 const steps = [
-  { act: "Act I", title: "Book your treatment", body: "Choose the service and a time, and note that you'd like a home appointment." },
-  { act: "Act II", title: "Share the details", body: "Your address, plus anything useful to know: parking, gate codes, stairs, or which room you'd like to use." },
-  { act: "Act III", title: "I arrive and set up", body: "I bring what the treatment needs and set up in the space you've chosen." },
-  { act: "Act IV", title: "Relax, then carry on", body: "Your treatment happens at home, and I pack everything away when we're done. No drive home." },
+  { act: "Act I", title: "Book your treatment", body: "Pick a treatment and a time, and ask for a home visit." },
+  { act: "Act II", title: "Share the details", body: "Your address, plus parking, gate codes, stairs, or which room you'd like." },
+  { act: "Act III", title: "I arrive and set up", body: "I bring everything the treatment needs." },
+  { act: "Act IV", title: "Relax, then carry on", body: "I pack everything away when we're done. No drive home." },
 ];
 
 const trust = [
-  { title: "Licensed and trained", body: "As a licensed esthetician, I'm trained in sanitation and safe technique, and that training comes with me to every home visit." },
-  { title: "One person, every time", body: "It's a solo practice. The esthetician you book is the one who arrives at your door: me." },
-  { title: "Your space, your comfort", body: "You choose the room and the setting. Private treatments stay private, in your own home." },
+  { title: "Licensed and trained", body: "I'm trained in sanitation and safe technique, and that comes with me to every visit." },
+  { title: "One person, every time", body: "It's a solo practice. The person you book is the person at your door." },
+  { title: "Your space, your comfort", body: "You choose the room. Private treatments stay private." },
 ];
 
 const ready = [
   "Pick a comfortable room with a little open floor space.",
   "Good light helps, especially for brow and lash work.",
-  "Mention parking, gate codes or stairs ahead of time.",
   "Come as you are. Clean skin is a bonus, not a requirement.",
 ];
 
@@ -51,7 +50,7 @@ export default function MobileServicePage() {
       <Opener
         kicker="At your home"
         title={`Mobile Esthetician Services in ${business.CITY}`}
-        standfirst="Depending on the treatment, I come to you. Here's how a home appointment works, and where I travel."
+        standfirst="How a home appointment works, and where I travel."
         crumbs={[{ href: "/mobile-service", name: "Mobile Service" }]}
         photo={images.comeToYou}
       >
@@ -69,8 +68,7 @@ export default function MobileServicePage() {
               </h2>
             </div>
             <p className="max-w-[44ch] text-graphite">
-              Lá Boujee Esthetics offers mobile esthetician services in {business.CITY}, bringing licensed esthetics
-              treatments to your home whenever the treatment allows.
+              I bring facials, waxing, tinting, lash lifts and peels to homes in {business.CITY} whenever the treatment allows.
             </p>
           </Reveal>
           <RuleDraw className="mt-10 bg-ink/25" />
@@ -133,7 +131,7 @@ export default function MobileServicePage() {
             <h2 id="ready" className="display text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)]">
               Getting your space ready
             </h2>
-            <p className="mt-5 max-w-[40ch] text-graphite">There&apos;s very little to do. A few small things make the appointment smoother.</p>
+            <p className="mt-5 max-w-[40ch] text-graphite">There&apos;s very little to do.</p>
           </Reveal>
           <Reveal delay={0.1}>
             <ul className="border-t-2 border-ink">
@@ -183,7 +181,7 @@ export default function MobileServicePage() {
         </div>
       </section>
 
-      <QandA faqs={mobileFaqs} title="Mobile appointment Q&A" kicker="Home visits, safety, privacy and scheduling" id="mobile-qa" />
+      <QandA faqs={mobileFaqs} title="Good to know" kicker="Home visits" id="mobile-qa" />
       <CloseUp title="Bring the appointment home" kicker="Ready for your close-up?" showContact={false} />
     </>
   );

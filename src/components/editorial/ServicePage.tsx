@@ -74,8 +74,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
         <div className="mx-auto grid max-w-[1240px] gap-14 px-6 md:px-10 lg:grid-cols-[1.3fr_0.7fr] lg:gap-20">
           <div>
             <Reveal>
-              <p className="kicker text-rose-ink">The feature</p>
-              <h2 id="about-service" className="display mt-4 max-w-[18ch] text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)]">
+              <h2 id="about-service" className="display max-w-[18ch] text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)]">
                 {copy[s.slug].about}
               </h2>
               <RuleDraw className="mt-7 w-24 bg-rose" />
@@ -91,20 +90,9 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             </Reveal>
           </div>
           <Reveal delay={0.15}>
-            <aside aria-label="At a glance" className="border-t-2 border-ink pt-4 lg:mt-24">
-              <h3 className="kicker text-ink">At a glance</h3>
-              <dl className="mt-3">
-                <div className="border-b border-ink/12 py-3">
-                  <dt className="kicker !text-[0.78rem] md:!text-[0.7rem] text-rose-ink">Where it happens</dt>
-                  <dd className="mt-1 text-[1.0625rem] md:text-[0.98rem] leading-snug">{settingCopy[s.setting]}</dd>
-                </div>
-                <div className="border-b border-ink/12 py-3">
-                  <dt className="kicker !text-[0.78rem] md:!text-[0.7rem] text-rose-ink">Who you&apos;ll see</dt>
-                  <dd className="mt-1 text-[1.0625rem] md:text-[0.98rem] leading-snug">
-                    {business.OWNER_NAME}, {business.credential.toLowerCase()}
-                  </dd>
-                </div>
-              </dl>
+            <aside aria-labelledby="where-title" className="border-t-2 border-ink pt-4 lg:mt-4">
+              <h3 id="where-title" className="kicker text-rose-ink">Where it happens</h3>
+              <p className="mt-2 border-b border-ink/12 pb-3 leading-snug">{settingCopy[s.setting]}</p>
               <Link href="/mobile-service" className="kicker deco-link mt-3 inline-flex min-h-11 items-center text-rose-ink">
                 How home visits work
               </Link>
@@ -169,7 +157,6 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             <h2 id="care" className="display text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)]">
               Before and After
             </h2>
-            <p className="max-w-[40ch] text-graphite">General guidance. You&apos;ll get notes specific to your appointment.</p>
           </Reveal>
           <div className="mt-12 grid gap-12 md:grid-cols-2 md:gap-16">
             {[
@@ -199,12 +186,9 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
       <section aria-labelledby="related" className="bg-pearl py-24 md:py-28">
         <div className="mx-auto max-w-[1240px] px-6 md:px-10">
           <Reveal className="grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
-            <div>
-              <p className="kicker text-rose-ink">Pairs well with</p>
-              <h2 id="related" className="display mt-4 text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)] text-ink">
-                More from the lookbook
-              </h2>
-            </div>
+            <h2 id="related" className="display text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)] text-ink">
+              Pairs well with
+            </h2>
             <Link href="/#treatments" className="kicker deco-link inline-flex min-h-11 items-center text-ink">
               All treatments
             </Link>
@@ -223,7 +207,6 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
                   <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
                     <h3 className="display text-[1.7rem] text-pearl">{r.name}</h3>
-                    <p className="mt-1 text-[1.0625rem] md:text-[0.98rem] text-pearl/80">{r.benefit}</p>
                   </div>
                 </Link>
               </Fade>

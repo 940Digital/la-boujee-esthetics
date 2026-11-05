@@ -10,7 +10,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 /** Cover lines. Each one is a verified fact, set like the teasers on a 1950s fashion cover. */
 const coverLines = [
-  { kicker: "Your home or my studio", line: "I come to your home, or you visit my studio, depending on the treatment." },
+  { kicker: "Mobile esthetician", line: "I come to you, or you visit my studio." },
   { kicker: "Brows and lashes", line: "Tinting and eyelash lifts for a finished look without the mascara." },
   { kicker: "Skin", line: "Custom facials and chemical peels, chosen for your skin." },
 ];
