@@ -62,7 +62,7 @@ Each service has `setting: "unconfirmed"`. Change it to `"mobile"`, `"studio"` o
 | `images.cover` | 4:5 | Stock: finger-waves portrait (homepage cover) | A black-and-white glamour portrait of Laurel would make the strongest cover |
 | `images.comeToYou` | 3:2 | Stock: vintage dressing table | Her mobile setup in a client's home |
 | `images.studio` | 3:2 | Stock: towel, bottle and tulips still life (a detail, so it can't be mistaken for her room) | Her actual studio when she has a photo |
-| `images.gallery[0-4]` | 1:1 | Stock: opera gloves, wide-brim hat, polka-dot pin-up, off-shoulder gown, winged-liner profile | Her client results. When swapped, retitle the contact-sheet section from "The Old Hollywood Look" to "Recent Work" in `src/components/editorial/ContactSheet.tsx` |
+| `images.gallery[0-4]` | 1:1 | Stock: opera gloves, wide-brim hat, polka-dot pin-up, off-shoulder gown, lace gown with updo | Her client results. When swapped, retitle the contact-sheet section from "The Old Hollywood Look" to "Recent Work" in `src/components/editorial/ContactSheet.tsx` |
 | `services[*].image` | 4:5 | Stock per treatment | Her own treatment photos |
 
 ## 6. Optional

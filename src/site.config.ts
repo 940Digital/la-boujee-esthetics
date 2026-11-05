@@ -446,8 +446,8 @@ export const images = {
       aspect: "1 / 1",
     },
     {
-      src: "/photos/gallery-winged-profile.jpg",
-      alt: "Profile of a woman with a sleek updo, a classic winged liner and a bare shoulder",
+      src: "/photos/gallery-lace-updo.jpg",
+      alt: "Woman with a sleek updo, chandelier earrings and a dark lip, glancing over the shoulder of a lace gown",
       width: 1000,
       height: 1000,
       aspect: "1 / 1",
