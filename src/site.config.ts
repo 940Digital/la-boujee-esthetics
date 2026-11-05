@@ -446,8 +446,8 @@ export const images = {
       aspect: "1 / 1",
     },
     {
-      src: "/photos/gallery-lace-updo.jpg",
-      alt: "Woman with a sleek updo, chandelier earrings and a dark lip, glancing over the shoulder of a lace gown",
+      src: "/photos/gallery-luminous-profile.jpg",
+      alt: "Soft-lit black and white profile of a woman with luminous skin and loose curls",
       width: 1000,
       height: 1000,
       aspect: "1 / 1",
