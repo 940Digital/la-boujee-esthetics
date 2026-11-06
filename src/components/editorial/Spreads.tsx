@@ -19,7 +19,7 @@ export function Profile() {
         <Curtain>
           <figure>
             <div className="border border-silver-ink/50 p-2">
-              <ImageSlot slot={images.ownerPortrait} sizes="(min-width: 1024px) 420px, 90vw" />
+              <ImageSlot slot={images.ownerPortrait} sizes="(min-width: 1024px) 420px, 90vw" eager />
             </div>
           </figure>
         </Curtain>
@@ -97,7 +97,7 @@ export function HomeOrStudio() {
               </Reveal>
               <Curtain className="mt-6" delay={0.1 + i * 0.12}>
                 <div className="bw grain">
-                  <ImageSlot slot={h.img} sizes="(min-width: 768px) 50vw, 92vw" />
+                  <ImageSlot slot={h.img} sizes="(min-width: 768px) 50vw, 92vw" eager />
                 </div>
               </Curtain>
               <Reveal delay={0.2 + i * 0.12} className="mt-6 grid gap-2">

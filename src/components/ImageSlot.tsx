@@ -10,11 +10,15 @@ export function ImageSlot({
   slot,
   sizes,
   priority = false,
+  eager = false,
   className = "",
 }: {
   slot: Slot;
   sizes: string;
   priority?: boolean;
+  /** Load right away. Use inside Curtain reveals: a fully clipped image never
+      counts as on screen, so lazy loading would hold it until the curtain opens. */
+  eager?: boolean;
   className?: string;
 }) {
   return (
@@ -25,6 +29,7 @@ export function ImageSlot({
         fill
         sizes={sizes}
         priority={priority}
+        loading={priority ? undefined : eager ? "eager" : "lazy"}
         {...blurProps(slot.src)}
         className="object-cover"
       />
