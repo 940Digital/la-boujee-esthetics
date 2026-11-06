@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { business, policies, services } from "@/site.config";
+import { business, linkServicePages, policies, services } from "@/site.config";
 import { ContactMethods } from "@/components/ContactMethods";
 import { Reveal } from "@/components/motion";
 import { Opener } from "@/components/editorial/Opener";
@@ -48,13 +48,19 @@ export default function BookPage() {
           </h2>
 
           <Step act="Act I" title="Choose your treatment">
-            <p className="mt-2 text-graphite">Not sure? Read about each one first.</p>
+            <p className="mt-2 text-graphite">
+              {linkServicePages ? "Not sure? Read about each one first." : "Not sure which? Ask when you book."}
+            </p>
             <ul className="mt-5 flex flex-wrap gap-3">
               {services.map((s) => (
                 <li key={s.slug}>
-                  <Link href={`/${s.slug}`} className={chip}>
-                    {s.name}
-                  </Link>
+                  {linkServicePages ? (
+                    <Link href={`/${s.slug}`} className={chip}>
+                      {s.name}
+                    </Link>
+                  ) : (
+                    <span className={chip.replace(/hover:\S+/g, "")}>{s.name}</span>
+                  )}
                 </li>
               ))}
             </ul>

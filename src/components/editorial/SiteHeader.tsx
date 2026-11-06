@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { business, services } from "@/site.config";
-import { primaryNav, telHref } from "@/lib/site";
+import { business, linkServicePages, services } from "@/site.config";
+import { primaryNav, telHref, treatmentNavCount } from "@/lib/site";
 import { BookButton } from "../BookButton";
 import { Wordmark } from "../Wordmark";
 
@@ -33,7 +33,7 @@ function NavLinks({ pathname, className = "" }: { pathname: string; className?: 
     <ul className={`flex items-center gap-x-5 2xl:gap-x-7 ${className}`}>
       {primaryNav.map((n, i) => (
         <li key={n.href} className="flex items-center">
-          {i === services.length ? <span aria-hidden className="mr-5 h-4 w-px bg-silver/40 2xl:mr-7" /> : null}
+          {i === treatmentNavCount ? <span aria-hidden className="mr-5 h-4 w-px bg-silver/40 2xl:mr-7" /> : null}
           <Link
             href={n.href}
             aria-current={pathname === n.href ? "page" : undefined}
@@ -163,10 +163,13 @@ export function SiteHeader() {
               <MenuButton open onClick={() => setOpen(false)} />
             </div>
             <div className="mx-auto max-w-md px-6 pb-16 pt-8">
-              <p className="kicker text-rose">The treatments</p>
+              <Link href="/#treatments" onClick={() => setOpen(false)} className="kicker inline-flex min-h-11 items-center text-rose">
+                The treatments
+              </Link>
               <ul className="mt-2">
                 {services.map((s) => (
                   <li key={s.slug} className="border-b border-silver/20">
+                    {linkServicePages ? (
                     <Link
                       href={`/${s.slug}`}
                       onClick={() => setOpen(false)}
@@ -175,11 +178,14 @@ export function SiteHeader() {
                     >
                       {s.name}
                     </Link>
+                    ) : (
+                      <span className="display flex min-h-14 items-center text-[2rem] italic text-pearl">{s.name}</span>
+                    )}
                   </li>
                 ))}
               </ul>
               <ul className="mt-8 space-y-1">
-                {[{ href: "/", label: "Home" }, ...primaryNav.slice(services.length)].map((n) => (
+                {[{ href: "/", label: "Home" }, ...primaryNav.slice(treatmentNavCount)].map((n) => (
                   <li key={n.href}>
                     <Link
                       href={n.href}

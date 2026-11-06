@@ -39,6 +39,9 @@ These answer FAQ and booking questions. They show on the site as bracketed text 
 
 ## 3. Hidden sections (built, switched off)
 
+- `linkServicePages` (currently `false` for the one-page demo): the five treatment pages still exist at /facials, /waxing, /tinting, /eyelash-lifts and /chemical-peels, but nothing links to them and they're out of the sitemap. Set to `true` to restore all links.
+
+
 Flip the flag to `true` at the top of site.config.ts once real data is in.
 
 | Flag | Fill in first |

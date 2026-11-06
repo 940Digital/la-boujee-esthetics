@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { business, services } from "@/site.config";
+import { business, linkServicePages, services } from "@/site.config";
 import { isPlaceholder, mailHref, telHref } from "@/lib/site";
 import { Wordmark } from "../Wordmark";
 
@@ -23,9 +23,13 @@ export function SiteFooter() {
             <ul className="mt-3">
               {services.map((s) => (
                 <li key={s.slug}>
-                  <Link href={`/${s.slug}`} className={item}>
-                    {s.name}
-                  </Link>
+                  {linkServicePages ? (
+                    <Link href={`/${s.slug}`} className={item}>
+                      {s.name}
+                    </Link>
+                  ) : (
+                    <span className={item}>{s.name}</span>
+                  )}
                 </li>
               ))}
             </ul>

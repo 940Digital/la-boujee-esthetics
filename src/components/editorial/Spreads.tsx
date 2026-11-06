@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { business, images, services } from "@/site.config";
+import { business, images, linkServicePages, services } from "@/site.config";
 import type { Faq } from "@/lib/faq";
 import { ImageSlot } from "../ImageSlot";
 import { BookButton } from "../BookButton";
@@ -118,8 +118,8 @@ export function HomeOrStudio() {
 /* ------------------------------------------------------------------ */
 
 function Plate({ s, big = false }: { s: (typeof services)[number]; big?: boolean }) {
-  return (
-    <Link href={`/${s.slug}`} className="group relative block h-full overflow-hidden bg-ink">
+  const inner = (
+    <>
       <div className="bw grain h-full">
         <ImageSlot
           slot={s.image}
@@ -131,9 +131,19 @@ function Plate({ s, big = false }: { s: (typeof services)[number]; big?: boolean
       <div className="absolute inset-x-0 bottom-0 p-4 md:p-6">
         <h3 className={`display text-pearl ${big ? "text-[clamp(2rem,1.4rem+2vw,3.2rem)]" : "text-[1.35rem] md:text-[1.6rem]"}`}>{s.name}</h3>
         {big ? <p className="mt-2 max-w-[36ch] text-pearl/85">{s.benefit}</p> : null}
-        {big ? <span className="kicker mt-3 inline-block text-rose transition-colors group-hover:text-rose-light">See the treatment</span> : null}
+        {big && linkServicePages ? (
+          <span className="kicker mt-3 inline-block text-rose transition-colors group-hover:text-rose-light">See the treatment</span>
+        ) : null}
       </div>
+    </>
+  );
+  const cls = "group relative block h-full overflow-hidden bg-ink";
+  return linkServicePages ? (
+    <Link href={`/${s.slug}`} className={cls}>
+      {inner}
     </Link>
+  ) : (
+    <div className={cls}>{inner}</div>
   );
 }
 

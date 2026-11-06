@@ -1,4 +1,4 @@
-import { business, services, type Service, type ServiceSlug } from "@/site.config";
+import { business, linkServicePages, services, type Service, type ServiceSlug } from "@/site.config";
 
 /** True when a config value is still an unfilled [PLACEHOLDER]. */
 export function isPlaceholder(value: string | undefined | null): boolean {
@@ -49,8 +49,16 @@ export const settingCopy: Record<Service["setting"], string> = {
   both: "Your home or my studio, whichever you prefer.",
 };
 
+/** Treatment links in the nav: one per page, or a single jump to the homepage lookbook. */
+const treatmentNav = linkServicePages
+  ? services.map((s) => ({ href: servicePath(s.slug), label: s.navName }))
+  : [{ href: "/#treatments", label: "Treatments" }];
+
+/** How many entries at the start of primaryNav are treatment links. */
+export const treatmentNavCount = treatmentNav.length;
+
 export const primaryNav = [
-  ...services.map((s) => ({ href: servicePath(s.slug), label: s.navName })),
+  ...treatmentNav,
   { href: "/mobile-service", label: "Mobile Service" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { business, images, services } from "@/site.config";
+import { business, images, linkServicePages, services } from "@/site.config";
 import { ImageSlot } from "@/components/ImageSlot";
 import { Reviews } from "@/components/Reviews";
 import { Curtain, Reveal, RuleDraw, Stagger, StaggerItem } from "@/components/motion";
@@ -61,9 +61,13 @@ export default function AboutPage() {
                 <ul className="mt-2">
                   {services.map((s) => (
                     <li key={s.slug} className="border-b border-ink/12">
-                      <Link href={`/${s.slug}`} className="group flex min-h-12 flex-col py-3">
-                        <span className="display text-[1.5rem] leading-tight transition-colors group-hover:text-rose-ink">{s.name}</span>
-                      </Link>
+                      {linkServicePages ? (
+                        <Link href={`/${s.slug}`} className="group flex min-h-12 flex-col py-3">
+                          <span className="display text-[1.5rem] leading-tight transition-colors group-hover:text-rose-ink">{s.name}</span>
+                        </Link>
+                      ) : (
+                        <span className="display flex min-h-12 items-center py-3 text-[1.5rem] leading-tight">{s.name}</span>
+                      )}
                     </li>
                   ))}
                 </ul>

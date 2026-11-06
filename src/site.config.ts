@@ -51,6 +51,14 @@ export const showReviews = false;
 /** Turn on once the owner confirms each line in `hygienePractices`. */
 export const showHygieneDetails = false;
 
+/**
+ * Link to the five treatment pages (/facials, /waxing, ...). Off for the
+ * one-page demo: the pages still build and work by URL, but nothing on the
+ * site links to them and they're left out of the sitemap. Turn on to restore
+ * every link at once.
+ */
+export const linkServicePages = false;
+
 /** Turn on once real photos replace the gallery placeholders. */
 export const showGallery = true;
 

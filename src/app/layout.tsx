@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Bodoni_Moda, Josefin_Sans } from "next/font/google";
 import "./globals.css";
-import { business, services } from "@/site.config";
+import { business, linkServicePages, services } from "@/site.config";
 import { MotionProvider } from "@/components/motion";
 import { JsonLd } from "@/components/JsonLd";
 import { bookingHref, isPlaceholder } from "@/lib/site";
@@ -84,7 +84,7 @@ function businessSchema() {
         itemOffered: {
           "@type": "Service",
           name: s.name,
-          url: `${url}/${s.slug}`,
+          ...(linkServicePages ? { url: `${url}/${s.slug}` } : {}),
           areaServed: business.SERVICE_AREA,
         },
       })),
