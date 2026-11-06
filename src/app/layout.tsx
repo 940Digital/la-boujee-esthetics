@@ -65,7 +65,7 @@ function businessSchema() {
     founder: { "@type": "Person", name: business.OWNER_NAME, jobTitle: "Licensed Esthetician" },
     address: {
       "@type": "PostalAddress",
-      streetAddress: business.STUDIO_ADDRESS,
+      ...(isPlaceholder(business.STUDIO_ADDRESS) ? {} : { streetAddress: business.STUDIO_ADDRESS }),
       addressLocality: business.CITY,
       addressRegion: business.STATE,
       addressCountry: "US",
