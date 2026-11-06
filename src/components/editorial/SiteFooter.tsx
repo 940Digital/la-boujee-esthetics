@@ -49,8 +49,10 @@ export function SiteFooter() {
               <li>{tel ? <a href={tel} className={item}>{business.PHONE}</a> : <span className={item}>{business.PHONE}</span>}</li>
               <li>
                 {mail ? (
-                  <a href={mail} className={`${item} [overflow-wrap:anywhere]`}>
-                    {business.EMAIL}
+                  <a href={mail} className={`${item} [overflow-wrap:break-word]`}>
+                    {/* If the column is too narrow, break after the @ rather than mid-word. */}
+                    {business.EMAIL.split("@")[0]}@<wbr />
+                    {business.EMAIL.split("@")[1]}
                   </a>
                 ) : (
                   <span className={item}>{business.EMAIL}</span>
