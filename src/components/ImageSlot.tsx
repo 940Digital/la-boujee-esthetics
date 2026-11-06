@@ -28,6 +28,15 @@ export function ImageSlot({
         {...blurProps(slot.src)}
         className="object-cover"
       />
+      {/* Placeholder art gets a visible label so it's obvious a real photo belongs here.
+          It disappears automatically once the slot points at a real photo. */}
+      {slot.src.startsWith("/placeholders/") ? (
+        <div className="absolute inset-0 flex items-center justify-center p-6">
+          <p className="kicker border border-silver/50 bg-ink/70 px-5 py-3 text-center text-pearl backdrop-blur-[2px]">
+            [Your portrait here]
+          </p>
+        </div>
+      ) : null}
     </div>
   );
 }
