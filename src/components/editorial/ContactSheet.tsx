@@ -17,6 +17,16 @@ function Sprockets() {
   );
 }
 
+/* One sprocket hole as a tile. background-repeat "round" stretches the spacing
+   so the column always ends on a whole hole, however tall the strip is. */
+const hole =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='24'%3E%3Crect x='5' y='5' width='10' height='14' rx='2' fill='%23f2eaed' fill-opacity='0.9'/%3E%3C/svg%3E\")";
+
+/** Sprocket holes down the edge of the strip when it runs vertically on phones. */
+function SprocketColumn() {
+  return <div aria-hidden className="w-5 shrink-0 md:hidden" style={{ backgroundImage: hole, backgroundRepeat: "no-repeat round", backgroundSize: "20px 24px" }} />;
+}
+
 /*
   The signature for Option 2: a photographer's contact sheet. The pick is
   circled in her pink like a grease pencil, and the loop redraws each time
@@ -41,18 +51,22 @@ export function ContactSheet() {
         </Reveal>
 
         <Reveal delay={0.1} className="mt-12">
-          {/* the sheet scrolls sideways on phones, like sliding a strip under a loupe */}
-          <div className="-mx-6 overflow-x-auto px-6 pb-4 md:mx-0 md:overflow-visible md:px-0 md:pb-0">
-            <div className="min-w-[760px] bg-[#0d0d0d] py-1 shadow-[0_24px_60px_-30px_rgba(18,18,18,0.6)]">
+          {/* phones: the strip runs top to bottom with holes down both edges.
+              md and up: it lies across the page with holes along the top and bottom. */}
+          <div className="mx-auto max-w-[420px] bg-[#0d0d0d] shadow-[0_24px_60px_-30px_rgba(18,18,18,0.6)] md:max-w-none md:py-1">
+            <div className="hidden md:block">
               <Sprockets />
-              <ul className="grid grid-cols-5 gap-2 px-2">
+            </div>
+            <div className="flex md:block">
+              <SprocketColumn />
+              <ul className="grid flex-1 gap-4 py-3 md:grid-cols-5 md:gap-2 md:px-2 md:py-0">
                 {frames.map((f, i) => (
                   <li key={f.src} className="relative">
                     <p aria-hidden className="mb-1 font-sans text-[0.7rem] font-semibold tracking-[0.2em] text-silver">
                       {String(i + 1).padStart(2, "0")}
                     </p>
                     <div className="bw grain relative aspect-square overflow-hidden">
-                      <Image src={f.src} alt={f.alt} fill sizes="(min-width: 768px) 20vw, 160px" {...blurProps(f.src)} className="object-cover" />
+                      <Image src={f.src} alt={f.alt} fill sizes="(min-width: 768px) 20vw, 380px" {...blurProps(f.src)} className="object-cover" />
                     </div>
                     {i === 0 ? (
                       <svg
@@ -78,6 +92,9 @@ export function ContactSheet() {
                   </li>
                 ))}
               </ul>
+              <SprocketColumn />
+            </div>
+            <div className="hidden md:block">
               <Sprockets />
             </div>
           </div>
