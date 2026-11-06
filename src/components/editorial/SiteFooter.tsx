@@ -36,14 +36,12 @@ export function SiteFooter() {
           </div>
           <div>
             <h2 className={col}>Service area</h2>
+            {/* Until her travel radius is confirmed, show the area in plain words. */}
             <p className="mt-4 text-[1.0625rem] md:text-[0.98rem] text-pearl/85">
-              Within {business.TRAVEL_RADIUS} of {business.CITY}, {business.STATE}.
+              {isPlaceholder(business.TRAVEL_RADIUS)
+                ? `${business.CITY}, ${business.STATE} and nearby ${business.SERVICE_AREA.filter((a) => a !== business.CITY).join(", ")}.`
+                : `Within ${business.TRAVEL_RADIUS} of ${business.CITY}, ${business.STATE}.`}
             </p>
-            <ul className="mt-2 text-[1.0625rem] md:text-[0.98rem] text-mist">
-              {business.SERVICE_AREA.map((a, i) => (
-                <li key={`${a}-${i}`}>{a}</li>
-              ))}
-            </ul>
           </div>
           <div>
             <h2 className={col}>Contact</h2>
@@ -58,15 +56,13 @@ export function SiteFooter() {
                   <span className={item}>{business.EMAIL}</span>
                 )}
               </li>
-              <li>
-                {ig ? (
+              {ig ? (
+                <li>
                   <a href={ig} rel="noopener" className={item}>
                     Instagram {business.INSTAGRAM_HANDLE}
                   </a>
-                ) : (
-                  <span className={item}>Instagram {business.INSTAGRAM_HANDLE}</span>
-                )}
-              </li>
+                </li>
+              ) : null}
             </ul>
           </div>
         </div>

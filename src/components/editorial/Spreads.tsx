@@ -5,7 +5,7 @@ import { ImageSlot } from "../ImageSlot";
 import { BookButton } from "../BookButton";
 import { ContactMethods } from "../ContactMethods";
 import { JsonLd } from "../JsonLd";
-import { bookingHref } from "@/lib/site";
+import { bookingHref, isPlaceholder } from "@/lib/site";
 import { Curtain, Fade, Reveal, RuleDraw, Stagger, StaggerItem } from "../motion";
 
 /* ------------------------------------------------------------------ */
@@ -243,7 +243,7 @@ export function QandA({
     mainEntity: faqs.map((f) => ({
       "@type": "Question",
       name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: [...f.a, ...(f.policy ?? [])].join(" ") },
+      acceptedAnswer: { "@type": "Answer", text: [...f.a, ...(f.policy ?? []).filter((p) => !isPlaceholder(p))].join(" ") },
     })),
   };
   return (
@@ -270,7 +270,7 @@ export function QandA({
                 {f.a.map((p) => (
                   <p key={p}>{p}</p>
                 ))}
-                {f.policy?.map((p) => (
+                {f.policy?.filter((p) => !isPlaceholder(p)).map((p) => (
                   <p key={p} className="text-pearl/75">
                     {p}
                   </p>

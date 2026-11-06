@@ -10,14 +10,14 @@ Nothing on this list was invented. Each item still needs a real answer from the 
 | --- | --- | --- |
 | `OWNER_NAME` | Done: Laurel Porter | About page H1, homepage About section, portrait caption, schema |
 | `OWNER_FIRST_NAME` | Done: Laurel | "More about ...", "Book with ..." |
-| `CITY` | Main city she serves | Homepage H1, every service page H1, meta titles, schema |
-| `STATE` | Two-letter state, e.g. `TX` | Footer, contact page, schema |
-| `SERVICE_AREA` | List of cities/neighborhoods she travels to (any length) | Mobile Service page, footer, contact page, schema `areaServed` |
+| `CITY` | Main city she serves | Homepage H1, every service page H1, meta titles, schema. Set to `Corinth` (Owen, unconfirmed with Laurel) |
+| `STATE` | Two-letter state, e.g. `TX` | Footer, contact page, schema. Set to `TX` |
+| `SERVICE_AREA` | List of cities/neighborhoods she travels to (any length) | Mobile Service page, footer, contact page, schema `areaServed`. Set to `Corinth`, `Denton County` until she names her towns |
 | `TRAVEL_RADIUS` | How far she travels, e.g. `15 miles` | Mobile Service page diagram, footer |
 | `PHONE` | Done: 214.893.4272 (from her business card) | Header, footer, contact, book page. Becomes a tap-to-call link once filled |
 | `EMAIL` | Done: LaBoujeeEsthetics@gmail.com (from her business card) | Footer, contact, book page |
 | `BOOKING_URL` | Full link to her online booking page (Square, Vagaro, GlossGenius, etc.) | Every "Book Your Appointment" button. Until it's set, buttons go to /book, which shows contact options |
-| `INSTAGRAM_URL` | Full Instagram profile link | Footer, contact, gallery, schema |
+| `INSTAGRAM_URL` | Full Instagram profile link | Footer, contact, gallery, schema. Hidden on the page while it's a placeholder |
 | `INSTAGRAM_HANDLE` | e.g. `@laboujeeesthetics` | Same places as above |
 | `STUDIO_ADDRESS` | Street address of her place of business. If she only shares it after booking, write that instead | Contact page, schema |
 | `SITE_URL` | Final domain, e.g. `https://www.laboujeeesthetics.com` | Canonical URLs, sitemap, robots, schema. Currently the demo address `https://la-boujee-esthetics.vercel.app` so link previews work; swap when the real domain is attached |
@@ -26,6 +26,8 @@ Nothing on this list was invented. Each item still needs a real answer from the 
 | `OWNER_BIO` | Two short paragraphs in her own words | About page |
 
 ## 2. Policies (`policies` in site.config.ts)
+
+Any policy still in [BRACKETS] is left off the homepage Q&A and its schema, and appears once filled in.
 
 These answer FAQ and booking questions. They show on the site as bracketed text until replaced.
 

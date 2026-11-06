@@ -70,8 +70,8 @@ function businessSchema() {
       addressRegion: business.STATE,
       addressCountry: "US",
     },
-    areaServed: business.SERVICE_AREA.map((name) => ({ "@type": "City", name })),
-    sameAs: [business.INSTAGRAM_URL],
+    areaServed: business.SERVICE_AREA.map((name) => ({ "@type": name.endsWith("County") ? "AdministrativeArea" : "City", name })),
+    sameAs: isPlaceholder(business.INSTAGRAM_URL) ? [] : [business.INSTAGRAM_URL],
     potentialAction: {
       "@type": "ReserveAction",
       target: has(business.BOOKING_URL) ? business.BOOKING_URL : `${url}${bookingHref()}`,

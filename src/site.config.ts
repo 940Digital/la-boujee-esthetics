@@ -82,10 +82,11 @@ export const business = {
   /** Owner's first name, used in friendly copy ("Book with ..."). */
   OWNER_FIRST_NAME: "Laurel",
 
-  CITY: "[CITY]",
-  STATE: "[STATE]",
-  /** Areas she travels to for mobile appointments. */
-  SERVICE_AREA: ["[SERVICE_AREA_1]", "[SERVICE_AREA_2]", "[SERVICE_AREA_3]"],
+  CITY: "Corinth",
+  STATE: "TX",
+  /** Areas she travels to for mobile appointments. A name ending in "County" is marked
+      as a county in the schema; anything else as a city. Swap in her real towns once confirmed. */
+  SERVICE_AREA: ["Corinth", "Denton County"],
   /** How far she travels, e.g. "15 miles". */
   TRAVEL_RADIUS: "[TRAVEL_RADIUS]",
 
