@@ -1,4 +1,4 @@
-import { business, linkServicePages, services, type Service, type ServiceSlug } from "@/site.config";
+import { business, linkServicePages, onePage, services, type Service, type ServiceSlug } from "@/site.config";
 
 /** True when a config value is still an unfilled [PLACEHOLDER]. */
 export function isPlaceholder(value: string | undefined | null): boolean {
@@ -13,7 +13,9 @@ export function fill(text: string): string {
 
 /** Where every "Book Your Appointment" button goes. */
 export function bookingHref(): string {
-  return isPlaceholder(business.BOOKING_URL) ? "/book" : business.BOOKING_URL;
+  if (!isPlaceholder(business.BOOKING_URL)) return business.BOOKING_URL;
+  // No online booking yet: send people to the ways to reach her.
+  return onePage ? "/#book" : "/book";
 }
 
 export function isExternal(href: string): boolean {
@@ -54,12 +56,29 @@ const treatmentNav = linkServicePages
   ? services.map((s) => ({ href: servicePath(s.slug), label: s.navName }))
   : [{ href: "/#treatments", label: "Treatments" }];
 
-/** How many entries at the start of primaryNav are treatment links. */
-export const treatmentNavCount = treatmentNav.length;
+/** Where the header draws its divider (after the treatment links); -1 for none. */
+export const treatmentNavCount = onePage ? -1 : treatmentNav.length;
 
-export const primaryNav = [
-  ...treatmentNav,
-  { href: "/mobile-service", label: "Mobile Service" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+/** Homepage sections in page order, for the one-page demo. */
+export const sectionNav = [
+  { href: "/#profile", label: "Meet Laurel" },
+  { href: "/#place", label: "Home or Studio" },
+  { href: "/#treatments", label: "Treatments" },
+  { href: "/#questions", label: "Q&A" },
+  { href: "/#book", label: "Contact" },
+];
+
+export const primaryNav = onePage
+  ? sectionNav
+  : [
+      ...treatmentNav,
+      { href: "/mobile-service", label: "Mobile Service" },
+      { href: "/about", label: "About" },
+      { href: "/contact", label: "Contact" },
+    ];
+
+/** Menu links under the treatment list (the list itself covers treatments). */
+export const menuNav = [
+  { href: "/", label: "Home" },
+  ...primaryNav.filter((n) => n.href !== "/#treatments" && !services.some((s) => n.href === servicePath(s.slug))),
 ];

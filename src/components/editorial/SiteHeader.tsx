@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { business, linkServicePages, services } from "@/site.config";
-import { primaryNav, telHref, treatmentNavCount } from "@/lib/site";
+import { menuNav, primaryNav, telHref, treatmentNavCount } from "@/lib/site";
 import { BookButton } from "../BookButton";
 import { Wordmark } from "../Wordmark";
 
@@ -185,7 +185,7 @@ export function SiteHeader() {
                 ))}
               </ul>
               <ul className="mt-8 space-y-1">
-                {[{ href: "/", label: "Home" }, ...primaryNav.slice(treatmentNavCount)].map((n) => (
+                {menuNav.map((n) => (
                   <li key={n.href}>
                     <Link
                       href={n.href}

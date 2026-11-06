@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { business, images, linkServicePages, services } from "@/site.config";
+import { business, images, linkServicePages, onePage, services } from "@/site.config";
 import type { Faq } from "@/lib/faq";
 import { ImageSlot } from "../ImageSlot";
 import { BookButton } from "../BookButton";
 import { ContactMethods } from "../ContactMethods";
 import { JsonLd } from "../JsonLd";
+import { bookingHref } from "@/lib/site";
 import { Curtain, Fade, Reveal, RuleDraw, Stagger, StaggerItem } from "../motion";
 
 /* ------------------------------------------------------------------ */
@@ -40,9 +41,11 @@ export function Profile() {
               <p className="display border-l-2 border-rose py-1 pl-5 text-[clamp(1.6rem,1.2rem+1.4vw,2.5rem)] italic leading-snug text-ink">
                 The person you book is the person who takes care of you.
               </p>
-              <Link href="/about" className="kicker deco-link inline-flex min-h-11 items-center text-rose-ink">
-                More about {business.OWNER_FIRST_NAME}
-              </Link>
+              {onePage ? null : (
+                <Link href="/about" className="kicker deco-link inline-flex min-h-11 items-center text-rose-ink">
+                  More about {business.OWNER_FIRST_NAME}
+                </Link>
+              )}
             </div>
           </Reveal>
         </div>
@@ -62,14 +65,14 @@ export function HomeOrStudio() {
       big: "Your Home",
       img: images.comeToYou,
       body: "No drive, no parking, no waiting room. You stay comfortable afterward.",
-      link: { href: "/mobile-service", label: "How home visits work" },
+      link: onePage ? { href: "/#questions", label: "Home visit questions" } : { href: "/mobile-service", label: "How home visits work" },
     },
     {
       id: "studio",
       big: "or My Studio",
       img: images.studio,
       body: "For treatments that need the full setup, and a little time out of the house.",
-      link: { href: "/contact", label: "Ask about my studio" },
+      link: onePage ? { href: "/#book", label: "Ask about my studio" } : { href: "/contact", label: "Ask about my studio" },
     },
   ];
   return (
@@ -307,9 +310,12 @@ export function CloseUp({
           <h2 id="book-title" className="display text-[clamp(3rem,1.8rem+5vw,6.4rem)] italic">
             {title}
           </h2>
-          <div className="mt-10">
-            <BookButton />
-          </div>
+          {/* With no online booking yet, the button would point at this very section; the contact details below are the way to book. */}
+          {bookingHref() === "/#book" ? null : (
+            <div className="mt-10">
+              <BookButton />
+            </div>
+          )}
         </Reveal>
         {showContact ? (
           <div className="mt-16 text-left">

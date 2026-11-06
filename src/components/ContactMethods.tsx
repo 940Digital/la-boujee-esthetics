@@ -14,9 +14,9 @@ export function ContactMethods({ tone = "pearl", stacked = false }: { tone?: "pe
       href: isPlaceholder(business.INSTAGRAM_URL) ? null : business.INSTAGRAM_URL,
     },
   ];
-  const value = "display mt-2 inline-flex min-h-11 items-center text-[1.5rem] [overflow-wrap:anywhere]";
+  const value = "display mt-2 inline-flex min-h-11 items-center text-[1.35rem] sm:text-[1.5rem] lg:text-[1.35rem] [overflow-wrap:anywhere]";
   return (
-    <Stagger className={`grid gap-x-10 ${stacked ? "" : "md:grid-cols-3"}`}>
+    <Stagger className={`grid gap-x-10 ${stacked ? "" : "lg:grid-cols-3"}`}>
       {items.map((m) => (
         <StaggerItem key={m.title} className={`border-t-2 py-5 ${dark ? "border-silver/50 text-pearl" : "border-ink text-ink"}`}>
           <h3 className={`kicker ${dark ? "text-rose-soft" : "text-rose-ink"}`}>{m.title}</h3>

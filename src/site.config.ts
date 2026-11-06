@@ -59,6 +59,13 @@ export const showHygieneDetails = false;
  */
 export const linkServicePages = false;
 
+/**
+ * One-page demo: every link points at a section of the homepage, and the
+ * Mobile Service, About, Book and Contact pages are left unlinked (they still
+ * build and open by URL). Turn off to restore the multi-page site.
+ */
+export const onePage = true;
+
 /** Turn on once real photos replace the gallery placeholders. */
 export const showGallery = true;
 

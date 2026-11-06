@@ -39,6 +39,7 @@ These answer FAQ and booking questions. They show on the site as bracketed text 
 
 ## 3. Hidden sections (built, switched off)
 
+- `onePage` (currently `true`): every link points at a homepage section (Meet Laurel, Home or Studio, Treatments, Q&A, Contact), and Mobile Service, About, Book and Contact are unlinked and out of the sitemap. They still open by URL. "Book Your Appointment" scrolls to the contact section until `BOOKING_URL` is set. Set to `false` to restore the multi-page site.
 - `linkServicePages` (currently `false` for the one-page demo): the five treatment pages still exist at /facials, /waxing, /tinting, /eyelash-lifts and /chemical-peels, but nothing links to them and they're out of the sitemap. Set to `true` to restore all links.
 
 

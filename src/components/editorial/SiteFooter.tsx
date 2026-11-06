@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { business, linkServicePages, services } from "@/site.config";
-import { isPlaceholder, mailHref, telHref } from "@/lib/site";
+import { business, linkServicePages, onePage, services } from "@/site.config";
+import { isPlaceholder, mailHref, sectionNav, telHref } from "@/lib/site";
 import { Wordmark } from "../Wordmark";
 
 /** Option 2 footer: set like a magazine masthead page. */
@@ -71,13 +71,16 @@ export function SiteFooter() {
           </div>
         </div>
         <nav aria-label="Footer" className="mt-8 flex flex-wrap gap-x-7">
-          {[
-            { href: "/", label: "Home" },
-            { href: "/mobile-service", label: "Mobile Service" },
-            { href: "/about", label: "About" },
-            { href: "/book", label: "Book" },
-            { href: "/contact", label: "Contact" },
-          ].map((n) => (
+          {(onePage
+            ? [{ href: "/", label: "Home" }, ...sectionNav]
+            : [
+                { href: "/", label: "Home" },
+                { href: "/mobile-service", label: "Mobile Service" },
+                { href: "/about", label: "About" },
+                { href: "/book", label: "Book" },
+                { href: "/contact", label: "Contact" },
+              ]
+          ).map((n) => (
             <Link key={n.href} href={n.href} className="kicker inline-flex min-h-11 items-center text-mist hover:text-pearl">
               {n.label}
             </Link>
