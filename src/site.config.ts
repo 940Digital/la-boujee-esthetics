@@ -97,7 +97,7 @@ export const business = {
   /** Leave as a placeholder if the studio address is shared only after booking. */
   STUDIO_ADDRESS: "[STUDIO_ADDRESS]",
   /** Production domain, used for canonical URLs, sitemap, and schema. */
-  SITE_URL: "https://www.example.com",
+  SITE_URL: "https://la-boujee-esthetics.vercel.app",
   /** Optional form endpoint (Formspree, Basin, etc). Empty hides the form. */
   CONTACT_FORM_ENDPOINT: "",
 

@@ -20,7 +20,7 @@ Nothing on this list was invented. Each item still needs a real answer from the 
 | `INSTAGRAM_URL` | Full Instagram profile link | Footer, contact, gallery, schema |
 | `INSTAGRAM_HANDLE` | e.g. `@laboujeeesthetics` | Same places as above |
 | `STUDIO_ADDRESS` | Street address of her place of business. If she only shares it after booking, write that instead | Contact page, schema |
-| `SITE_URL` | Final domain, e.g. `https://www.laboujeeesthetics.com` | Canonical URLs, sitemap, robots, schema. Currently `https://www.example.com` |
+| `SITE_URL` | Final domain, e.g. `https://www.laboujeeesthetics.com` | Canonical URLs, sitemap, robots, schema. Currently the demo address `https://la-boujee-esthetics.vercel.app` so link previews work; swap when the real domain is attached |
 | `CONTACT_FORM_ENDPOINT` | Optional. A Formspree/Basin endpoint URL. Leave empty to hide the form | Contact page form |
 | `HOURS` | Days and hours, as many rows as needed | Footer, contact page |
 | `OWNER_BIO` | Two short paragraphs in her own words | About page |
