@@ -184,7 +184,7 @@ export function Lookbook() {
 /* ------------------------------------------------------------------ */
 
 const acts = [
-  { act: "Act I", title: "Book", body: "Choose your treatment and a time. I come to you, or you visit my studio." },
+  { act: "Act I", title: "Book", body: "Choose your treatment and a time, at your home or in my studio." },
   { act: "Act II", title: "Relax", body: "Tell me about your skin, then let me take it from there." },
   { act: "Act III", title: "Glow", body: "Leave looking finished, with simple aftercare to keep it going." },
 ];
