@@ -2,25 +2,29 @@ import Link from "next/link";
 import { bookingHref, isExternal } from "@/lib/site";
 
 type Props = {
-  variant?: "rose" | "outline-light" | "outline-dark";
   className?: string;
-  label?: string;
+  /** Part of the site chrome (header, sticky bar) rather than the page itself. */
+  chrome?: boolean;
 };
 
-/** The single site-wide call to action. Always the same words, always the same place. */
-export function BookButton({ variant = "rose", className = "", label = "Book Your Appointment" }: Props) {
+/**
+ * The single site-wide call to action: one style, always the same words.
+ * Page buttons are marked so the sticky bar and the header can step aside
+ * while one is on screen (see useInPageCta), keeping one CTA per viewport.
+ */
+export function BookButton({ className = "", chrome = false }: Props) {
   const href = bookingHref();
-  const cls = `btn btn-${variant} ${className}`;
+  const props = { className: `btn btn-rose ${className}`, "data-book-cta": chrome ? "chrome" : "page" };
   if (isExternal(href)) {
     return (
-      <a href={href} className={cls} rel="noopener">
-        {label}
+      <a href={href} rel="noopener" {...props}>
+        Book Your Appointment
       </a>
     );
   }
   return (
-    <Link href={href} className={cls}>
-      {label}
+    <Link href={href} {...props}>
+      Book Your Appointment
     </Link>
   );
 }

@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Bodoni_Moda, Josefin_Sans } from "next/font/google";
 import "./globals.css";
-import { business, linkServicePages, services } from "@/site.config";
+import { business, linkServicePages, priceMenu } from "@/site.config";
 import { MotionProvider } from "@/components/motion";
 import { JsonLd } from "@/components/JsonLd";
-import { bookingHref, isPlaceholder } from "@/lib/site";
+import { bookingHref, isPlaceholder, priceRange } from "@/lib/site";
 import { SiteHeader } from "@/components/editorial/SiteHeader";
 import { SiteFooter } from "@/components/editorial/SiteFooter";
 import { MobileBookBar } from "@/components/MobileBookBar";
@@ -28,16 +28,16 @@ const josefin = Josefin_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(business.SITE_URL),
   title: {
-    default: `Custom Facials, Waxing and Lash Lifts in ${business.CITY} | Lá Boujee Esthetics`,
+    default: `Esthetician in ${business.CITY}, ${business.STATE} | ${business.name}`,
     template: "%s",
   },
-  description: `Lá Boujee Esthetics: a licensed, mobile esthetician in ${business.CITY} offering custom facials, waxing, tinting, eyelash lifts and chemical peels at your home or in the studio.`,
+  description: `${business.name}: a licensed esthetician in ${business.CITY}, TX, with a studio and home visits across Denton County.`,
   applicationName: business.name,
   openGraph: {
     type: "website",
     siteName: business.name,
     locale: "en_US",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Lá Boujee Esthetics, licensed esthetician" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Lá Boujee Esthetics logo" }],
   },
   twitter: { card: "summary_large_image", images: ["/og.png"] },
   formatDetection: { telephone: false },
@@ -49,44 +49,55 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+/** Site-wide business schema. Every value comes from site.config.ts; placeholders are left out. */
 function businessSchema() {
   const url = business.SITE_URL;
-  const has = (v: string) => !isPlaceholder(v);
+  const digits = business.PHONE.replace(/\D/g, "");
   return {
     "@context": "https://schema.org",
-    "@type": "HealthAndBeautyBusiness",
+    "@type": "BeautySalon",
     "@id": `${url}/#business`,
     name: business.name,
     url,
     image: `${url}/og.png`,
-    description: `Licensed esthetician offering custom facials, waxing, tinting, eyelash lifts and chemical peels, at clients' homes or in the studio depending on the treatment.`,
-    telephone: business.PHONE,
+    description: `Licensed esthetician in ${business.CITY}, TX offering facials, chemical peels, waxing, lash lifts, tinting and makeup, in the studio or at clients' homes.`,
+    telephone: `+1-${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`,
     email: business.EMAIL,
-    founder: { "@type": "Person", name: business.OWNER_NAME, jobTitle: "Licensed Esthetician" },
     address: {
       "@type": "PostalAddress",
       ...(isPlaceholder(business.STUDIO_ADDRESS) ? {} : { streetAddress: business.STUDIO_ADDRESS }),
       addressLocality: business.CITY,
       addressRegion: business.STATE,
+      postalCode: business.POSTAL_CODE,
       addressCountry: "US",
     },
-    areaServed: business.SERVICE_AREA.map((name) => ({ "@type": name.endsWith("County") ? "AdministrativeArea" : "City", name })),
-    sameAs: isPlaceholder(business.INSTAGRAM_URL) ? [] : [business.INSTAGRAM_URL],
+    areaServed: business.SERVICE_AREA.map((name) => ({ "@type": "City", name: `${name}, ${business.STATE}` })),
+    // Days only for now. Once her times are known, switch to
+    // openingHoursSpecification: { "@type": "OpeningHoursSpecification", dayOfWeek: [...], opens: "09:00", closes: "17:00" }.
+    openingHours: "Mo-Sa",
+    paymentAccepted: "Cash, Venmo, Zelle, Visa, Mastercard",
+    priceRange: priceRange(),
+    founder: { "@type": "Person", name: business.OWNER_NAME, jobTitle: "Licensed Esthetician" },
+    ...(isPlaceholder(business.INSTAGRAM_URL) ? {} : { sameAs: [business.INSTAGRAM_URL] }),
     potentialAction: {
       "@type": "ReserveAction",
-      target: has(business.BOOKING_URL) ? business.BOOKING_URL : `${url}${bookingHref()}`,
+      target: isPlaceholder(business.BOOKING_URL) ? `${url}${bookingHref()}` : business.BOOKING_URL,
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Esthetics treatments",
-      itemListElement: services.map((s) => ({
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: s.name,
-          ...(linkServicePages ? { url: `${url}/${s.slug}` } : {}),
-          areaServed: business.SERVICE_AREA,
-        },
+      name: "Services and prices",
+      itemListElement: priceMenu.map((g) => ({
+        "@type": "OfferCatalog",
+        name: g.title,
+        itemListElement: g.items.map((i) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: i.name,
+            ...(linkServicePages ? { url: `${url}/${g.service}` } : {}),
+          },
+          ...(i.price === null ? {} : { price: String(i.price), priceCurrency: "USD" }),
+        })),
       })),
     },
   };
