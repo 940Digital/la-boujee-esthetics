@@ -4,8 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { business, linkServicePages, services } from "@/site.config";
-import { menuNav, primaryNav, telHref, treatmentNavCount } from "@/lib/site";
+import { business } from "@/site.config";
+import { primaryNav, telHref } from "@/lib/site";
+import { useInPageCta } from "@/lib/useInPageCta";
 import { BookButton } from "../BookButton";
 import { Wordmark } from "../Wordmark";
 
@@ -28,30 +29,12 @@ function MenuButton({ open, onClick }: { open: boolean; onClick: () => void }) {
   );
 }
 
-function NavLinks({ pathname, className = "" }: { pathname: string; className?: string }) {
-  return (
-    <ul className={`flex items-center gap-x-5 2xl:gap-x-7 ${className}`}>
-      {primaryNav.map((n, i) => (
-        <li key={n.href} className="flex items-center">
-          {i === treatmentNavCount ? <span aria-hidden className="mr-5 h-4 w-px bg-silver/40 2xl:mr-7" /> : null}
-          <Link
-            href={n.href}
-            aria-current={pathname === n.href ? "page" : undefined}
-            className={`kicker inline-flex min-h-11 items-center whitespace-nowrap !tracking-[0.2em] transition-colors ${
-              pathname === n.href ? "text-rose" : "text-pearl/80 hover:text-rose"
-            }`}
-          >
-            {n.label}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 /**
  * Running header, like the top margin of a magazine page. On the homepage the
  * cover's masthead is the logo, so the header logo waits for the compact bar.
+ * The header carries no button of its own at the top of the page: every page
+ * opens with its own "Book Your Appointment", and the compact bar only offers
+ * one when the page's button has scrolled away.
  */
 export function SiteHeader() {
   const pathname = usePathname();
@@ -60,6 +43,7 @@ export function SiteHeader() {
   const [compact, setCompact] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const tel = telHref();
+  const { pageCtaVisible, onBookingPage } = useInPageCta();
 
   useEffect(() => {
     const onScroll = () => setCompact(window.scrollY > 560);
@@ -81,6 +65,11 @@ export function SiteHeader() {
     };
   }, [open]);
 
+  const linkCls = (href: string) =>
+    `kicker inline-flex min-h-11 items-center whitespace-nowrap !tracking-[0.16em] transition-colors ${
+      pathname === href ? "text-rose" : "text-pearl/85 hover:text-rose"
+    }`;
+
   return (
     <>
       <a
@@ -94,7 +83,7 @@ export function SiteHeader() {
         <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-5 py-4 md:px-10">
           {isHome ? (
             tel ? (
-              <a href={tel} className="kicker hidden min-h-11 items-center text-pearl/80 hover:text-rose md:inline-flex">
+              <a href={tel} className="kicker hidden min-h-11 items-center text-pearl/85 hover:text-rose md:inline-flex">
                 Call or text {business.PHONE}
               </a>
             ) : (
@@ -104,18 +93,22 @@ export function SiteHeader() {
             <Wordmark size="sm" />
           )}
           {isHome ? <span aria-hidden className="md:hidden" /> : null}
-
-          <div className="flex items-center gap-4">
-            <BookButton variant="outline-light" className="!hidden !min-h-11 !px-5 !text-[0.7rem] lg:!inline-flex" />
-            <div className="xl:hidden">
-              <MenuButton open={open} onClick={() => setOpen((v) => !v)} />
-            </div>
+          <div className="xl:hidden">
+            <MenuButton open={open} onClick={() => setOpen((v) => !v)} />
           </div>
         </div>
         <div className="mx-5 h-px bg-silver/30 md:mx-10" />
         {/* section index, set under the rule like a magazine's running head */}
         <nav aria-label="Primary" className="mx-auto hidden max-w-[1400px] justify-center px-10 xl:flex">
-          <NavLinks pathname={pathname} />
+          <ul className="flex items-center gap-x-6 2xl:gap-x-8">
+            {primaryNav.map((n) => (
+              <li key={n.href}>
+                <Link href={n.href} aria-current={pathname === n.href ? "page" : undefined} className={linkCls(n.href)}>
+                  {n.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </nav>
       </header>
 
@@ -130,14 +123,11 @@ export function SiteHeader() {
           >
             <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-6 px-5 md:px-10">
               <Wordmark size="sm" />
-              <nav aria-label="Sections" className="hidden 2xl:block">
-                <NavLinks pathname={pathname} />
-              </nav>
               <div className="flex items-center gap-3">
-                <BookButton className="!hidden !min-h-11 !px-5 !py-2 !text-[0.7rem] md:!inline-flex" />
-                <div className="2xl:hidden">
-                  <MenuButton open={open} onClick={() => setOpen(true)} />
-                </div>
+                {pageCtaVisible || onBookingPage ? null : (
+                  <BookButton chrome className="!hidden !min-h-11 !px-5 !py-2 !text-[0.7rem] md:!inline-flex" />
+                )}
+                <MenuButton open={open} onClick={() => setOpen(true)} />
               </div>
             </div>
           </motion.div>
@@ -162,46 +152,27 @@ export function SiteHeader() {
               <Wordmark size="sm" />
               <MenuButton open onClick={() => setOpen(false)} />
             </div>
-            <div className="mx-auto max-w-md px-6 pb-16 pt-8">
-              <Link href="/#treatments" onClick={() => setOpen(false)} className="kicker inline-flex min-h-11 items-center text-rose">
-                The treatments
-              </Link>
-              <ul className="mt-2">
-                {services.map((s) => (
-                  <li key={s.slug} className="border-b border-silver/20">
-                    {linkServicePages ? (
-                    <Link
-                      href={`/${s.slug}`}
-                      onClick={() => setOpen(false)}
-                      aria-current={pathname === `/${s.slug}` ? "page" : undefined}
-                      className="display flex min-h-14 items-center text-[2rem] italic text-pearl transition-colors hover:text-rose aria-[current=page]:text-rose"
-                    >
-                      {s.name}
-                    </Link>
-                    ) : (
-                      <span className="display flex min-h-14 items-center text-[2rem] italic text-pearl">{s.name}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-              <ul className="mt-8 space-y-1">
-                {menuNav.map((n) => (
-                  <li key={n.href}>
+            <nav aria-label="Menu" className="mx-auto max-w-md px-6 pb-16 pt-6">
+              <ul>
+                {primaryNav.map((n) => (
+                  <li key={n.href} className="border-b border-silver/20">
                     <Link
                       href={n.href}
                       onClick={() => setOpen(false)}
                       aria-current={pathname === n.href ? "page" : undefined}
-                      className="kicker inline-flex min-h-11 items-center text-pearl/85 transition-colors hover:text-rose aria-[current=page]:text-rose"
+                      className="display flex min-h-14 items-center py-1 text-[1.75rem] italic text-pearl transition-colors hover:text-rose aria-[current=page]:text-rose"
                     >
                       {n.label}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <div className="mt-10">
-                <BookButton />
-              </div>
-            </div>
+              {tel ? (
+                <a href={tel} className="kicker mt-8 inline-flex min-h-11 items-center text-pearl/85 hover:text-rose">
+                  Call or text {business.PHONE}
+                </a>
+              ) : null}
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>

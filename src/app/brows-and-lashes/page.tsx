@@ -1,7 +1,7 @@
 import { ServicePage, serviceMetadata } from "@/components/editorial/ServicePage";
 
-export const metadata = serviceMetadata("eyelash-lifts");
+export const metadata = serviceMetadata("brows-and-lashes");
 
 export default function Page() {
-  return <ServicePage slug="eyelash-lifts" />;
+  return <ServicePage slug="brows-and-lashes" />;
 }

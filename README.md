@@ -1,6 +1,6 @@
 # Lá Boujee Esthetics
 
-Website for Lá Boujee Esthetics, a licensed solo esthetician offering custom facials, waxing, tinting, eyelash lifts and chemical peels, at clients' homes or in her studio.
+Website for Lá Boujee Esthetics, a licensed solo esthetician in Denton, TX offering facials, chemical peels, waxing, lash lifts, tinting and makeup, in her studio or at clients' homes.
 
 Next.js (App Router) + Tailwind 4 + Framer Motion, fully static, ready for Vercel.
 
@@ -23,11 +23,12 @@ All business details live in `src/site.config.ts`. See **PLACEHOLDERS.md** for t
 
 ## Structure
 
-- `src/site.config.ts`: business facts, policies, services, image slots, display flags
-- `src/app/`: one folder per page (`/facials`, `/waxing`, `/tinting`, `/eyelash-lifts`, `/chemical-peels`, `/mobile-service`, `/about`, `/book`, `/contact`)
+- `src/site.config.ts`: business facts, policies, the price menu, services, image slots, display flags
+- `src/app/`: one folder per page: `/` (home), `/services`, `/facials`, `/waxing`, `/brows-and-lashes`, `/mobile-service`, `/about`, `/book`. Old routes redirect in `next.config.ts`
+- `src/lib/seo.ts`: per-page title, description, canonical, Open Graph and Twitter metadata
 - `src/components/editorial/`: the cover, spreads, contact sheet, page opener, header, footer, and the shared service-page template (`ServicePage.tsx`)
 - `src/components/motion.tsx`: scroll reveals. All use `viewport={{ once: false }}` so they reverse on scroll up, and honor reduced motion
-- `scripts/make-placeholders.mjs`: regenerates the owner-portrait placeholder
+- `scripts/make-placeholders.mjs`: regenerates the owner-portrait placeholder file (the site never shows it: while it's in place, the slot renders as her monogram on wine)
 - `scripts/prepare-photos.mjs`: run after adding or replacing a photo. Converts it to black and white once and regenerates the blurred loading previews in `src/lib/photo-blur.ts`
 
 ## Design system

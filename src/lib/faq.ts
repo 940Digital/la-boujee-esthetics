@@ -1,12 +1,16 @@
-import { policies } from "@/site.config";
+import { business, policies } from "@/site.config";
+import { fullAddress } from "./site";
 
 export type Faq = {
   q: string;
   /** General answer, safe to publish. */
   a: string[];
-  /** Policy-dependent details, filled from site.config.ts policies. */
+  /** Policy-dependent details from site.config.ts. Hidden while still a [PLACEHOLDER]. */
   policy?: string[];
 };
+
+const joinList = (items: string[]) =>
+  items.length < 2 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
 
 export const hygieneFaq: Faq = {
   q: "Is it hygienic to have a treatment at home?",
@@ -21,7 +25,24 @@ export const privacyFaq: Faq = {
 
 export const whichAtHomeFaq: Faq = {
   q: "Which treatments can be done at home?",
-  a: ["Some travel well, and some are best with the studio setup. Ask when you book and I'll point you to the right one."],
+  a: [
+    "Custom facials, chemical peels, acne treatments, skin care consultations and makeup can all be done at your home.",
+    "Waxing, lash lifts, lash and brow tinting and brow lamination are done in my studio.",
+  ],
+};
+
+export const travelFaq: Faq = {
+  q: "Is there a travel fee for home visits?",
+  a: [
+    `No. I travel to ${business.SERVICE_AREA.length} towns, including ${joinList(
+      business.SERVICE_AREA.filter((t) => ["Denton", "Corinth", "Lewisville", "Flower Mound"].includes(t)),
+    )}.`,
+  ],
+};
+
+export const studioFaq: Faq = {
+  q: "Where is your studio?",
+  a: [`${business.LOCATION_NOTE}, at ${fullAddress()}.`],
 };
 
 export const prepFaq: Faq = {
@@ -33,12 +54,12 @@ export const prepFaq: Faq = {
 
 export const bookingFaq: Faq = {
   q: "What if I need to cancel or reschedule?",
-  a: ["Reach out as early as you can and I'll help you find a new time."],
-  policy: [policies.CANCELLATION, policies.DEPOSIT, policies.PAYMENT_METHODS],
+  a: ["Call or text me as early as you can, and I'll help you find a new time."],
+  policy: [policies.CANCELLATION, policies.DEPOSIT],
 };
 
-/** Homepage: the five questions a first-time client actually asks. */
-export const homeFaqs: Faq[] = [hygieneFaq, privacyFaq, whichAtHomeFaq, prepFaq, bookingFaq];
+/** Homepage: the three things a first-time client asks first. */
+export const homeFaqs: Faq[] = [whichAtHomeFaq, travelFaq, studioFaq];
 
-/** Mobile page: its own spreads already cover how visits work, safety and who arrives. */
-export const mobileFaqs: Faq[] = [whichAtHomeFaq, bookingFaq];
+/** Book and Contact page. */
+export const bookFaqs: Faq[] = [prepFaq, bookingFaq, whichAtHomeFaq, hygieneFaq, privacyFaq];
