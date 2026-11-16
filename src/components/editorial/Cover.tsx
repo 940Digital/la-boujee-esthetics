@@ -5,15 +5,16 @@ import { motion, useReducedMotion } from "framer-motion";
 import logo from "../../../public/brand/logo-pink.png";
 import { business, images } from "@/site.config";
 import { blurProps } from "@/lib/blur";
+import { lowerFirst } from "@/lib/site";
 import { BookButton } from "../BookButton";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 /** Cover lines. Each one is a verified fact, set like the teasers on a 1950s fashion cover. */
 const coverLines = [
-  { kicker: "Mobile esthetician", line: "I come to you, or you visit my studio." },
-  { kicker: "Brows and lashes", line: "Tinting and eyelash lifts for a finished look without the mascara." },
-  { kicker: "Skin", line: "Custom facials and chemical peels, chosen for your skin." },
+  { kicker: "The studio", line: `In ${business.CITY}, ${lowerFirst(business.LOCATION_NOTE)}.` },
+  { kicker: "Home visits", line: "Across Denton County and nearby, with no travel fee." },
+  { kicker: "The menu", line: "Facials, peels, waxing, brows, lashes and makeup." },
 ];
 
 /*
@@ -84,7 +85,7 @@ export function Cover() {
           </motion.div>
 
           <motion.p className="kicker text-rose" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={t(0.45)}>
-            {business.credential}
+            Licensed Texas Esthetician
           </motion.p>
           <motion.h1
             id="cover-title"
@@ -93,7 +94,7 @@ export function Cover() {
             animate={{ opacity: 1, y: 0 }}
             transition={t(0.55, 1.1)}
           >
-            Custom Facials, Waxing and Lash Lifts in {business.CITY}
+            Facials, Waxing and Lash Lifts in {business.CITY}
           </motion.h1>
 
           <ul className="mt-8 max-w-[46ch] border-t border-silver/30">

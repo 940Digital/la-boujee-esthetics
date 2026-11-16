@@ -22,7 +22,7 @@ type RevealProps = {
   className?: string;
   delay?: number;
   y?: number;
-  as?: "div" | "li" | "section" | "article";
+  as?: "div" | "li" | "ul" | "ol" | "section" | "article";
 };
 
 /** Fade and a short rise. The default for content blocks. */

@@ -1,23 +1,27 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { business, linkServicePages, policies, services } from "@/site.config";
+import { business, policies, services } from "@/site.config";
+import { BookButton } from "@/components/BookButton";
+import { ContactForm } from "@/components/ContactForm";
 import { ContactMethods } from "@/components/ContactMethods";
+import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/motion";
 import { Opener } from "@/components/editorial/Opener";
 import { QandA } from "@/components/editorial/Spreads";
-import { isPlaceholder } from "@/lib/site";
-import { bookingFaq, prepFaq } from "@/lib/faq";
+import { availability, directionsHref, fullAddress, isPlaceholder, servicePath } from "@/lib/site";
+import { bookFaqs } from "@/lib/faq";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: `Book an Esthetics Appointment in ${business.CITY} | Lá Boujee Esthetics`,
-  description: `Book a custom facial, waxing, tinting, eyelash lift or chemical peel with Lá Boujee Esthetics in ${business.CITY}. Choose a home visit or the studio.`,
-  alternates: { canonical: "/book" },
-};
+export const metadata = pageMetadata({
+  title: "Book an Esthetician in Denton, TX | Lá Boujee",
+  description:
+    "Book a facial, peel, wax, lash lift or makeup with Lá Boujee Esthetics. Call, text or email. Studio at 1100 Dallas Dr, Denton, or a home visit.",
+  path: "/book",
+});
 
 function Step({ act, title, children }: { act: string; title: string; children: React.ReactNode }) {
   return (
     <Reveal>
-      <div className="grid gap-4 border-t border-ink/15 py-10 md:grid-cols-[160px_1fr]">
+      <div className="grid gap-3 border-t border-ink/15 py-8 md:grid-cols-[160px_1fr] md:gap-4 md:py-10">
         <p className="kicker pt-2 text-rose-ink">{act}</p>
         <div>
           <h3 className="display text-[clamp(1.9rem,1.5rem+1.4vw,2.6rem)] leading-tight">{title}</h3>
@@ -30,91 +34,156 @@ function Step({ act, title, children }: { act: string; title: string; children: 
 
 export default function BookPage() {
   const online = !isPlaceholder(business.BOOKING_URL);
+  const directions = directionsHref();
+  const hasForm = business.CONTACT_FORM_ENDPOINT.length > 0;
   const chip =
     "inline-flex min-h-11 items-center border border-ink/25 px-4 text-[1rem] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-pearl";
+  const rules = [
+    { title: "Cancellations", body: policies.CANCELLATION },
+    { title: "Payment", body: policies.PAYMENT_METHODS },
+    { title: "Travel", body: policies.TRAVEL_FEE },
+    { title: "Deposit", body: policies.DEPOSIT },
+    { title: "Age", body: policies.MINIMUM_AGE },
+  ].filter((r) => !isPlaceholder(r.body));
+  const box = "border-t-2 border-ink pt-4";
+
   return (
     <>
-      <Opener
-        kicker="Reservations"
-        title={`Book Your Esthetics Appointment in ${business.CITY}`}
-        standfirst="Three quick choices: your treatment, your setting, and your time."
-        crumbs={[{ href: "/book", name: "Book" }]}
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${business.SITE_URL}/` },
+            { "@type": "ListItem", position: 2, name: "Book and Contact", item: `${business.SITE_URL}/book` },
+          ],
+        }}
       />
+      <Opener
+        kicker="Book and contact"
+        title={`Book Your Appointment in ${business.CITY}`}
+        standfirst={
+          online
+            ? "Reserve online, or call, text or email me."
+            : "Call, text or email me to book. I'll confirm your treatment, day and place."
+        }
+        crumbs={[{ href: "/book", name: "Book and Contact" }]}
+      >
+        {/* The button would point at this page until online booking exists. */}
+        {online ? <BookButton /> : null}
+      </Opener>
 
-      <section aria-labelledby="choose" className="bg-pearl py-24 text-ink md:py-28">
+      <section aria-labelledby="how-to-book" className="bg-pearl py-20 text-ink md:py-28">
         <div className="mx-auto max-w-[1040px] px-6 md:px-10">
-          <h2 id="choose" className="sr-only">
+          <h2 id="how-to-book" className="display text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)]">
             How to book
           </h2>
 
-          <Step act="Act I" title="Choose your treatment">
-            <p className="mt-2 text-graphite">
-              {linkServicePages ? "Not sure? Read about each one first." : "Not sure which? Ask when you book."}
-            </p>
-            <ul className="mt-5 flex flex-wrap gap-3">
-              {services.map((s) => (
-                <li key={s.slug}>
-                  {linkServicePages ? (
-                    <Link href={`/${s.slug}`} className={chip}>
+          <div className="mt-8">
+            <Step act="Act I" title="Get in touch">
+              <p className="mt-2 text-graphite">
+                {online ? "Reserve online, or reach me directly." : "Call, text or email. Tell me the treatment you'd like and a day that suits you."}
+              </p>
+              <div className="mt-5">
+                <ContactMethods stacked />
+              </div>
+            </Step>
+
+            <Step act="Act II" title="Choose your treatment">
+              <p className="mt-2 text-graphite">
+                Not sure which?{" "}
+                <Link href="/services" className="text-rose-ink underline decoration-rose-ink/40 underline-offset-4">
+                  See every service and price
+                </Link>
+                , or ask me.
+              </p>
+              <ul className="mt-5 flex flex-wrap gap-3">
+                {services.map((s) => (
+                  <li key={s.slug}>
+                    <Link href={servicePath(s.slug)} className={chip}>
                       {s.name}
                     </Link>
-                  ) : (
-                    <span className={chip.replace(/hover:\S+/g, "")}>{s.name}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </Step>
-
-          <Step act="Act II" title="Choose your setting">
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <Link href="/mobile-service" className="group block bg-ink p-6 text-pearl">
-                <span className="display block text-[1.7rem] italic">Your home</span>
-                <span className="kicker mt-2 block text-rose group-hover:text-rose-light">How home visits work</span>
-              </Link>
-              <Link href="/contact" className="group block border border-ink p-6 text-ink">
-                <span className="display block text-[1.7rem] italic">My studio</span>
-                <span className="kicker mt-2 block text-rose-ink">Ask about my studio</span>
-              </Link>
-            </div>
-          </Step>
-
-          <Step act="Act III" title="Pick your time">
-            {online ? (
-              <>
-                <p className="mt-2 text-graphite">See open times and reserve online.</p>
-                <a href={business.BOOKING_URL} rel="noopener" className="btn btn-rose mt-6">
-                  Book Your Appointment
-                </a>
-              </>
-            ) : (
-              <>
-                <p className="mt-2 text-graphite">
-                  Reach out any way below to find a time. Online booking: {business.BOOKING_URL}
-                </p>
-                <div className="mt-6">
-                  <ContactMethods stacked />
-                </div>
-              </>
-            )}
-          </Step>
-
-          <Reveal>
-            <div className="border-t-2 border-ink pt-4">
-              <h3 className="kicker text-ink">Good to know</h3>
-              <ul className="mt-2 text-[1.0625rem] md:text-[0.98rem] text-graphite">
-                {[policies.DEPOSIT, policies.CANCELLATION, policies.PAYMENT_METHODS, policies.MINIMUM_AGE].map((p) => (
-                  <li key={p} className="border-b border-ink/12 py-3">
-                    {p}
                   </li>
                 ))}
               </ul>
-            </div>
-          </Reveal>
+            </Step>
+
+            <Step act="Act III" title="Your home or my studio">
+              <p className="mt-2 text-graphite">
+                Ask for a home visit, or come to my studio in {business.CITY}. Some treatments are studio only: see the questions
+                below.
+              </p>
+            </Step>
+          </div>
         </div>
       </section>
 
-      <QandA faqs={[prepFaq, bookingFaq]} title="Before you book" kicker="Prep and scheduling" id="book-qa" />
+      {/* Studio, availability, home visits, policies */}
+      <section aria-labelledby="details" className="bg-pearl-2 py-20 text-ink md:py-28">
+        <div className="mx-auto max-w-[1040px] px-6 md:px-10">
+          <h2 id="details" className="display text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)]">
+            Where and when
+          </h2>
+          <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-x-14 md:gap-y-12">
+            <Reveal>
+              <div id="studio" className={`${box} scroll-mt-24`}>
+                <h3 className="kicker text-rose-ink">The studio</h3>
+                <p className="mt-3 text-ink">{business.LOCATION_NOTE}</p>
+                <p className="text-ink">{fullAddress()}</p>
+                {directions ? (
+                  <a href={directions} rel="noopener" className="kicker deco-link mt-2 inline-flex min-h-11 items-center text-rose-ink">
+                    Get directions
+                  </a>
+                ) : null}
+              </div>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <div className={box}>
+                <h3 className="kicker text-rose-ink">Available</h3>
+                <p className="mt-3 text-ink">{availability()}</p>
+              </div>
+            </Reveal>
+            <Reveal>
+              <div className={box}>
+                <h3 className="kicker text-rose-ink">Home visits</h3>
+                <p className="mt-3 text-ink">
+                  {business.SERVICE_AREA.length} towns across Denton County and nearby, including{" "}
+                  {business.SERVICE_AREA.slice(0, 4).join(", ")} and more.
+                </p>
+                <Link href="/mobile-service" className="kicker deco-link mt-2 inline-flex min-h-11 items-center text-rose-ink">
+                  See every town
+                </Link>
+              </div>
+            </Reveal>
+            {rules.length ? (
+              <Reveal delay={0.08}>
+                <div className={box}>
+                  <h3 className="kicker text-rose-ink">Good to know</h3>
+                  <dl className="mt-1">
+                    {rules.map((r) => (
+                      <div key={r.title} className="border-b border-ink/12 py-3 last:border-b-0">
+                        <dt className="font-semibold text-ink">{r.title}</dt>
+                        <dd className="text-graphite">{r.body}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </Reveal>
+            ) : null}
+          </div>
+
+          {hasForm ? (
+            <Reveal className="mx-auto mt-16 max-w-[720px]">
+              <h2 className="display text-center text-[clamp(2rem,1.5rem+2vw,3.2rem)]">Send a message</h2>
+              <div className="mt-10">
+                <ContactForm endpoint={business.CONTACT_FORM_ENDPOINT} />
+              </div>
+            </Reveal>
+          ) : null}
+        </div>
+      </section>
+
+      <QandA faqs={bookFaqs} title="Before you book" kicker="Questions and answers" id="book-qa" />
     </>
   );
 }

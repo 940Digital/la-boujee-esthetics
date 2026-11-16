@@ -1,24 +1,17 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import { BookButton } from "./BookButton";
+import { useInPageCta } from "@/lib/useInPageCta";
 
 /**
- * Sticky booking bar on phones. It waits until the visitor scrolls past the
- * opening band (which has its own button), so the first screen shows one CTA.
+ * Sticky booking bar on phones. It steps aside whenever the page's own button
+ * is on screen, so there is only ever one "Book Your Appointment" in view, and
+ * it never shows on the page the button points to.
  */
 export function MobileBookBar() {
-  // On the homepage the cover's own button sits below the fold on phones, so the bar shows from the start.
-  const showAfter = usePathname() === "/" ? 0 : 380;
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    const onScroll = () => setShow(window.scrollY >= showAfter);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [showAfter]);
+  const { pageCtaVisible, onBookingPage } = useInPageCta();
+  const show = !pageCtaVisible && !onBookingPage;
   return (
     <AnimatePresence>
       {show && (
@@ -29,7 +22,7 @@ export function MobileBookBar() {
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="fixed inset-x-0 bottom-0 z-30 border-t border-silver/50 bg-ink/95 px-4 pb-[calc(10px+env(safe-area-inset-bottom))] pt-2.5 backdrop-blur-sm md:hidden"
         >
-          <BookButton className="w-full !min-h-[50px]" />
+          <BookButton chrome className="w-full !min-h-[50px]" />
         </motion.div>
       )}
     </AnimatePresence>

@@ -5,7 +5,7 @@ import { ImageSlot } from "../ImageSlot";
 import { BookButton } from "../BookButton";
 import { ContactMethods } from "../ContactMethods";
 import { JsonLd } from "../JsonLd";
-import { bookingHref, isPlaceholder } from "@/lib/site";
+import { bookingHref, isPlaceholder, lowerFirst, portraitIsPlaceholder, servicePath, settingLabel } from "@/lib/site";
 import { Curtain, Fade, Reveal, RuleDraw, Stagger, StaggerItem } from "../motion";
 
 /* ------------------------------------------------------------------ */
@@ -14,12 +14,13 @@ import { Curtain, Fade, Reveal, RuleDraw, Stagger, StaggerItem } from "../motion
 
 export function Profile() {
   return (
-    <section id="profile" aria-labelledby="profile-title" className="bg-pearl py-24 text-ink md:py-32">
+    <section id="profile" aria-labelledby="profile-title" className="bg-pearl py-20 text-ink md:py-28">
       <div className="mx-auto grid max-w-[1240px] gap-14 px-6 md:px-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20">
-        <Curtain>
-          <figure>
+        <Curtain className={portraitIsPlaceholder() ? "hidden lg:block" : undefined}>
+          {/* While the portrait is still the brand panel, phones skip it rather than scroll past an empty frame. */}
+          <figure className="mx-auto max-w-[360px] lg:max-w-none">
             <div className="border border-silver-ink/50 p-2">
-              <ImageSlot slot={images.ownerPortrait} sizes="(min-width: 1024px) 420px, 90vw" eager />
+              <ImageSlot slot={images.ownerPortrait} sizes="(min-width: 1024px) 420px, 360px" eager />
             </div>
           </figure>
         </Curtain>
@@ -35,8 +36,12 @@ export function Profile() {
           <Reveal delay={0.1}>
             <div className="mt-9 max-w-[52ch] space-y-6 text-graphite">
               <p>
-                <span className="dropcap-letter">I</span>&apos;m {business.OWNER_NAME}, the licensed esthetician behind Lá Boujee
-                Esthetics in {business.CITY}.
+                <span className="dropcap-letter">I</span>&apos;m {business.OWNER_NAME}, a licensed esthetician in the State of Texas, and
+                insured. Lá Boujee Esthetics is my solo practice.
+              </p>
+              <p>
+                My studio is in {business.CITY}, {lowerFirst(business.LOCATION_NOTE)}. I also come to your home anywhere in my
+                service area, with no travel fee.
               </p>
               <p className="display border-l-2 border-rose py-1 pl-5 text-[clamp(1.6rem,1.2rem+1.4vw,2.5rem)] italic leading-snug text-ink">
                 The person you book is the person who takes care of you.
@@ -64,19 +69,19 @@ export function HomeOrStudio() {
       id: "home",
       big: "Your Home",
       img: images.comeToYou,
-      body: "No drive, no parking, no waiting room. You stay comfortable afterward.",
-      link: onePage ? { href: "/#questions", label: "Home visit questions" } : { href: "/mobile-service", label: "How home visits work" },
+      body: "No drive, no parking, no waiting room, and no travel fee. Facials, peels, acne treatments, consultations and makeup come to you.",
+      link: { href: "/mobile-service", label: "How home visits work" },
     },
     {
       id: "studio",
       big: "or My Studio",
       img: images.studio,
-      body: "For treatments that need the full setup, and a little time out of the house.",
-      link: onePage ? { href: "/#book", label: "Ask about my studio" } : { href: "/contact", label: "Ask about my studio" },
+      body: `${business.LOCATION_NOTE} in ${business.CITY}. Waxing, lash lifts, tinting and brow lamination happen here.`,
+      link: { href: "/book#studio", label: "Studio address and directions" },
     },
   ];
   return (
-    <section id="place" aria-labelledby="place-title" className="relative overflow-hidden bg-ink py-24 text-pearl md:py-32">
+    <section id="place" aria-labelledby="place-title" className="relative overflow-hidden bg-ink py-20 text-pearl md:py-28">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -100,9 +105,9 @@ export function HomeOrStudio() {
                   <ImageSlot slot={h.img} sizes="(min-width: 768px) 50vw, 92vw" eager />
                 </div>
               </Curtain>
-              <Reveal delay={0.2 + i * 0.12} className="mt-6 grid gap-2">
-                <div className="md:col-span-2">
-                  <p className="text-mist">{h.body}</p>
+              <Reveal delay={0.2 + i * 0.12} className="mt-6">
+                <div>
+                  <p className="max-w-[48ch] text-mist">{h.body}</p>
                   <Link href={h.link.href} className="kicker deco-link mt-3 inline-flex min-h-11 items-center text-rose">
                     {h.link.label}
                   </Link>
@@ -117,32 +122,37 @@ export function HomeOrStudio() {
 }
 
 /* ------------------------------------------------------------------ */
-/* The treatments: a lookbook. One feature plate, four smaller plates. */
+/* The treatments: a lookbook. One feature plate, two smaller plates,  */
+/* each opening its own page.                                          */
 /* ------------------------------------------------------------------ */
 
 function Plate({ s, big = false }: { s: (typeof services)[number]; big?: boolean }) {
   const inner = (
     <>
-      <div className="bw grain h-full">
+      <div className="bw grain absolute inset-0">
         <ImageSlot
-          slot={s.image}
-          sizes={big ? "(min-width: 768px) 50vw, 92vw" : "(min-width: 768px) 25vw, 46vw"}
+          slot={{ ...s.image, aspect: "auto" }}
+          sizes={big ? "(min-width: 768px) 55vw, 92vw" : "(min-width: 768px) 40vw, 46vw"}
           className="h-full transition-transform duration-[1.4s] ease-[var(--ease-deco)] group-hover:scale-[1.04]"
         />
       </div>
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/35 to-transparent" />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/45 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 p-4 md:p-6">
-        <h3 className={`display text-pearl ${big ? "text-[clamp(2rem,1.4rem+2vw,3.2rem)]" : "text-[1.35rem] md:text-[1.6rem]"}`}>{s.name}</h3>
-        {big ? <p className="mt-2 max-w-[36ch] text-pearl/85">{s.benefit}</p> : null}
-        {big && linkServicePages ? (
-          <span className="kicker mt-3 inline-block text-rose transition-colors group-hover:text-rose-light">See the treatment</span>
-        ) : null}
+        <p className="kicker !text-[0.7rem] !tracking-[0.16em] text-rose-soft md:!text-[0.74rem]">
+          {s.offerings.every((o) => o.setting === s.offerings[0].setting)
+            ? settingLabel[s.offerings[0].setting]
+            : "Studio, makeup at home"}
+        </p>
+        <h3 className={`display mt-2 text-pearl ${big ? "text-[clamp(2rem,1.4rem+2vw,3.2rem)]" : "text-[1.3rem] leading-tight md:text-[2rem]"}`}>
+          {s.navName}
+        </h3>
+        {big ? <p className="mt-2 max-w-[36ch] text-pearl/90">{s.benefit}</p> : null}
       </div>
     </>
   );
   const cls = "group relative block h-full overflow-hidden bg-ink";
   return linkServicePages ? (
-    <Link href={`/${s.slug}`} className={cls}>
+    <Link href={servicePath(s.slug)} className={cls}>
       {inner}
     </Link>
   ) : (
@@ -153,23 +163,30 @@ function Plate({ s, big = false }: { s: (typeof services)[number]; big?: boolean
 export function Lookbook() {
   const [feature, ...rest] = services;
   return (
-    <section id="treatments" aria-labelledby="treatments-title" className="bg-pearl py-24 md:py-32">
+    <section id="treatments" aria-labelledby="treatments-title" className="bg-pearl py-20 md:py-28">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <Reveal>
+        <Reveal className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
           <div>
             <p className="kicker text-rose-ink">The lookbook</p>
             <h2 id="treatments-title" className="display mt-4 text-[clamp(2.6rem,1.6rem+3.6vw,5rem)] text-ink">
               The Treatments
             </h2>
           </div>
+          {onePage ? null : (
+            <Link href="/services" className="kicker deco-link inline-flex min-h-11 items-center text-rose-ink">
+              Every price, on one page
+            </Link>
+          )}
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-[2fr_1fr_1fr] md:grid-rows-2 md:gap-4">
+        {/* Phones: the feature full width, then two plates side by side.
+            md and up: the feature on the left, the other two stacked on the right. */}
+        <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-[1.25fr_1fr] md:grid-rows-2 md:gap-4">
           <Fade className="col-span-2 aspect-[4/5] md:col-span-1 md:row-span-2 md:aspect-auto">
             <Plate s={feature} big />
           </Fade>
           {rest.map((s, i) => (
-            <Fade key={s.slug} delay={0.08 * (i + 1)} className="aspect-[4/5]">
+            <Fade key={s.slug} delay={0.08 * (i + 1)} className="aspect-[4/5] md:aspect-[5/4]">
               <Plate s={s} />
             </Fade>
           ))}
@@ -184,14 +201,14 @@ export function Lookbook() {
 /* ------------------------------------------------------------------ */
 
 const acts = [
-  { act: "Act I", title: "Book", body: "Choose your treatment and a time, at your home or in my studio." },
+  { act: "Act I", title: "Book", body: "Call, text or email to choose your treatment, a day, and your home or my studio." },
   { act: "Act II", title: "Relax", body: "Tell me about your skin, then let me take it from there." },
   { act: "Act III", title: "Glow", body: "Leave looking finished, with simple aftercare to keep it going." },
 ];
 
 export function Acts() {
   return (
-    <section aria-labelledby="acts-title" className="relative overflow-hidden bg-wine py-24 text-pearl md:py-28">
+    <section aria-labelledby="acts-title" className="relative overflow-hidden bg-wine py-20 text-pearl md:py-28">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -247,7 +264,7 @@ export function QandA({
     })),
   };
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="bg-ink py-24 text-pearl md:py-32">
+    <section id={id} aria-labelledby={`${id}-title`} className="bg-ink py-20 text-pearl md:py-28">
       <JsonLd data={schema} />
       <div className="mx-auto max-w-[1240px] px-6 md:px-10">
         <Reveal className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
@@ -298,7 +315,7 @@ export function CloseUp({
   showContact?: boolean;
 }) {
   return (
-    <section id="book" aria-labelledby="book-title" className="relative overflow-hidden bg-wine py-24 text-pearl md:py-32">
+    <section id="book" aria-labelledby="book-title" className="relative overflow-hidden bg-wine py-20 text-pearl md:py-28">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -310,7 +327,7 @@ export function CloseUp({
           <h2 id="book-title" className="display text-[clamp(3rem,1.8rem+5vw,6.4rem)] italic">
             {title}
           </h2>
-          {/* With no online booking yet, the button would point at this very section; the contact details below are the way to book. */}
+          {/* In the one-page layout the button would point at this very section; the contact details below are the way to book. */}
           {bookingHref() === "/#book" ? null : (
             <div className="mt-10">
               <BookButton />
@@ -318,7 +335,7 @@ export function CloseUp({
           )}
         </Reveal>
         {showContact ? (
-          <div className="mt-16 text-left">
+          <div className="mt-14 text-left">
             <ContactMethods tone="ink" />
           </div>
         ) : null}

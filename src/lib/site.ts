@@ -1,9 +1,35 @@
-import { business, linkServicePages, onePage, services, type Service, type ServiceSlug } from "@/site.config";
+import {
+  business,
+  images,
+  linkServicePages,
+  onePage,
+  priceMenu,
+  services,
+  type MenuItem,
+  type Service,
+  type ServiceSetting,
+  type ServiceSlug,
+} from "@/site.config";
 
-/** True when a config value is still an unfilled [PLACEHOLDER]. */
+/** True when a config value is still an unfilled [PLACEHOLDER] (or empty). */
 export function isPlaceholder(value: string | undefined | null): boolean {
   if (!value) return true;
   return /\[[^\]]+\]/.test(value);
+}
+
+/** Only the values that are ready to show. Use for any list of config values. */
+export function shown<T extends string>(values: readonly T[]): T[] {
+  return values.filter((v) => !isPlaceholder(v));
+}
+
+/** "Inside Burgess Chiropractic Office" -> "inside Burgess Chiropractic Office", for mid-sentence use. */
+export function lowerFirst(text: string): string {
+  return text.charAt(0).toLowerCase() + text.slice(1);
+}
+
+/** True while the owner portrait slot still holds the placeholder (rendered as a brand panel). */
+export function portraitIsPlaceholder(): boolean {
+  return images.ownerPortrait.src.startsWith("/placeholders/");
 }
 
 /** Replace {CITY} tokens in copy with the configured city. */
@@ -14,7 +40,7 @@ export function fill(text: string): string {
 /** Where every "Book Your Appointment" button goes. */
 export function bookingHref(): string {
   if (!isPlaceholder(business.BOOKING_URL)) return business.BOOKING_URL;
-  // No online booking yet: send people to the ways to reach her.
+  // No online booking yet: send people to the Book and Contact page.
   return onePage ? "/#book" : "/book";
 }
 
@@ -33,6 +59,24 @@ export function mailHref(): string | null {
   return `mailto:${business.EMAIL}`;
 }
 
+/** "1100 Dallas Dr, Denton, TX 76205" (street line left off while it's a placeholder). */
+export function fullAddress(): string {
+  const street = isPlaceholder(business.STUDIO_ADDRESS) ? "" : `${business.STUDIO_ADDRESS}, `;
+  return `${street}${business.CITY}, ${business.STATE} ${business.POSTAL_CODE}`;
+}
+
+/** Plain Google Maps search for the studio address. No embed, no API key. */
+export function directionsHref(): string | null {
+  if (isPlaceholder(business.STUDIO_ADDRESS)) return null;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress())}`;
+}
+
+/** "Monday through Saturday, by appointment", with times added once they're known. */
+export function availability(): string {
+  const times = isPlaceholder(business.HOURS_TIMES) ? "" : `, ${business.HOURS_TIMES}`;
+  return `${business.DAYS}${times}, by appointment`;
+}
+
 export function getService(slug: ServiceSlug): Service {
   const s = services.find((x) => x.slug === slug);
   if (!s) throw new Error(`Unknown service ${slug}`);
@@ -43,42 +87,51 @@ export function servicePath(slug: ServiceSlug): string {
   return `/${slug}`;
 }
 
-export const settingCopy: Record<Service["setting"], string> = {
-  unconfirmed:
-    "Your home or my studio. Ask which when you book.",
-  mobile: "At your home.",
-  studio: "In my studio, where the full setup lives.",
-  both: "Your home or my studio, whichever you prefer.",
+/** "$75", or "Ask for pricing" for treatments that aren't on the menu yet. */
+export function formatPrice(item: MenuItem): string {
+  return item.price === null ? "Ask for pricing" : `$${item.price}`;
+}
+
+export function priceGroupsFor(slug: ServiceSlug) {
+  return priceMenu.filter((g) => g.service === slug);
+}
+
+/** "$15-$340", worked out from the menu. */
+export function priceRange(): string {
+  const prices = priceMenu.flatMap((g) => g.items.map((i) => i.price)).filter((p): p is number => p !== null);
+  return `$${Math.min(...prices)}-$${Math.max(...prices)}`;
+}
+
+/** Short marker for price groups and treatment lists. */
+export const settingLabel: Record<ServiceSetting, string> = {
+  mobile: "Home visits only",
+  studio: "Studio only",
+  both: "At home or studio",
 };
 
-/** Treatment links in the nav: one per page, or a single jump to the homepage lookbook. */
-const treatmentNav = linkServicePages
-  ? services.map((s) => ({ href: servicePath(s.slug), label: s.navName }))
-  : [{ href: "/#treatments", label: "Treatments" }];
+/** One line, in her voice, for where a treatment happens. */
+export const settingCopy: Record<ServiceSetting, string> = {
+  mobile: "At your home.",
+  studio: `In my ${business.CITY} studio only.`,
+  both: `At your home or in my ${business.CITY} studio, whichever you prefer.`,
+};
 
-/** Where the header draws its divider (after the treatment links); -1 for none. */
-export const treatmentNavCount = onePage ? -1 : treatmentNav.length;
+const sentenceCase = (t: string) => t.charAt(0).toUpperCase() + t.slice(1).toLowerCase();
 
-/** Homepage sections in page order, for the one-page demo. */
-export const sectionNav = [
-  { href: "/#profile", label: "Meet Laurel" },
-  { href: "/#place", label: "Home or Studio" },
-  { href: "/#treatments", label: "Treatments" },
-  { href: "/#questions", label: "Q&A" },
-  { href: "/#book", label: "Contact" },
-];
+/** Every treatment, split by where it can happen (for the Mobile Service page). */
+export function offeringsBySetting() {
+  const all = services.flatMap((s) => s.offerings.map((o) => ({ ...o, label: sentenceCase(o.listName ?? o.name), service: s.slug })));
+  return {
+    atHome: all.filter((o) => o.setting !== "studio"),
+    studioOnly: all.filter((o) => o.setting === "studio"),
+  };
+}
 
-export const primaryNav = onePage
-  ? sectionNav
-  : [
-      ...treatmentNav,
-      { href: "/mobile-service", label: "Mobile Service" },
-      { href: "/about", label: "About" },
-      { href: "/contact", label: "Contact" },
-    ];
-
-/** Menu links under the treatment list (the list itself covers treatments). */
-export const menuNav = [
-  { href: "/", label: "Home" },
-  ...primaryNav.filter((n) => n.href !== "/#treatments" && !services.some((s) => n.href === servicePath(s.slug))),
+/** The seven pages, in the header, the mobile menu and the footer. */
+export const primaryNav: { href: string; label: string }[] = [
+  { href: "/services", label: "Services and Prices" },
+  ...(linkServicePages ? services.map((s) => ({ href: servicePath(s.slug), label: s.navName })) : []),
+  { href: "/mobile-service", label: "Mobile Service" },
+  { href: "/about", label: "About" },
+  { href: "/book", label: "Book and Contact" },
 ];
