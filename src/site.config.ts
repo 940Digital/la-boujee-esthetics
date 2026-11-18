@@ -263,6 +263,8 @@ export type Service = {
   after: string[];
   related: ServiceSlug[];
   image: ImageSlot;
+  /** Optional figure shown beside the intro, with a short caption. */
+  detail?: { image: ImageSlot; caption: string };
 };
 
 export const services: Service[] = [
@@ -460,6 +462,15 @@ export const services: Service[] = [
       width: 1200,
       height: 1500,
       aspect: "4 / 5",
+    },    detail: {
+      image: {
+        src: "/photos/brows-mapping-diagram.jpg",
+        alt: "Printed brow mapping diagram: dashed guide lines from the nose and the eye mark where a brow should start, arch and end",
+        width: 1200,
+        height: 1500,
+        aspect: "4 / 5",
+      },
+      caption: "Brow mapping: where a brow starts, arches and ends, measured from your own features.",
     },
   },
 ];
@@ -477,9 +488,9 @@ export const images = {
     height: 2000,
     aspect: "4 / 5",
   },
-  /** Still the placeholder: renders as a brand panel (her monogram on wine) until a real portrait replaces it. */
+  /** Her real headshot (sent by Owen 2026-11-18), cropped to 4:5 and printed B&W like every photo. */
   ownerPortrait: {
-    src: "/placeholders/owner-portrait.svg",
+    src: "/photos/owner-laurel-porter.jpg",
     alt: "Portrait of Laurel Porter, licensed esthetician and owner of Lá Boujee Esthetics",
     width: 1200,
     height: 1500,

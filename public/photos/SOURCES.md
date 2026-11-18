@@ -17,3 +17,8 @@ All photos are from Unsplash (free under the Unsplash License, no attribution re
 | chemical-peel-skincare-ritual.jpg | 1552046122-03184de85e08 (cropped above a branded sheet mask) |
 | come-to-you-vanity.jpg | 1686109831633-d35231b5c623 |
 | studio-still-life.jpg | 1540555700478-4be289fbecef |
+
+## Client photos (not stock)
+
+- owner-laurel-porter.jpg: Laurel's own headshot, sent by Owen 2026-11-18 (IMG_4605), cropped 4:5, B&W.
+- brows-mapping-diagram.jpg: photo of a brow mapping page, sent by Owen 2026-11-18, cropped 4:5, B&W.

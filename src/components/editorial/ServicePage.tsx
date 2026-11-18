@@ -72,19 +72,33 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
       {/* What I offer here, with where each one happens */}
       <section aria-labelledby="about-service" className="bg-pearl py-20 text-ink md:py-28">
         <div className="mx-auto max-w-[1240px] px-6 md:px-10">
-          <Reveal>
-            <h2 id="about-service" className="display max-w-[20ch] text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)]">
-              {copy[s.slug].about}
-            </h2>
-            <RuleDraw className="mt-6 w-24 bg-rose" />
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div className="mt-8 max-w-[62ch] space-y-4 text-graphite">
-              {s.intro.map((p) => (
-                <p key={p}>{p}</p>
-              ))}
+          <div className={s.detail ? "grid items-center gap-10 md:grid-cols-[1fr_minmax(0,280px)] md:gap-16" : ""}>
+            <div>
+              <Reveal>
+                <h2 id="about-service" className="display max-w-[20ch] text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)]">
+                  {copy[s.slug].about}
+                </h2>
+                <RuleDraw className="mt-6 w-24 bg-rose" />
+              </Reveal>
+              <Reveal delay={0.1}>
+                <div className="mt-8 max-w-[62ch] space-y-4 text-graphite">
+                  {s.intro.map((p) => (
+                    <p key={p}>{p}</p>
+                  ))}
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
+            {s.detail ? (
+              <Reveal delay={0.15}>
+                <figure className="mx-auto max-w-[280px] md:mx-0">
+                  <div className="border border-ink/15 bg-pearl-2 p-2">
+                    <ImageSlot slot={s.detail.image} sizes="280px" />
+                  </div>
+                  <figcaption className="mt-3 text-[0.95rem] italic text-graphite">{s.detail.caption}</figcaption>
+                </figure>
+              </Reveal>
+            ) : null}
+          </div>
           <Stagger as="ul" className="mt-10 grid gap-x-14 border-t-2 border-ink md:grid-cols-2">
             {s.offerings.map((o) => (
               <StaggerItem as="li" key={o.name} className="border-b border-ink/12 py-6 md:[&:last-child:nth-child(odd)]:col-span-2">
