@@ -373,7 +373,7 @@ export const services: Service[] = [
         name: "Bikini",
         listName: "Bikini wax",
         setting: "studio",
-        body: "I offer bikini waxing only.",
+        body: "A clean, tidy bikini line. I don't offer Brazilian waxing.",
       },
     ],
     expect: [
