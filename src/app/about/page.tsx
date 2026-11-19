@@ -41,6 +41,7 @@ export default function AboutPage() {
         kicker="The profile"
         title={`Meet ${business.OWNER_NAME}, Licensed Esthetician in ${business.CITY}`}
         crumbs={[{ href: "/about", name: "About" }]}
+        photo={images.aboutCover}
       >
         <BookButton />
       </Opener>

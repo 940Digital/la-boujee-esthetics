@@ -19,6 +19,20 @@ const copy: Record<ServiceSlug, { about: string; cta: string }> = {
 
 const acts = ["Act I", "Act II", "Act III"];
 
+/**
+ * Column spans on a six-column grid so a row never ends with one stray card:
+ * 3 or 6 cards sit three across, 4 sit two by two, 5 sit three then two.
+ * On two-column tablets an odd last card spans the full row.
+ */
+function cardSpan(i: number, n: number) {
+  const tablet = n % 2 === 1 && i === n - 1 ? "sm:col-span-2" : "";
+  let desk = "lg:col-span-2";
+  if (n === 4 || n === 2) desk = "lg:col-span-3";
+  else if (n === 5) desk = i < 3 ? "lg:col-span-2" : "lg:col-span-3";
+  else if (n === 1) desk = "lg:col-span-6";
+  return `${tablet} ${desk}`;
+}
+
 export function serviceMetadata(slug: ServiceSlug) {
   const s = getService(slug);
   return pageMetadata({ title: fill(s.metaTitle), description: fill(s.metaDescription), path: servicePath(s.slug) });
@@ -99,14 +113,23 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
               </Reveal>
             ) : null}
           </div>
-          <Stagger as="ul" className="mt-10 grid gap-x-14 border-t-2 border-ink md:grid-cols-2">
-            {s.offerings.map((o) => (
-              <StaggerItem as="li" key={o.name} className="border-b border-ink/12 py-6 md:[&:last-child:nth-child(odd)]:col-span-2">
-                <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+          {/* Each treatment as its own card, so the list reads in clear groups rather than one long column */}
+          <Stagger as="ul" className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-6 md:gap-5">
+            {s.offerings.map((o, i) => (
+              <StaggerItem
+                as="li"
+                key={o.name}
+                className={`flex flex-col border border-ink/12 bg-pearl-2 p-6 md:p-7 ${cardSpan(i, s.offerings.length)}`}
+              >
+                <div className="flex items-center gap-4">
+                  <span className="kicker text-rose-ink">No. {String(i + 1).padStart(2, "0")}</span>
+                  <span aria-hidden className="h-px flex-1 bg-ink/15" />
+                </div>
+                <div className="mt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
                   <h3 className="display text-[1.6rem] leading-tight">{o.name}</h3>
                   {mixed ? <SettingTag setting={o.setting} /> : null}
                 </div>
-                <p className="mt-2 text-graphite">{o.body}</p>
+                <p className="mt-3 text-graphite">{o.body}</p>
               </StaggerItem>
             ))}
           </Stagger>
@@ -118,6 +141,26 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
           </p>
         </div>
       </section>
+
+      {/* A plate of two photos, set off-step like a magazine spread, to break up the page */}
+      {s.plate?.length ? (
+        <section aria-label={`${s.name}, in pictures`} className="bg-pearl pb-20 text-ink md:pb-28">
+          <div className="mx-auto grid max-w-[1000px] gap-8 px-6 sm:grid-cols-2 md:gap-12 md:px-10">
+            {s.plate.map((p, i) => (
+              <Fade key={p.image.src} delay={i * 0.12} className={i % 2 === 1 ? "sm:mt-20" : undefined}>
+                <figure>
+                  <div className="border border-ink/15 bg-pearl-2 p-2">
+                    <div className="bw grain">
+                      <ImageSlot slot={p.image} sizes="(min-width: 1000px) 440px, (min-width: 640px) 45vw, 90vw" />
+                    </div>
+                  </div>
+                  <figcaption className="mt-3 text-[0.95rem] italic text-graphite">{p.caption}</figcaption>
+                </figure>
+              </Fade>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {/* Prices for this page, straight from priceMenu */}
       <section aria-labelledby="prices-title" className="bg-pearl-2 py-20 text-ink md:py-28">

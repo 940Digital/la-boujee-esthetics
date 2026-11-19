@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { business, policies, services } from "@/site.config";
+import { business, images, policies, services } from "@/site.config";
 import { BookButton } from "@/components/BookButton";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactMethods } from "@/components/ContactMethods";
@@ -68,6 +68,7 @@ export default function BookPage() {
             : "Call, text or email me to book. I'll confirm your treatment, day and place."
         }
         crumbs={[{ href: "/book", name: "Book and Contact" }]}
+        photo={images.bookCover}
       >
         {/* The button would point at this page until online booking exists. */}
         {online ? <BookButton /> : null}

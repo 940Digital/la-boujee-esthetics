@@ -265,6 +265,8 @@ export type Service = {
   image: ImageSlot;
   /** Optional figure shown beside the intro, with a short caption. */
   detail?: { image: ImageSlot; caption: string };
+  /** Two photos set as a plate between the treatments and the prices, each with a caption. */
+  plate?: { image: ImageSlot; caption: string }[];
 };
 
 export const services: Service[] = [
@@ -327,6 +329,28 @@ export const services: Service[] = [
       "Wear sunscreen daily, and go easy on strong actives for a few days.",
       "After a peel, let any flaking happen on its own. Don't pick or scrub.",
     ],
+    plate: [
+      {
+        image: {
+          src: "/photos/facials-cleanse.jpg",
+          alt: "Black and white profile of a woman with eyes closed, rinsing a foamy cleanser from her face",
+          width: 1200,
+          height: 1500,
+          aspect: "4 / 5",
+        },
+        caption: "Every facial starts with a proper cleanse.",
+      },
+      {
+        image: {
+          src: "/photos/chemical-peel-skincare-ritual.jpg",
+          alt: "A hand reaching for an open jar of cream beside a small dropper bottle, in soft shadow",
+          width: 1200,
+          height: 1500,
+          aspect: "4 / 5",
+        },
+        caption: "Products and steps chosen for your skin that day.",
+      },
+    ],
     related: ["brows-and-lashes", "waxing"],
     image: {
       src: "/photos/facials-cream-mask.jpg",
@@ -388,6 +412,28 @@ export const services: Service[] = [
     after: [
       "Avoid hot baths, saunas and workouts for about a day.",
       "Start gentle exfoliation after a couple of days to help prevent ingrown hairs.",
+    ],
+    plate: [
+      {
+        image: {
+          src: "/photos/waxing-towels-tea-lights.jpg",
+          alt: "Two rolled towels with lit tea lights in glass holders",
+          width: 1200,
+          height: 1500,
+          aspect: "4 / 5",
+        },
+        caption: "A calm, private appointment.",
+      },
+      {
+        image: {
+          src: "/photos/studio-still-life.jpg",
+          alt: "A rolled towel, a plain pump bottle, a lit tea light and tulips on a white table",
+          width: 1500,
+          height: 1000,
+          aspect: "4 / 5",
+        },
+        caption: "Clean, smooth results that last longer than shaving.",
+      },
     ],
     related: ["brows-and-lashes", "facials"],
     image: {
@@ -455,6 +501,28 @@ export const services: Service[] = [
       "Keep lashes and brows dry, and avoid steam, for about a day.",
       "Skip oil-based products around the eyes while a lift or tint settles.",
     ],
+    plate: [
+      {
+        image: {
+          src: "/photos/tinting-brow-close-up.jpg",
+          alt: "Black and white close-up of a woman with defined brows, dark lashes and dark lipstick, looking up",
+          width: 1200,
+          height: 1500,
+          aspect: "4 / 5",
+        },
+        caption: "Brow color matched to your hair and skin tone.",
+      },
+      {
+        image: {
+          src: "/photos/makeup-lipstick.jpg",
+          alt: "Black and white close-up of a woman applying lipstick",
+          width: 1200,
+          height: 1500,
+          aspect: "4 / 5",
+        },
+        caption: "Makeup done for you, or a lesson so you can recreate the look.",
+      },
+    ],
     related: ["facials", "waxing"],
     image: {
       src: "/photos/lash-lift-curled-lashes.jpg",
@@ -462,7 +530,8 @@ export const services: Service[] = [
       width: 1200,
       height: 1500,
       aspect: "4 / 5",
-    },    detail: {
+    },
+    detail: {
       image: {
         src: "/photos/brows-mapping-diagram.jpg",
         alt: "Printed brow mapping diagram: dashed guide lines from the nose and the eye mark where a brow should start, arch and end",
@@ -506,6 +575,46 @@ export const images = {
   studio: {
     src: "/photos/studio-still-life.jpg",
     alt: "A rolled towel, a plain pump bottle, a lit tea light and tulips on a white table",
+    width: 1500,
+    height: 1000,
+    aspect: "3 / 2",
+  },
+  /** Services and Prices opener (stock). */
+  servicesCover: {
+    src: "/photos/chemical-peel-skincare-ritual.jpg",
+    alt: "A hand reaching for an open jar of cream beside a small dropper bottle, in soft shadow",
+    width: 1200,
+    height: 1500,
+    aspect: "4 / 5",
+  },
+  /** About opener (stock). Not Laurel. */
+  aboutCover: {
+    src: "/photos/studio-still-life.jpg",
+    alt: "A rolled towel, a plain pump bottle, a lit tea light and tulips on a white table",
+    width: 1500,
+    height: 1000,
+    aspect: "4 / 5",
+  },
+  /** Book and Contact opener (stock). */
+  bookCover: {
+    src: "/photos/book-rotary-telephone.jpg",
+    alt: "A black vintage rotary telephone with the receiver off the hook on a white table",
+    width: 1500,
+    height: 1000,
+    aspect: "3 / 2",
+  },
+  /** Mobile Service, beside what can be done at home (stock). */
+  makeupKit: {
+    src: "/photos/makeup-brushes.jpg",
+    alt: "Black and white close-up of makeup brushes laid in a case",
+    width: 1200,
+    height: 1500,
+    aspect: "4 / 5",
+  },
+  /** Mobile Service, beside the town list (stock). */
+  travel: {
+    src: "/photos/mobile-vintage-suitcases.jpg",
+    alt: "Two vintage suitcases, one leather and one trimmed with stitching and metal corners",
     width: 1500,
     height: 1000,
     aspect: "3 / 2",
