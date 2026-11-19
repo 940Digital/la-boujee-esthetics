@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { business, type ServiceSlug } from "@/site.config";
-import { fill, getService, priceGroupsFor, servicePath } from "@/lib/site";
+import { fill, formatPrice, getService, priceGroupsFor, servicePath } from "@/lib/site";
+import type { MenuItem } from "@/site.config";
 import { pageMetadata } from "@/lib/seo";
 import { BookButton } from "../BookButton";
 import { ImageSlot } from "../ImageSlot";
@@ -42,6 +43,14 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
   const s = getService(slug);
   const related = s.related.map(getService);
   const groups = priceGroupsFor(slug);
+  // Each card's prices come from this page's priceMenu groups, so a price only lives in one place.
+  const menuItems = groups.flatMap((g) => g.items);
+  const findItem = (name: string): MenuItem | undefined => menuItems.find((m) => m.name === name);
+  const onCards = new Set(s.offerings.flatMap((o) => (o.prices ?? []).map((p) => p.item)));
+  // Anything on the menu that no card shows still gets the price list below.
+  const leftover = groups
+    .map((g) => ({ ...g, items: g.items.filter((m) => !onCards.has(m.name)) }))
+    .filter((g) => g.items.length > 0);
   // Tag each treatment only when the page mixes settings; otherwise the opener already says where.
   const mixed = s.offerings.some((o) => o.setting !== s.offerings[0].setting);
   const url = business.SITE_URL;
@@ -130,6 +139,31 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
                   {mixed ? <SettingTag setting={o.setting} /> : null}
                 </div>
                 <p className="mt-3 text-graphite">{o.body}</p>
+                {o.prices?.length ? (
+                  <div className="mt-auto pt-5">
+                    <dl className="space-y-1.5 border-t border-ink/12 pt-4">
+                      {o.prices.map((p) => {
+                        const m = findItem(p.item);
+                        if (!m) return null;
+                        const solo = o.prices!.length === 1 && !p.label;
+                        return (
+                          <div key={p.item} className={`flex items-baseline gap-4 ${solo ? "" : "justify-between"}`}>
+                            {solo ? <dt className="sr-only">Price</dt> : <dt className="text-[0.95rem] text-ink">{p.label ?? m.name}</dt>}
+                            <dd
+                              className={
+                                m.price === null
+                                  ? "text-[0.95rem] italic text-graphite"
+                                  : "display text-[1.5rem] leading-none text-rose-ink"
+                              }
+                            >
+                              {formatPrice(m)}
+                            </dd>
+                          </div>
+                        );
+                      })}
+                    </dl>
+                  </div>
+                ) : null}
               </StaggerItem>
             ))}
           </Stagger>
@@ -139,6 +173,14 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
               How home visits work
             </Link>
           </p>
+          {leftover.length === 0 ? (
+            <p className="mt-3 text-graphite">
+              <Link href="/services" className="deco-link text-rose-ink underline decoration-rose-ink/40 underline-offset-4">
+                See the full price list
+              </Link>{" "}
+              for every treatment and how to pay.
+            </p>
+          ) : null}
         </div>
       </section>
 
@@ -162,8 +204,9 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
         </section>
       ) : null}
 
-      {/* Prices for this page, straight from priceMenu */}
-      <section aria-labelledby="prices-title" className="bg-pearl-2 py-20 text-ink md:py-28">
+      {/* Prices not already on a card, straight from priceMenu */}
+      {leftover.length ? (
+        <section aria-labelledby="prices-title" className="bg-pearl-2 py-20 text-ink md:py-28">
         <div className="mx-auto max-w-[760px] px-6">
           <Reveal className="flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
             <h2 id="prices-title" className="display text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)]">
@@ -174,10 +217,11 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             </Link>
           </Reveal>
           <div className="mt-8">
-            <PriceGroups groups={groups} />
+            <PriceGroups groups={leftover} />
           </div>
         </div>
-      </section>
+        </section>
+      ) : null}
 
       {/* The appointment, in three acts */}
       <section aria-labelledby="expect" className="relative overflow-hidden bg-wine py-20 text-pearl md:py-28">

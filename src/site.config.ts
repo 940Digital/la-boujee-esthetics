@@ -239,6 +239,12 @@ export type Offering = {
   listName?: string;
   setting: ServiceSetting;
   body: string;
+  /**
+   * Prices shown on this treatment's card, looked up by item name in this
+   * service's priceMenu groups (so prices live in one place). label overrides
+   * the item name; a single unlabeled price shows on its own.
+   */
+  prices?: { item: string; label?: string }[];
 };
 
 export type Service = {
@@ -290,28 +296,36 @@ export const services: Service[] = [
         name: "Custom Facials",
         setting: "both",
         body: "A facial layered for your skin that day: a deep cleanse, gentle exfoliation, extractions where needed, a mask and time to actually relax.",
+        prices: [{ item: "Essential Facial", label: "Essential Facial" }],
       },
       {
         name: "Chemical Peels",
         setting: "both",
         body: "A carefully applied exfoliating solution lifts away dull surface cells to refresh tone and texture. Book a single peel or a package of three.",
+        prices: [
+          { item: "Custom Chemical Peel", label: "Single peel" },
+          { item: "Custom Chemical Peel (Package of 3)", label: "Package of 3" },
+        ],
       },
       {
         name: "Acne Treatments",
         setting: "both",
         body: "Treatments for breakout-prone skin, with deep cleansing, careful extractions and simple home care guidance.",
+        prices: [{ item: "Acne Treatments" }],
       },
       {
         name: "Skin Care Consultations and Evaluations",
         listName: "Skin care consultations",
         setting: "both",
         body: "Not sure where to start? We look at your skin, your routine and your goals together, and you leave with a plan.",
+        prices: [{ item: "Skin Care Consultations and Evaluations" }],
       },
       {
         name: "Enhancements",
         listName: "Facial enhancements",
         setting: "both",
         body: "Add an enzymatic treatment, neck and décolleté, or a treatment booster to your facial. Ask which suits your skin.",
+        prices: [{ item: "Enzymatic Treatment" }, { item: "Neck and Décolleté" }, { item: "Treatment Booster" }],
       },
     ],
     expect: [
@@ -380,24 +394,28 @@ export const services: Service[] = [
         listName: "Brow shaping wax",
         setting: "studio",
         body: "Clean lines that frame your face without over-thinning.",
+        prices: [{ item: "Brow Shaping" }],
       },
       {
         name: "Lip or Chin",
         listName: "Lip or chin wax",
         setting: "studio",
         body: "A quick tidy for the upper lip or chin.",
+        prices: [{ item: "Lip or Chin" }],
       },
       {
         name: "Underarms",
         listName: "Underarm wax",
         setting: "studio",
         body: "Smooth underarms that stay that way longer than shaving.",
+        prices: [{ item: "Underarms" }],
       },
       {
         name: "Bikini",
         listName: "Bikini wax",
         setting: "studio",
         body: "A clean, tidy bikini line. I offer bikini waxing only.",
+        prices: [{ item: "Bikini" }],
       },
     ],
     expect: [
@@ -464,27 +482,32 @@ export const services: Service[] = [
         name: "Lash Lift",
         setting: "studio",
         body: "Curls your natural lashes from the base, so they look longer and more open without extensions, glue or fills.",
+        prices: [{ item: "Lash Lift" }],
       },
       {
         name: "Lash Tint",
         setting: "studio",
         body: "Semi-permanent color that makes fine or light lashes show up. A classic pairing with a lift.",
+        prices: [{ item: "Eyelashes" }],
       },
       {
         name: "Brow Tint",
         setting: "studio",
         body: "Color matched to your hair and skin tone, so brows look defined before any pencil.",
+        prices: [{ item: "Brow" }],
       },
       {
         name: "Brow Lamination",
         setting: "studio",
         body: "Sets brow hairs in a brushed-up, fuller-looking shape.",
+        prices: [{ item: "Brow Lamination" }],
       },
       {
         name: "Makeup Application and Lessons",
         listName: "Makeup application and lessons",
         setting: "both",
         body: "Makeup done for you, or a lesson so you can recreate the look yourself.",
+        prices: [{ item: "Makeup Application", label: "Makeup application" }],
       },
     ],
     expect: [
