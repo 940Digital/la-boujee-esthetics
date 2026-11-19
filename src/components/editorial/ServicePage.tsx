@@ -20,20 +20,6 @@ const copy: Record<ServiceSlug, { about: string; cta: string }> = {
 
 const acts = ["Act I", "Act II", "Act III"];
 
-/**
- * Column spans on a six-column grid so a row never ends with one stray card:
- * 3 or 6 cards sit three across, 4 sit two by two, 5 sit three then two.
- * On two-column tablets an odd last card spans the full row.
- */
-function cardSpan(i: number, n: number) {
-  const tablet = n % 2 === 1 && i === n - 1 ? "sm:col-span-2" : "";
-  let desk = "lg:col-span-2";
-  if (n === 4 || n === 2) desk = "lg:col-span-3";
-  else if (n === 5) desk = i < 3 ? "lg:col-span-2" : "lg:col-span-3";
-  else if (n === 1) desk = "lg:col-span-6";
-  return `${tablet} ${desk}`;
-}
-
 export function serviceMetadata(slug: ServiceSlug) {
   const s = getService(slug);
   return pageMetadata({ title: fill(s.metaTitle), description: fill(s.metaDescription), path: servicePath(s.slug) });
@@ -43,13 +29,13 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
   const s = getService(slug);
   const related = s.related.map(getService);
   const groups = priceGroupsFor(slug);
-  // Each card's prices come from this page's priceMenu groups, so a price only lives in one place.
+  // Each treatment's prices come from this page's priceMenu groups, so a price only lives in one place.
   const menuItems = groups.flatMap((g) => g.items);
   const findItem = (name: string): MenuItem | undefined => menuItems.find((m) => m.name === name);
-  const onCards = new Set(s.offerings.flatMap((o) => (o.prices ?? []).map((p) => p.item)));
-  // Anything on the menu that no card shows still gets the price list below.
+  const shownWithTreatments = new Set(s.offerings.flatMap((o) => (o.prices ?? []).map((p) => p.item)));
+  // Anything on the menu that no treatment shows still gets the price list below.
   const leftover = groups
-    .map((g) => ({ ...g, items: g.items.filter((m) => !onCards.has(m.name)) }))
+    .map((g) => ({ ...g, items: g.items.filter((m) => !shownWithTreatments.has(m.name)) }))
     .filter((g) => g.items.length > 0);
   // Tag each treatment only when the page mixes settings; otherwise the opener already says where.
   const mixed = s.offerings.some((o) => o.setting !== s.offerings[0].setting);
@@ -122,47 +108,41 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
               </Reveal>
             ) : null}
           </div>
-          {/* Each treatment as its own card, so the list reads in clear groups rather than one long column */}
-          <Stagger as="ul" className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-6 md:gap-5">
-            {s.offerings.map((o, i) => (
-              <StaggerItem
-                as="li"
-                key={o.name}
-                className={`flex flex-col border border-ink/12 bg-pearl-2 p-6 md:p-7 ${cardSpan(i, s.offerings.length)}`}
-              >
-                <div className="flex items-center gap-4">
-                  <span className="kicker text-rose-ink">No. {String(i + 1).padStart(2, "0")}</span>
-                  <span aria-hidden className="h-px flex-1 bg-ink/15" />
-                </div>
-                <div className="mt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+          <Stagger as="ul" className="mt-10 grid gap-x-14 border-t-2 border-ink md:grid-cols-2">
+            {s.offerings.map((o) => (
+              <StaggerItem as="li" key={o.name} className="border-b border-ink/12 py-6 md:[&:last-child:nth-child(odd)]:col-span-2">
+                <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
                   <h3 className="display text-[1.6rem] leading-tight">{o.name}</h3>
                   {mixed ? <SettingTag setting={o.setting} /> : null}
                 </div>
-                <p className="mt-3 text-graphite">{o.body}</p>
+                <p className="mt-2 text-graphite">{o.body}</p>
                 {o.prices?.length ? (
-                  <div className="mt-auto pt-5">
-                    <dl className="space-y-1.5 border-t border-ink/12 pt-4">
-                      {o.prices.map((p) => {
-                        const m = findItem(p.item);
-                        if (!m) return null;
-                        const solo = o.prices!.length === 1 && !p.label;
-                        return (
-                          <div key={p.item} className={`flex items-baseline gap-4 ${solo ? "" : "justify-between"}`}>
-                            {solo ? <dt className="sr-only">Price</dt> : <dt className="text-[0.95rem] text-ink">{p.label ?? m.name}</dt>}
-                            <dd
-                              className={
-                                m.price === null
-                                  ? "text-[0.95rem] italic text-graphite"
-                                  : "display text-[1.5rem] leading-none text-rose-ink"
-                              }
-                            >
-                              {formatPrice(m)}
-                            </dd>
-                          </div>
-                        );
-                      })}
-                    </dl>
-                  </div>
+                  <dl className="mt-3 space-y-1">
+                    {o.prices.map((p) => {
+                      const m = findItem(p.item);
+                      if (!m) return null;
+                      const solo = o.prices!.length === 1 && !p.label;
+                      return (
+                        <div key={p.item} className="flex items-baseline gap-3">
+                          {solo ? (
+                            <dt className="sr-only">Price</dt>
+                          ) : (
+                            <>
+                              <dt className="text-[0.95rem] text-ink">{p.label ?? m.name}</dt>
+                              <span aria-hidden className="leader flex-1 translate-y-[-3px] border-b border-dotted border-ink/30" />
+                            </>
+                          )}
+                          <dd
+                            className={
+                              m.price === null ? "text-[0.95rem] italic text-graphite" : "display text-[1.35rem] leading-none text-rose-ink"
+                            }
+                          >
+                            {formatPrice(m)}
+                          </dd>
+                        </div>
+                      );
+                    })}
+                  </dl>
                 ) : null}
               </StaggerItem>
             ))}
@@ -184,27 +164,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
         </div>
       </section>
 
-      {/* A plate of two photos, set off-step like a magazine spread, to break up the page */}
-      {s.plate?.length ? (
-        <section aria-label={`${s.name}, in pictures`} className="bg-pearl pb-20 text-ink md:pb-28">
-          <div className="mx-auto grid max-w-[1000px] gap-8 px-6 sm:grid-cols-2 md:gap-12 md:px-10">
-            {s.plate.map((p, i) => (
-              <Fade key={p.image.src} delay={i * 0.12} className={i % 2 === 1 ? "sm:mt-20" : undefined}>
-                <figure>
-                  <div className="border border-ink/15 bg-pearl-2 p-2">
-                    <div className="bw grain">
-                      <ImageSlot slot={p.image} sizes="(min-width: 1000px) 440px, (min-width: 640px) 45vw, 90vw" />
-                    </div>
-                  </div>
-                  <figcaption className="mt-3 text-[0.95rem] italic text-graphite">{p.caption}</figcaption>
-                </figure>
-              </Fade>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      {/* Prices not already on a card, straight from priceMenu */}
+      {/* Prices not already shown with a treatment, straight from priceMenu */}
       {leftover.length ? (
         <section aria-labelledby="prices-title" className="bg-pearl-2 py-20 text-ink md:py-28">
         <div className="mx-auto max-w-[760px] px-6">
@@ -294,18 +254,15 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
           <div className="mt-10 grid grid-cols-2 gap-3 md:gap-4">
             {related.map((r, i) => (
               <Fade key={r.slug} delay={0.08 * i}>
-                <Link href={servicePath(r.slug)} className="group relative block overflow-hidden bg-ink">
-                  <div className="bw grain">
-                    <ImageSlot
-                      slot={{ ...r.image, aspect: "4 / 5" }}
-                      sizes="(min-width: 768px) 45vw, 46vw"
-                      className="transition-transform duration-[1.4s] ease-[var(--ease-deco)] group-hover:scale-[1.04]"
-                    />
-                  </div>
-                  <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/45 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-4 md:p-6">
-                    <h3 className="display text-[1.35rem] leading-tight text-pearl md:text-[2rem]">{r.navName}</h3>
-                  </div>
+                <Link
+                  href={servicePath(r.slug)}
+                  className="group flex h-full min-h-[120px] flex-col justify-end sm:min-h-[180px] sm:justify-between bg-ink p-5 text-pearl transition-colors duration-500 hover:bg-wine md:min-h-[220px] md:p-8"
+                >
+                  <span className="kicker hidden text-rose sm:block">{r.where}</span>
+                  <span>
+                    <h3 className="display text-[1.35rem] leading-tight md:text-[2rem]">{r.navName}</h3>
+                    <span className="mt-2 hidden max-w-[40ch] text-[0.95rem] text-pearl/75 sm:block">{r.benefit}</span>
+                  </span>
                 </Link>
               </Fade>
             ))}

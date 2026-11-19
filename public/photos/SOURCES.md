@@ -17,14 +17,13 @@ All photos are from Unsplash (free under the Unsplash License, no attribution re
 | chemical-peel-skincare-ritual.jpg | 1552046122-03184de85e08 (cropped above a branded sheet mask) |
 | come-to-you-vanity.jpg | 1686109831633-d35231b5c623 |
 | studio-still-life.jpg | 1540555700478-4be289fbecef |
-| facials-cleanse.jpg (Facials page plate) | 1785464430198-db2994acbcbd |
-| waxing-towels-tea-lights.jpg (Waxing page plate) | 1706795033917-dee116e7cba2 |
-| makeup-lipstick.jpg (Brows page plate) | 1754770342974-f07a7c2b02b7 |
-| makeup-brushes.jpg (Mobile Service, what I can do) | 1507092183626-4e8793315843 |
-| mobile-vintage-suitcases.jpg (Mobile Service, where I travel) | 1762883691346-0bf3da20c4b7 |
-| book-rotary-telephone.jpg (Book and Contact cover) | 1525598912003-663126343e1f |
+| facials-cleanse.jpg (Services and Prices hero) | 1785464430198-db2994acbcbd |
+| makeup-brushes.jpg (Services and Prices body) | 1507092183626-4e8793315843 |
+| waxing-towels-tea-lights.jpg (About hero) | 1706795033917-dee116e7cba2 |
+| book-rotary-telephone.jpg (Book and Contact hero) | 1525598912003-663126343e1f |
+| mobile-vintage-suitcases.jpg (Mobile Service body) | 1762883691346-0bf3da20c4b7 |
 
-Reused on more pages: chemical-peel-skincare-ritual.jpg (Services cover, Facials plate), tinting-brow-close-up.jpg (Brows plate), studio-still-life.jpg (About cover, Waxing plate). All stock photos are stand-ins until Laurel sends her own studio and treatment photos.
+Each inner page has one hero and one body photo. Body photos: chemical-peel-skincare-ritual.jpg (Facials), studio-still-life.jpg (Waxing, Book and Contact), brows-mapping-diagram.jpg (Brows, Laurel's own), owner-laurel-porter.jpg (About, Laurel's own). Every stock photo is a stand-in until Laurel sends her own studio and treatment photos.
 
 ## Client photos (not stock)
 

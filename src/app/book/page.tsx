@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { business, images, policies, services } from "@/site.config";
+import { ImageSlot } from "@/components/ImageSlot";
 import { BookButton } from "@/components/BookButton";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactMethods } from "@/components/ContactMethods";
 import { JsonLd } from "@/components/JsonLd";
-import { Reveal } from "@/components/motion";
+import { Fade, Reveal } from "@/components/motion";
 import { Opener } from "@/components/editorial/Opener";
 import { QandA } from "@/components/editorial/Spreads";
 import { availability, directionsHref, fullAddress, isPlaceholder, servicePath } from "@/lib/site";
@@ -75,7 +76,8 @@ export default function BookPage() {
       </Opener>
 
       <section aria-labelledby="how-to-book" className="bg-pearl py-20 text-ink md:py-28">
-        <div className="mx-auto max-w-[1040px] px-6 md:px-10">
+        <div className="mx-auto grid max-w-[1180px] gap-12 px-6 md:px-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">
+          <div>
           <h2 id="how-to-book" className="display text-[clamp(2.2rem,1.5rem+2.6vw,3.8rem)]">
             How to book
           </h2>
@@ -116,6 +118,14 @@ export default function BookPage() {
               </p>
             </Step>
           </div>
+          </div>
+          <Fade className="mx-auto w-full max-w-[320px] lg:mt-24">
+            <div className="lg:sticky lg:top-28">
+              <div className="bw grain border border-ink/15 bg-pearl-2 p-2">
+                <ImageSlot slot={images.bookBody} sizes="320px" />
+              </div>
+            </div>
+          </Fade>
         </div>
       </section>
 

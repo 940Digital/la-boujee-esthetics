@@ -1,15 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
 import { business, hygienePractices, images, policies, showHygieneDetails } from "@/site.config";
 import { BookButton } from "@/components/BookButton";
 import { JsonLd } from "@/components/JsonLd";
+import { Reveal, RuleDraw, Stagger, StaggerItem } from "@/components/motion";
 import { ImageSlot } from "@/components/ImageSlot";
-import { Fade, Reveal, RuleDraw, Stagger, StaggerItem } from "@/components/motion";
 import { Opener } from "@/components/editorial/Opener";
 import { CloseUp } from "@/components/editorial/Spreads";
 import { isPlaceholder, offeringsBySetting, servicePath, shown } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
-import { blurProps } from "@/lib/blur";
 
 export const metadata = pageMetadata({
   title: "Mobile Esthetician in Denton County | Lá Boujee",
@@ -87,7 +85,7 @@ export default function MobileServicePage() {
             </h2>
             <RuleDraw className="mt-6 w-24 bg-rose" />
           </Reveal>
-          <div className="mt-10 grid gap-12 md:grid-cols-2 md:gap-16 lg:grid-cols-[1fr_1fr_minmax(0,0.85fr)] lg:gap-14">
+          <div className="mt-10 grid gap-12 md:grid-cols-2 md:gap-16">
             {columns.map((c, ci) => (
               <Reveal key={c.id} delay={ci * 0.1}>
                 <div className="border-t-2 border-ink pt-4">
@@ -105,24 +103,6 @@ export default function MobileServicePage() {
                 </div>
               </Reveal>
             ))}
-            <Fade delay={0.2} className="md:col-span-2 lg:col-span-1">
-              <figure>
-                <div className="bw grain relative aspect-[3/2] overflow-hidden bg-wine-deep lg:aspect-[4/5]">
-                  <Image
-                    src={images.makeupKit.src}
-                    alt={images.makeupKit.alt}
-                    fill
-                    sizes="(min-width: 1024px) 340px, 92vw"
-                    loading="lazy"
-                    {...blurProps(images.makeupKit.src)}
-                    className="object-cover"
-                  />
-                </div>
-                <figcaption className="mt-3 text-[0.95rem] italic text-graphite">
-                  Facials, peels and makeup can all come to you.
-                </figcaption>
-              </figure>
-            </Fade>
           </div>
         </div>
       </section>
@@ -219,13 +199,9 @@ export default function MobileServicePage() {
             <p className="mt-5 max-w-[38ch] text-graphite">
               Home visits in these {business.SERVICE_AREA.length} towns, with no travel fee.
             </p>
-            <figure className="mt-8 max-w-[440px]">
-              <div className="border border-ink/15 bg-pearl-2 p-2">
-                <div className="bw grain">
-                  <ImageSlot slot={images.travel} sizes="(min-width: 768px) 420px, 90vw" />
-                </div>
-              </div>
-            </figure>
+            <div className="bw grain mt-8 max-w-[440px] border border-ink/15 bg-pearl-2 p-2">
+              <ImageSlot slot={images.travel} sizes="(min-width: 768px) 420px, 90vw" />
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
             <ul className="grid grid-cols-2 gap-x-6 border-t-2 border-ink sm:grid-cols-3">
