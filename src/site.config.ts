@@ -113,7 +113,7 @@ export const business = {
 
   PHONE: "214.893.4272",
   EMAIL: "LaBoujeeEsthetics@gmail.com",
-  BOOKING_URL: "[BOOKING_URL]",
+  BOOKING_URL: "https://app.squareup.com/appointments/book/k09mdsw38vo1ot/LNS2D3787MK79/start",
   INSTAGRAM_URL: "[INSTAGRAM_URL]",
   INSTAGRAM_HANDLE: "[INSTAGRAM_HANDLE]",
   /** Production domain, used for canonical URLs, sitemap, and schema. */

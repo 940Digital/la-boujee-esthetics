@@ -17,7 +17,7 @@ export function BookButton({ className = "", chrome = false }: Props) {
   const props = { className: `btn btn-rose ${className}`, "data-book-cta": chrome ? "chrome" : "page" };
   if (isExternal(href)) {
     return (
-      <a href={href} rel="noopener" {...props}>
+      <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
         Book Your Appointment
       </a>
     );
